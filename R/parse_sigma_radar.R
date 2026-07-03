@@ -37,6 +37,34 @@ read_sigma_radar_log <- function(path, ...) {
   data.table::fread(path, sep = ";", ...)
 }
 
+#' Faz o parse de 'dt_radar' (texto) para POSIXct UMA UNICA VEZ, guardando o
+#' resultado na coluna 'ts'. IMPORTANTE rodar isso uma vez so logo depois de
+#' ler o log (read_sigma_radar_log()) e reaproveitar o resultado -- as.POSIXct()
+#' num vetor de milhoes de linhas e caro, e sigma_radar_to_track()/
+#' find_callsign_by_time_location() usam a coluna 'ts' se ela ja existir, em
+#' vez de re-parsear a cada chamada (o que tornava um loop por varios voos,
+#' cada um chamando essas funcoes sobre o log inteiro, extremamente lento).
+#'
+#' @param radar_log data.frame/data.table retornado por
+#'   read_sigma_radar_log()
+#' @return radar_log com a coluna 'ts' (POSIXct) adicionada
+parse_radar_timestamps <- function(radar_log) {
+  dt_radar <- radar_log$dt_radar
+  dt_radar[trimws(dt_radar) == ""] <- NA
+  radar_log$ts <- as.POSIXct(dt_radar, tz = "UTC")
+  radar_log
+}
+
+#' Retorna o timestamp (POSIXct) do log de radar, reaproveitando a coluna
+#' 'ts' se ja tiver sido calculada por parse_radar_timestamps() -- senao,
+#' calcula na hora (mais lento, mas funciona standalone).
+radar_timestamps <- function(radar_log) {
+  if ("ts" %in% names(radar_log)) return(radar_log$ts)
+  dt_radar <- radar_log$dt_radar
+  dt_radar[trimws(dt_radar) == ""] <- NA
+  as.POSIXct(dt_radar, tz = "UTC")
+}
+
 #' Filtra o log de radar para um unico voo, por codigo de transponder (ssr)
 #' e/ou callsign, e converte para o formato canonico usado pelo restante do
 #' pipeline (mesmas colunas produzidas por read_radar_track() em
@@ -77,11 +105,7 @@ sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL,
     track <- track[trimws(cs_clean) == trimws(callsign), ]
   }
 
-  # string vazia faz as.POSIXct() dar erro (nao vira NA) e derruba o vetor
-  # inteiro -- calculado uma vez so e reaproveitado no filtro e na saida
-  dt_radar <- track$dt_radar
-  dt_radar[trimws(dt_radar) == ""] <- NA
-  ts <- as.POSIXct(dt_radar, tz = "UTC")
+  ts <- radar_timestamps(track)
 
   if (!is.null(time_window)) {
     manter <- !is.na(ts) & ts >= time_window[1] & ts <= time_window[2]
@@ -124,9 +148,7 @@ sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL,
 find_callsign_by_time_location <- function(radar_log, adep_coords, ades_coords,
                                             dep_time, arr_time,
                                             max_dist_nm = 30, max_time_min = 30) {
-  dt_radar <- radar_log$dt_radar
-  dt_radar[trimws(dt_radar) == ""] <- NA
-  ts <- as.POSIXct(dt_radar, tz = "UTC")
+  ts <- radar_timestamps(radar_log)
 
   perto_dep_time <- !is.na(ts) &
     abs(as.numeric(difftime(ts, dep_time, units = "mins"))) <= max_time_min

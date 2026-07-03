@@ -62,6 +62,11 @@ log_radar <- read_sigma_radar_log(
 )
 cat("\nTotal de posicoes no radar:", nrow(log_radar), "\n")
 
+# parse do timestamp UMA VEZ SO (caro para milhoes de linhas) -- reaproveitado
+# por find_callsign_by_time_location()/sigma_radar_to_track() dentro do loop
+log_radar <- parse_radar_timestamps(log_radar)
+cat("Timestamps do radar parseados.\n")
+
 ## 4. Para cada voo do par: casa com o radar, resolve a rota, calcula aderencia -
 buffer_min <- 15
 resultados <- list()

@@ -134,6 +134,15 @@ stopifnot(
   track_real$altitude_ft[1] == 9900
 )
 
+# parse_radar_timestamps() (coluna 'ts' pre-calculada, usada em vez de
+# reparsear a cada chamada -- ver find_callsign_by_time_location()) deve dar
+# exatamente o mesmo resultado que o fallback (parse na hora)
+radar_sample_ts <- parse_radar_timestamps(radar_sample)
+stopifnot(
+  "ts" %in% names(radar_sample_ts),
+  identical(sigma_radar_to_track(radar_sample_ts, ssr = 1234), track_real)
+)
+
 # --- casamento FPL x RADAR por horario + localizacao (nao por ssr) ---------
 airports_db_test <- read_airports_db("data/airports_br.csv")
 adep_teste <- lookup_airport_coords("SBGL", airports_db_test)

@@ -45,6 +45,11 @@ log_radar <- read_sigma_radar_log(
 )
 cat("Total de posicoes no radar:", nrow(log_radar), "\n")
 
+# parse do timestamp UMA VEZ SO (caro para milhoes de linhas) -- reaproveitado
+# por find_callsign_by_time_location()/sigma_radar_to_track() dentro do loop
+log_radar <- parse_radar_timestamps(log_radar)
+cat("Timestamps do radar parseados.\n")
+
 ## 2. So voos com ADEP/ADES conhecidos e decolagem/pouso confirmados --------
 planos$adep_coords_ok <- !is.na(match(trimws(planos$adep), trimws(airports_db$icao)))
 planos$ades_coords_ok <- !is.na(match(trimws(planos$ades), trimws(airports_db$icao)))
