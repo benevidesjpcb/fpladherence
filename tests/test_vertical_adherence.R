@@ -63,6 +63,21 @@ stopifnot(
 interp_meio <- interpolate_planned_profile(mean(perfil_direto$dist_nm[2:3]), perfil_direto)
 stopifnot(interp_meio$phase == "CRUZEIRO") # meio da rota direta agora tem cruzeiro
 
+# --- projecao rapida (formula fechada) vs. geometria conhecida a mao -------
+rota_simples <- data.frame(point = c("A", "B"), lat = c(0, 0), lon = c(0, 1))
+rota_simples <- add_cumulative_distance(rota_simples)
+radar_simples <- data.frame(
+  lat = c(0, 0.01, 0), # sobre a rota, perto da rota, sobre a rota (mas alem do extremo B)
+  lon = c(0.5, 0.5, 1.2) # o 3o (lon=1.2) projeta ALEM do extremo B (lon=1)
+)
+proj_simples <- project_radar_onto_route(radar_simples, rota_simples)
+stopifnot(
+  proj_simples$cross_track_nm[1] < 0.01, # ponto 1: exatamente sobre a rota
+  abs(proj_simples$dist_nm[1] - rota_simples$dist_nm[2] / 2) < 1, # ~ meio da rota
+  proj_simples$cross_track_nm[2] > 0.1, # ponto 2: um pouco fora da rota (lat=0.01)
+  abs(proj_simples$dist_nm[3] - rota_simples$dist_nm[2]) < 0.1 # ponto 3 "clampado" no extremo B
+)
+
 # --- pipeline completo (dados sinteticos) -----------------------------------
 radar <- read_radar_track("data/sample_radar.csv")
 stopifnot(
