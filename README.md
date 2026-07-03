@@ -19,13 +19,18 @@ R/                          funções da metodologia
   parse_radar.R               leitor de radar em formato canônico (CSV simples)
   parse_sigma_radar.R         adaptador para o export real do SIGMA/DECEA (RADAR)
   route_geometry.R            distância acumulada e projeção do radar sobre a rota
-  vertical_profile.R          perfil vertical planejado (subida/cruzeiro/descida)
-  vertical_adherence.R        cálculo de desvio e métricas de aderência
-  plot_vertical.R             visualização (planejado x realizado)
+  vertical_profile.R          perfil vertical planejado (subida/cruzeiro/descida) -- exige navdata
+  vertical_adherence.R        aderência vertical (com navdata/rota resolvida)
+  vertical_adherence_radar_only.R  aderência vertical SEM navdata (fase pela taxa de subida/descida do radar)
+  horizontal_efficiency.R     aderência/eficiência horizontal (distância voada x direta ADEP-ADES)
+  plot_vertical.R              visualização vertical (planejado x realizado)
+  plot_horizontal.R            visualização lateral (rota FPL x trajetória RADAR)
 
 data/                        dados sintéticos de exemplo (comitados)
+data/airports_br.csv          coordenadas aproximadas de aeródromos (feito à mão, não é AIP oficial)
 data/local/                  dados reais (NÃO comitado -- ver .gitignore)
 data-raw/generate_sample_data.R  gera os dados sintéticos de data/
+scripts/explore_real_flight.R    script pronto para testar com um voo real (FPL + RADAR do SIGMA)
 tests/                       testes de fumaça (fixtures sintéticas)
 analysis/vertical_adherence.qmd  documento com a metodologia completa + exemplo
 ```
@@ -68,5 +73,7 @@ localmente (ex.: `data/local/`, já no `.gitignore`) e use os adaptadores
 - [x] Aderência vertical: metodologia + implementação + exemplo sintético
 - [x] Adaptador para FPL real (SIGMA/DECEA)
 - [x] Adaptador para RADAR real (SIGMA/DECEA)
+- [x] Aderência vertical sem navdata (fase pela taxa de subida/descida) -- testado com voo real
+- [x] Visualização/eficiência horizontal (distância voada x direta ADEP-ADES) -- primeira versão, sem navdata dos fixos intermediários
 - [ ] Validação em escala com dados reais de um dia inteiro
-- [ ] Aderência horizontal
+- [ ] Aderência horizontal completa (desvio lateral da rota, não só distância)

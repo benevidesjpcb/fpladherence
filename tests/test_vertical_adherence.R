@@ -9,6 +9,7 @@ source("R/route_geometry.R")
 source("R/vertical_profile.R")
 source("R/vertical_adherence.R")
 source("R/vertical_adherence_radar_only.R")
+source("R/horizontal_efficiency.R")
 
 # --- parser de FPL (texto ICAO cru) ---------------------------------------
 fpl <- parse_fpl(read_fpl_file("data/sample_fpl.txt"))
@@ -102,6 +103,22 @@ stopifnot(
   nrow(track_real) == 5,
   all(diff(track_real$timestamp) >= 0), # ordenado por tempo
   track_real$altitude_ft[1] == 9900
+)
+
+# --- eficiencia/aderencia horizontal -----------------------------------------
+airports_db <- read_airports_db("data/airports_br.csv")
+adep_coords <- lookup_airport_coords("SBGR", airports_db)
+ades_coords <- lookup_airport_coords("SBRJ", airports_db)
+stopifnot(
+  !is.null(adep_coords), !is.null(ades_coords),
+  is.null(lookup_airport_coords("XXXX", airports_db))
+)
+
+eficiencia <- compute_horizontal_efficiency(radar, adep_coords, ades_coords)
+stopifnot(
+  eficiencia$distancia_direta_nm > 0,
+  eficiencia$distancia_voada_nm >= eficiencia$distancia_direta_nm, # radar nao e mais direto que a reta
+  eficiencia$eficiencia_pct > 0 & eficiencia$eficiencia_pct <= 100
 )
 
 cat("Todos os testes passaram.\n")

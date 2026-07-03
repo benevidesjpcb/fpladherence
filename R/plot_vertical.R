@@ -1,5 +1,6 @@
 # Visualizacao: perfil vertical real (RADAR) sobreposto ao perfil planejado
-# (FPL), com banda de tolerancia por fase de voo.
+# (FPL), com banda de tolerancia por fase de voo. Ver plot_horizontal.R para
+# a visualizacao lateral (rota).
 
 library(ggplot2)
 

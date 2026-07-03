@@ -19,6 +19,8 @@ source("R/parse_radar.R")
 source("R/parse_sigma_radar.R")
 source("R/vertical_adherence_radar_only.R")
 source("R/plot_vertical.R")
+source("R/horizontal_efficiency.R")
+source("R/plot_horizontal.R")
 
 fpl_path <- "data/local/sigma_flight_plan_2025_12_10.csv"
 radar_path <- "data/local/radar_2025_12_10.csv"
@@ -124,7 +126,29 @@ radar_track <- compute_vertical_deviation_radar_only(radar_track, filed_level_ft
 cat("\nResumo por fase:\n")
 print(summarise_vertical_adherence_radar_only(radar_track))
 
-## 7. Grafico -------------------------------------------------------------------
-p <- plot_vertical_adherence_radar_only(radar_track, filed_level_ft)
-print(p)
-# ggplot2::ggsave("data/local/aderencia_vertical_exemplo.png", p, width = 9, height = 5.5)
+## 7. Grafico vertical ------------------------------------------------------------
+p_vertical <- plot_vertical_adherence_radar_only(radar_track, filed_level_ft)
+print(p_vertical)
+# ggplot2::ggsave("data/local/aderencia_vertical_exemplo.png", p_vertical, width = 9, height = 5.5)
+
+## 8. Aderencia/visualizacao horizontal (lateral) ---------------------------------
+# ainda sem navdata para os fixos citados na rota (IMBAP, SIRAP, etc.) --
+# usamos so ADEP/ADES (coordenadas aproximadas, ver data/airports_br.csv) e
+# a trajetoria real do radar.
+airports_db <- read_airports_db("data/airports_br.csv")
+adep_coords <- lookup_airport_coords(voo$adep, airports_db)
+ades_coords <- lookup_airport_coords(voo$ades, airports_db)
+
+if (is.null(adep_coords) || is.null(ades_coords)) {
+  cat("\nADEP (", voo$adep, ") ou ADES (", voo$ades,
+      ") nao estao em data/airports_br.csv -- adicione as coordenadas la ",
+      "para ver a comparacao horizontal.\n")
+} else {
+  eficiencia <- compute_horizontal_efficiency(radar_track, adep_coords, ades_coords)
+  cat("\nEficiencia horizontal:\n")
+  print(eficiencia)
+
+  p_horizontal <- plot_horizontal_track(radar_track, adep_coords, ades_coords)
+  print(p_horizontal)
+  # ggplot2::ggsave("data/local/aderencia_horizontal_exemplo.png", p_horizontal, width = 9, height = 6)
+}
