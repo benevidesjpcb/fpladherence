@@ -20,7 +20,12 @@ read_radar_track <- function(path) {
     stop("Colunas obrigatorias ausentes no radar track: ",
          paste(missing_cols, collapse = ", "))
   }
-  track$timestamp <- as.POSIXct(track$timestamp, tz = "UTC")
+  # as.POSIXct() sem 'tryFormats' nao reconhece o "T"/"Z" do ISO 8601 e
+  # trunca silenciosamente para meia-noite -- por isso format explicito.
+  track$timestamp <- as.POSIXct(track$timestamp, tz = "UTC",
+                                 tryFormats = c("%Y-%m-%dT%H:%M:%SZ",
+                                                "%Y-%m-%d %H:%M:%OS",
+                                                "%Y-%m-%d %H:%M:%S"))
   track <- track[order(track$timestamp), ]
   rownames(track) <- NULL
   track

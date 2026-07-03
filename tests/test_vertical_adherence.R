@@ -8,6 +8,7 @@ source("R/parse_sigma_radar.R")
 source("R/route_geometry.R")
 source("R/vertical_profile.R")
 source("R/vertical_adherence.R")
+source("R/vertical_adherence_radar_only.R")
 
 # --- parser de FPL (texto ICAO cru) ---------------------------------------
 fpl <- parse_fpl(read_fpl_file("data/sample_fpl.txt"))
@@ -44,6 +45,9 @@ stopifnot(
 
 # --- pipeline completo (dados sinteticos) -----------------------------------
 radar <- read_radar_track("data/sample_radar.csv")
+stopifnot(
+  all(diff(as.numeric(radar$timestamp)) > 0) # timestamp ISO8601 parseado corretamente
+)
 radar <- project_radar_onto_route(radar, route_coords)
 matched <- compute_vertical_deviation(radar, planned_profile)
 stopifnot(
@@ -57,6 +61,17 @@ stopifnot(
   "GERAL" %in% summary_tbl$fase,
   all(summary_tbl$pct_aderencia >= 0 & summary_tbl$pct_aderencia <= 100)
 )
+
+# --- pipeline sem navdata (deteccao de fase pela taxa de subida/descida) ----
+radar_rate <- detect_flight_phases(read_radar_track("data/sample_radar.csv"))
+radar_rate <- compute_vertical_deviation_radar_only(radar_rate, filed_level_ft = fpl$route$level_ft[1])
+stopifnot(
+  all(radar_rate$phase %in% c("SUBIDA", "CRUZEIRO", "DESCIDA")),
+  all(is.na(radar_rate$is_adherent[radar_rate$phase != "CRUZEIRO"])),
+  all(!is.na(radar_rate$is_adherent[radar_rate$phase == "CRUZEIRO"]))
+)
+resumo_radar_only <- summarise_vertical_adherence_radar_only(radar_rate)
+stopifnot(resumo_radar_only$cruzeiro$pct_aderencia >= 0)
 
 # --- adaptador SIGMA (FPL real) ---------------------------------------------
 sigma_sample <- read_sigma_fpl_log("tests/fixtures/sample_sigma_fpl.csv")
