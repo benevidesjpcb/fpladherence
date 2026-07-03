@@ -1,14 +1,2878 @@
-icao,name,lat,lon
-SBGR,Guarulhos,-23.4356,-46.4731
-SBSP,Congonhas,-23.6261,-46.6564
-SBRJ,Santos Dumont,-22.9105,-43.1631
-SBGL,Galeao,-22.8090,-43.2506
-SBSV,Salvador,-12.9086,-38.3225
-SBBR,Brasilia,-15.8697,-47.9208
-SBEG,Manaus,-3.0386,-60.0497
-SBCT,Curitiba Afonso Pena,-25.5285,-49.1758
-SBPA,Porto Alegre,-29.9939,-51.1714
-SBRF,Recife,-8.1265,-34.9236
-SBFZ,Fortaleza,-3.7763,-38.5326
-SBCF,Confins,-19.6244,-43.9719
-SBKP,Viracopos,-23.0074,-47.1345
+icao,name,longitude,latitude,elevation
+SBAA,Conceição do Araguaia Airport,-49.301498,-8.34835,653
+SBAC,Aracati Dragão do Mar Regional Airport,-37.805135,-4.568896,128
+SBAE,Bauru/Arealva–Moussa Nakhal Tobias State Airport,-49.070325,-22.160755,1962
+SBAF,Campo Délio Jardim de Mattos Airport,-43.384701,-22.875099,110
+SBAM,Amapá Airport,-50.8582,2.07751,45
+SBAN,Anápolis Airbase,-48.964298,-16.2292,3731
+SBAQ,Araraquara Airport,-48.132999,-21.812,2334
+SBAR,Aracaju - Santa Maria Airport,-37.072873,-10.98394,23
+SBAT,Piloto Osvaldo Marques Dias Airport,-56.106298,-9.866389,948
+SBAU,Araçatuba Airport,-50.424575,-21.141479,1358
+SBAX,Romeu Zema Airport,-46.9604,-19.5632,3276
+SBBE,Val de Cans/Júlio Cezar Ribeiro International Airport,-48.476207,-1.379279,54
+SBBG,Comandante Gustavo Kraemer Airport,-54.112202,-31.390499,600
+SBBH,Pampulha - Carlos Drummond de Andrade Airport,-43.950316,-19.85074,2589
+SBBI,Bacacheri Airport,-49.231998,-25.4051,3057
+SBBP,Estadual Arthur Siqueira Airport,-46.537131,-22.978822,2887
+SBBQ,Major Brigadeiro Doorgal Borges Airport,-43.76101,-21.2672,3657
+SBBR,Presidente Juscelino Kubitschek International Airport,-47.920834,-15.869167,3497
+SBBT,Chafei Amsei Airport,-48.594125,-20.584631,1903
+SBBU,Bauru Airport,-49.053799,-22.344999,2025
+SBBV,Atlas Brasil Cantanhede International Airport,-60.690648,2.84615,276
+SBBW,Barra do Garças Airport,-52.389008,-15.861417,1147
+SBBZ,Umberto Modiano Airport,-41.96308,-22.770881,10
+SBCA,Coronel Adalberto Mendes da Silva Airport,-53.501208,-25.000323,2481
+SBCB,Cabo Frio Airport,-42.071874,-22.921485,22
+SBCC,Campo de Provas Brigadeiro Veloso,-54.965401,-9.33394,1777
+SBCD,Doctor Carlos Alberto da Costa Neves Airport,-50.939942,-26.787423,3376
+SBCF,Tancredo Neves International Airport,-43.966928,-19.63571,2721
+SBCG,Campo Grande Airport,-54.673988,-20.469998,1833
+SBCH,Serafin Enoss Bertaso Airport,-52.656601,-27.134199,2154
+SBCI,Brig. Lysias Augusto Rodrigues Airport,-47.458698,-7.32044,565
+SBCJ,Carajás Airport,-50.003372,-6.117841,2064
+SBCM,Forquilhinha - Criciúma  Airport,-49.424475,-28.725743,92
+SBCN,Nelson Ribeiro Guimarães Airport,-48.606324,-17.725096,2307
+SBCO,Canoas Air Force Base,-51.144413,-29.945928,26
+SBCP,Bartolomeu Lisandro Airport,-41.301701,-21.698299,59
+SBCR,Corumbá International Airport,-57.672772,-19.01193,463
+SBCT,Curitiba-Afonso Pena International Airport,-49.1758,-25.5285,2988
+SBCV,Caravelas Airport,-39.253101,-17.6523,36
+SBCX,Hugo Cantergiani Regional Airport,-51.187647,-29.197183,2472
+SBCY,Várzea Grande–Marechal Rondon International Airport,-56.116699,-15.6529,617
+SBCZ,Cruzeiro do Sul Airport,-72.769501,-7.59991,637
+SBDB,Bonito Airport,-56.452399,-21.2473,1180
+SBDN,Presidente Prudente Airport,-51.424599,-22.1751,1477
+SBDO,Dourados Airport,-54.926601,-22.2019,1503
+SBEA,DIRAD Heliport,-43.370934,-22.867886,61
+SBEG,Eduardo Gomes International Airport,-60.049702,-3.03861,264
+SBEI,Plataforma Petrobrás PRA-1 Helipad,-40.122036,-22.171507,128
+SBEK,Jacareacanga Airport,-57.776901,-6.23316,295
+SBEN,Plataforma Fixa Central de Enchova PCE-1 Helipad,-40.693268,-22.709226,73
+SBES,Tenente Jorge Henrique Möller Airport,-42.092602,-22.812901,61
+SBFI,Cataratas International Airport,-54.489444,-25.594167,786
+SBFL,Hercílio Luz International Airport,-48.552502,-27.670279,16
+SBFN,Fernando de Noronha Airport,-32.423017,-3.854534,193
+SBFS,Farol de São Tomé Heliport,-41.068623,-22.030589,10
+SBFZ,Pinto Martins International Airport,-38.532222,-3.775833,83
+SBGL,Rio Galeão – Tom Jobim International Airport,-43.250557,-22.809999,28
+SBGM,Guajará-Mirim Airport,-65.28486,-10.78641,478
+SBGO,Santa Genoveva International Airport,-49.220699,-16.632,2450
+SBGP,EMBRAER - Unidade Gavião Peixoto Airport,-48.405102,-21.773701,1998
+SBGR,São Paulo/Guarulhos–Governor André Franco Montoro International Airport,-46.469954,-23.431274,2461
+SBGU,Tancredo Thomas de Faria Airport,-51.52349,-25.388327,3494
+SBGV,Coronel Altino Machado Airport,-41.982869,-18.895882,561
+SBGW,Edu Chaves Field,-45.2048,-22.791599,1761
+SBHT,Altamira Interstate Airport,-52.253938,-3.253144,368
+SBIC,Itacoatiara Airport,-58.481668,-3.126539,142
+SBIH,Itaituba Airport,-56.000651,-4.242131,110
+SBIL,Bahia - Jorge Amado Airport,-39.033458,-14.815929,15
+SBIP,Usiminas Airport,-42.487598,-19.470699,786
+SBIT,Francisco Vilela do Amaral Airport,-49.213402,-18.4447,1630
+SBIZ,Prefeito Renato Moreira Airport,-47.459999,-5.53129,430
+SBJA,Humberto Ghizzo Bortoluzzi Regional Airport,-49.0596,-28.6753,120
+SBJD,Comte. Rolim Adolfo Amaro–Jundiaí State Airport,-46.943921,-23.180861,2470
+SBJE,Comandante Ariston Pessoa Airport,-40.357338,-2.906425,89
+SBJF,Francisco de Assis Airport,-43.386072,-21.791482,2989
+SBJH,São Paulo Catarina Executive Airport,-47.165658,-23.426886,2547
+SBJI,Ji-Paraná Airport,-61.846675,-10.870743,598
+SBJP,Presidente Castro Pinto International Airport,-34.950554,-7.148691,217
+SBJR,Jacarepaguá - Roberto Marinho Airport,-43.372194,-22.986773,10
+SBJU,Orlando Bezerra de Menezes Airport,-39.269096,-7.21932,1342
+SBJV,Lauro Carneiro de Loyola Airport,-48.797401,-26.224501,15
+SBKG,Presidente João Suassuna Airport,-35.896057,-7.269662,1646
+SBKP,Viracopos International Airport,-47.134502,-23.007404,2170
+SBLB,Petrobras P-25 Platform Helideck,-39.916901,-22.1094,70
+SBLE,Coronel Horácio de Mattos Airport,-41.277,-12.4823,1676
+SBLJ,Lages Airport,-50.281502,-27.782101,3065
+SBLN,Lins Airport,-49.729954,-21.663491,1575
+SBLO,Governor José Richa Airport,-51.128365,-23.334375,1867
+SBLP,Bom Jesus da Lapa Airport,-43.4081,-13.2621,1454
+SBLS,Lagoa Santa Air Base,-43.897404,-19.661751,2795
+SBMA,João Correa da Rocha Airport,-49.138,-5.36859,357
+SBMC,Minaçu Airport,-48.195301,-13.5491,1401
+SBMD,Monte Dourado - Serra do Areão Airport,-52.6022,-0.889839,677
+SBME,Macaé Benedito Lacerda Airport,-41.765999,-22.343,8
+SBMG,Regional de Maringá - Sílvio Name Júnior Airport,-52.016187,-23.47606,1801
+SBMK,Mário Ribeiro Airport,-43.818901,-16.706919,2191
+SBML,Frank Miloye Milenkowichi–Marília State Airport,-49.926485,-22.196899,2134
+SBMM,Petrobras P-20 Platform Helideck,-40.090599,-22.357201,106
+SBMN,Ponta Pelada Airport / Manaus Air Base,-59.986301,-3.14604,267
+SBMO,Zumbi dos Palmares International Airport,-35.791839,-9.512559,387
+SBMP,Plataforma PPM-1 Helipad,-40.763889,-22.795833,200
+SBMQ,Macapá - Alberto Alcolumbre International Airport,-51.072201,0.050664,56
+SBMS,Dix-Sept Rosado Airport,-37.3643,-5.20192,76
+SBMT,Campo de Marte Airport,-46.637798,-23.5091,2371
+SBMY,Manicoré Airport,-61.278301,-5.81138,174
+SBNA,Plataforma Namorado 2 PNA-2 Helipad,-40.413056,-22.373333,171
+SBNF,Ministro Victor Konder International Airport,-48.650979,-26.879431,18
+SBNM,Santo Ângelo Airport,-54.169623,-28.282503,1056
+SBNT,Natal Air Force Base,-35.2477,-5.91142,171
+SBOA,Fazenda Antas Airstrip,-35.252233,-6.974453,440
+SBOD,Fazenda Santa Cruz Airport,-49.195556,-7.455833,702
+SBOE,Fazenda Americana Airport,-52.095226,-12.587371,1181
+SBOF,Fazenda Bandeirantes Airport,-52.534615,-19.318418,1752
+SBOG,Fazenda Vereda Grande Airport,-40.817046,-14.784789,3051
+SBOH,Fazenda São Sebastião Airport,-53.543618,-16.000866,2077
+SBOI,Oiapoque Airport,-51.797056,3.85412,53
+SBOK,Fazenda São Vicente Airport,-55.975493,-13.290168,1411
+SBOL,Fazenda Santa Lúcia Airstrip,-52.001389,-18.920278,1923
+SBON,Fazenda Renascer Airport,-47.452097,-7.615933,764
+SBOO,Fazenda Ceita Corê Airport,-56.588897,-20.838737,1555
+SBOP,Corinthians Arena Heliport,-46.47767,-23.54413,2644
+SBOQ,Fazenda Irmãs Prata Airport,-52.833071,-18.622041,2808
+SBOR,Fazenda Agro Tamareira Airport,-50.357632,-13.732032,814
+SBOS,Fazenda Santo Augusto Airport,-58.1175,-13.152778,1594
+SBOU,Fazenda São Jerônimo Airstrip,-55.786111,-10.270278,919
+SBOV,Fazenda Tabatinga Airport,-54.926212,-14.158204,1489
+SBOW,Fazenda Agropecuária Vale do Ouro Airport,-56.059897,-4.186313,217
+SBOX,Fazenda Baia Morena Airport,-55.373709,-18.261098,548
+SBOY,Fazenda São José Airport,-56.181159,-17.41704,394
+SBOZ,Fazenda Arizona Airport,-57.278529,-16.180023,499
+SBPA,Porto Alegre-Salgado Filho International Airport,-51.167482,-29.993984,11
+SBPB,Parnaíba - Prefeito Doutor João Silva Filho International Airport,-41.731998,-2.89375,23
+SBPC,Poços de Caldas - Embaixador Walther Moreira Salles Airport,-46.569768,-21.842529,4138
+SBPF,Lauro Kurtz Airport,-52.32777,-28.243976,2380
+SBPG,Ponta Grossa Airport - Comandante Antonio Amilton Beraldo,-50.143822,-25.184476,2588
+SBPJ,Brigadeiro Lysias Rodrigues Airport,-48.356998,-10.2915,774
+SBPK,João Simões Lopes Neto International Airport,-52.327796,-31.717189,59
+SBPL,Senador Nilo Coelho Airport,-40.569098,-9.362422,1263
+SBPN,Porto Nacional Airport,-48.3997,-10.719402,870
+SBPO,Juvenal Loureiro Cardoso Airport,-52.694463,-26.217184,2697
+SBPP,Ponta Porã Airport,-55.702599,-22.549601,2156
+SBPR,Carlos Prates Airport,-43.989179,-19.909629,3044
+SBPS,Porto Seguro International Airport,-39.080584,-16.438426,169
+SBPV,Governador Jorge Teixeira de Oliveira International Airport,-63.902338,-8.708491,295
+SBQA,Fazenda Floresta Airport,-49.838244,-16.536119,2274
+SBQB,Fazenda Pedrinhas II Airport,-45.076944,-13.261944,2533
+SBQC,Fazenda Cantagalo Airstrip,-55.8551,-13.366514,1421
+SBQE,Fazenda Tradição Airport,-45.057598,-7.804289,1424
+SBQF,Ferigolo Heliport,-53.463611,-29.461667,381
+SBQG,Fazenda Rio Azul Airport,-56.598333,-13.513056,1076
+SBQH,CMTE Juliano Rambo Airstrip,-51.614688,-10.699027,728
+SBQJ,Osvaldo de Carvalho Airport,-50.208429,-23.846436,2615
+SBQK,Fazenda Mundial Airport,-51.442256,-6.539099,778
+SBQL,Centro de Convenções Ponta da Praia Helipad,-46.294311,-23.984846,85
+SBQM,Fazenda São Miguel Airstrip,-53.908334,-22.765333,1214
+SBQN,Fazenda Nossa Senhora Aparecida II Airstrip,-57.378182,-15.575414,512
+SBQO,Fazenda Paraíso Airstrip,-39.176111,-17.0275,59
+SBQP,Fazenda Três Santos Airstrip,-44.315921,-7.752392,1526
+SBQQ,Comandante Gravatá Helipad,-44.319444,-23.018611,33
+SBQR,Fazenda Arena de Aço Airport,-44.97319,-16.80878,1617
+SBQS,Santa Rosa Airstrip,-54.964051,-15.405795,2208
+SBQT,Fazenda Campo Formoso Airstrip,-53.556395,-15.801978,1877
+SBQU,Hungaro Helipark,-48.219863,-7.204121,659
+SBQW,Paíto Motors Helipad,-47.37373,-22.355589,2041
+SBQX,Fazenda São Carlos Airstrip,-57.936944,-13.578333,1841
+SBQY,LDB - Itapevi Heliport,-46.93712,-23.530395,2730
+SBQZ,Fazenda Mariane Heliport,-48.319211,-22.240253,1696
+SBRB,Rio Branco-Plácido de Castro International Airport,-67.893984,-9.869031,633
+SBRC,Petrobras P-52 Platform Helideck,-39.737222,-21.905,105
+SBRD,Maestro Marinho Franco Airport,-54.724803,-16.584292,1467
+SBRF,Recife/Guararapes - Gilberto Freyre International Airport,-34.922961,-8.12747,33
+SBRJ,Santos Dumont Airport,-43.16282,-22.910397,11
+SBRP,Leite Lopes Airport,-47.774053,-21.134314,1805
+SBRR,Barreirinhas National Airport,-42.803187,-2.756644,40
+SBSC,Santa Cruz Air Force Base,-43.719101,-22.9324,10
+SBSG,Rio Grande do Norte/São Gonçalo do Amarante–Governador Aluízio Alves International Airport,-35.36661,-5.769822,273
+SBSI,Presidente João Batista Figueiredo Airport,-55.586109,-11.885001,1227
+SBSJ,Professor Urbano Ernesto Stumpf Airport,-45.8615,-23.2292,2120
+SBSL,Marechal Cunha Machado International Airport,-44.235008,-2.586386,178
+SBSM,Santa Maria Airport,-53.688202,-29.711399,287
+SBSN,Santarém - Maestro Wilson Fonseca International Airport,-54.79306,-2.422423,198
+SBSO,Adolino Bedin Regional Airport,-55.672341,-12.479177,1266
+SBSP,Congonhas–Deputado Freitas Nobre Airport,-46.654601,-23.627657,2631
+SBSR,Prof. Eribelto Manoel Reino State Airport,-49.406963,-20.817113,1784
+SBST,Santos Nero Moura Air Base / Guarujá Airport,-46.300195,-23.928192,13
+SBSV,Deputado Luiz Eduardo Magalhães International Airport,-38.322498,-12.908611,64
+SBTA,Base de Aviação de Taubaté,-45.51615,-23.0401,1902
+SBTB,Trombetas Airport,-56.396801,-1.4896,167
+SBTC,Una-Comandatuba Airport,-38.998729,-15.354358,23
+SBTD,Toledo - Luiz Dalcanale Filho Municipal Airport,-53.697498,-24.6863,1843
+SBTE,Senador Petrônio Portela Airport,-42.823712,-5.06025,219
+SBTF,Tefé Airport,-64.724098,-3.38294,186
+SBTG,Plínio Alarcom Airport,-51.682026,-20.752643,1063
+SBTK,Tarauacá Airport,-70.782985,-8.155534,646
+SBTL,Telêmaco Borba Airport,-50.6516,-24.317801,2610
+SBTR,Torres Airport,-49.810001,-29.4149,30
+SBTS,Tiriós Airport,-55.944711,2.224537,1127
+SBTT,Tabatinga International Airport,-69.935799,-4.25567,263
+SBTU,Tucuruí Airport,-49.720299,-3.78601,830
+SBTV,Terravista Airport,-39.10811,-16.541416,164
+SBUA,São Gabriel da Cachoeira Airport,-66.9855,-0.14835,249
+SBUF,Paulo Afonso Airport,-38.250599,-9.40088,883
+SBUG,Rubem Berta Airport,-57.0382,-29.7822,256
+SBUL,Ten. Cel. Aviador César Bombonato Airport,-48.225936,-18.883579,3094
+SBUR,Mário de Almeida Franco Airport,-47.964805,-19.765036,2655
+SBUY,Urucu Airport,-65.355421,-4.884263,210
+SBVG,Major Brigadeiro Trompowsky Airport,-45.474116,-21.591375,3025
+SBVH,Brigadeiro Camarão Airport,-60.098301,-12.6944,2018
+SBVT,Eurico de Aguiar Salles International Airport,-40.285,-20.258,34
+SBYA,Iauaretê Airport,-69.179992,0.610384,466
+SBYS,Campo Fontenelle,-47.341207,-21.984692,1968
+SBZM,Presidente Itamar Franco Airport,-43.173069,-21.513086,1348
+SDAA,Araras Airport,-47.357898,-22.338227,2247
+SDAC,Aché Heliport,-46.522154,-23.474943,2444
+SDAD,Everaldo Moras Barreto Airport,-51.097509,-21.696275,1394
+SDAE,São Pedro Airport,-47.896111,-22.583127,1858
+SDAF,Fazenda Palmeiras Airport,-47.719299,-22.1567,2802
+SDAG,Angra dos Reis Airport,-44.307098,-22.9753,10
+SDAH,Signo Resgate Alphaville Heliport,-46.8483,-23.493536,2585
+SDAI,Americana Airport,-47.269408,-22.755917,2085
+SDAJ,Fazenda Recanto Airport,-54.063315,-22.591303,1253
+SDAK,Solar das Paineiras Heliport,-46.8556,-22.2965,2427
+SDAM,Estadual de Campos dos Amarais - Prefeito Francisco Amaral Airport,-47.107573,-22.859866,2008
+SDAN,Fazenda Santo Ângelo Airport,-48.259931,-22.245274,1680
+SDAO,Fazenda Portela Airport,-56.543219,-14.025612,1522
+SDAP,Hospital Paulistano Helipad,-46.642225,-23.56528,2798
+SDAS,Fazenda Santo Antônio Airport,-51.283088,-21.276203,1141
+SDAT,Hospital e Maternidade Vitória Helipad,-46.561786,-23.56323,2602
+SDAU,Fazenda Itau Airport,-52.6214,-19.4685,1516
+SDAW,Banco Industrial Heliport,-46.68543,-23.591903,2461
+SDAX,Bradesco - Sta Cecília Heliport,-46.649323,-23.539454,2549
+SDBA,Batatais Airport,-47.585757,-20.877218,2890
+SDBB,Bebedouro Airport,-48.473547,-20.900252,1942
+SDBC,Bradesco Alphaville Heliport,-46.857773,-23.487479,2546
+SDBE,Biopalma Airport,-48.8146,-2.208,52
+SDBF,Porto Seguro Heliport,-46.64541,-23.530323,2575
+SDBG,Barra Green Heliport,-43.347282,-23.006633,13
+SDBH,Bandeirantes Heliport,-46.710718,-23.595202,2641
+SDBI,Fazenda Piray Airport,-55.055907,-23.885222,1161
+SDBK,Botucatu - Tancredo de Almeida Neves Airport,-48.468161,-22.937765,3012
+SDBL,BFC Heliport,-46.654054,-23.562178,2923
+SDBM,Hospital Beneficência Portuguesa Heliport,-46.641469,-23.567798,2782
+SDBN,Associação Recreativa Fazenda Bonanza Airport,-47.557561,-23.687623,2316
+SDBO,Morada Nova Heliport,-44.372855,-19.466255,2421
+SDBP,Fazenda Pontal Airport,-51.116102,-15.736869,1351
+SDBQ,Hospital São Mateus Helipad,-38.480081,-3.741723,413
+SDBV,Balneário São Januário Airport,-47.7625,-24.869,26
+SDBW,Banespa República Heliport,-46.644634,-23.54356,2676
+SDBY,Bariri - Aparecido O. Silva Airport,-48.706402,-22.069201,1594
+SDCA,Capão Bonito Airport,-48.356246,-24.034346,2402
+SDCD,Catanduva Airport,-48.988701,-21.1492,1841
+SDCG,Senadora Eunice Micheles Airport,-68.921056,-3.46907,335
+SDCJ,Fazenda São Domingos Airstrip,-53.584238,-17.689156,1810
+SDCL,Fazenda Campo Alegre Airport,-49.208889,-23.154167,2182
+SDCM,Sete Povos Airport,-46.163263,-12.863937,2957
+SDCN,Centro Médico Naval Marcílio Dias Heliport,-43.283499,-22.913248,409
+SDCO,Sorocaba Airport,-47.490002,-23.478001,2083
+SDCP,Hotel Sant`anna Heliport,-46.747041,-22.736913,2598
+SDCQ,Mediterâneo Heliport,-46.853074,-23.593211,2648
+SDCR,Fazenda Caiçara Airport,-46.827228,-24.068469,39
+SDCS,Veracel Heliport,-39.413109,-16.092557,476
+SDCT,Fazenda Santo Antonio do Oriçanga Airport,-46.969278,-22.232574,2237
+SDCU,Brigadeiro Francisco Pinto de Moura Airport,-42.114451,-22.557248,20
+SDCV,Citibank Helipad,-46.65348,-23.564956,3005
+SDCW,Fazenda Paloma Airport,-48.833504,-20.321423,1709
+SDCY,Camargo Corrêa Heliport,-46.687818,-23.591726,2835
+SDCZ,Fazenda Bom Jardim Airport,-44.091702,-22.935009,13
+SDDB,Paradiso Agropecuária Airport,-50.09019,-22.617649,1703
+SDDD,Fazenda São Francisco Airport,-55.78457,-17.8615,433
+SDDE,Fazenda Dois Irmãos Airport,-61.777196000000004,-8.012773,344
+SDDG,Hospital Samaritano Heliport,-46.662451,-23.538711,2966
+SDDH,Birmann 29 Heliport,-46.681144,-23.588865,2614
+SDDI,Fazenda Tamara Airport,-50.833044,-21.59237,1306
+SDDJ,Fazenda Santa Maria Airport,-50.083376,-20.849434,1506
+SDDK,Saint-Exupéry Airport,-49.985884,-22.481225,1886
+SDDN,Andradina Airport,-51.382252,-20.925031,1247
+SDDO,Cândido Mendes Helipad,-43.175278,-22.904167,460
+SDDQ,Fazenda São Francisco Airport,-45.51127,-11.69435,2480
+SDDR,Dracena Airport,-51.606899,-21.460501,1220
+SDDT,Imbetiba Heliport,-41.770653,-22.388895,18
+SDDV,Usina Catanduva Airport,-48.845197,-21.12886,1860
+SDDX,Fazenda Paiquerê Airport,-50.504632,-19.884363,1411
+SDDY,Cesari Heliport,-46.367939,-23.823639,246
+SDDZ,Vila São Paulo/Mercosul Heliport,-51.332634,-22.696708,1217
+SDEA,Edifício HSBC Tower Heliport,-46.6842,-23.583497,2619
+SDED,Scoda Aeronáutica Airport,-47.700402,-22.440516,2008
+SDEH,Fazenda Santo Antônio Heliport,-47.32624,-22.379294,2047
+SDEI,Canopus Corporate Alphaville Heliport,-46.844784,-23.503812,2844
+SDEJ,Fazenda Guará do Pinhal Airport,-48.072935,-23.666115,2036
+SDEK,Barra do Una Heliport,-45.747076,-23.73622,43
+SDEL,Condomínio Spázio Central JK Heliport,-46.685693,-23.591092,2684
+SDEM,Estância Machado Airport,-51.454858,-22.104056,1388
+SDEN,Costa Esmeralda Airport,-48.6218,-27.1665,20
+SDEO,Fazenda Entre Rios Airport,-48.659401,-21.878599,1709
+SDEP,Geraldo Moacir Bordon State Airport,-52.143281,-21.774665,974
+SDEQ,Vigor Helipad,-46.604063,-23.533139,2434
+SDER,Fazenda Entre Rios Airport,-50.856979,-20.764496,1214
+SDES,Estância Colorado Airport,-47.862237,-20.761969,2372
+SDET,Tietê Airport,-47.723814,-23.105033,1644
+SDEU,Empresarial Anhanguera Heliport,-46.832152,-23.384807,2658
+SDEW,Júlio Simões – Garagem Heliport,-46.229307,-23.541878,2461
+SDEX,Fazenda Nossa Senhora do Carmo Airstrip,-45.824347,-12.58051,2543
+SDEY,Imigrantes Heliport,-46.605768,-23.689267,2554
+SDEZ,Unibanco Eusébio Matoso Helipad,-46.698579,-23.572336,2680
+SDFC,Fazenda Constância Airport,-49.188638,-20.489442,1970
+SDFD,Fernandópolis - Coronel Aviador Carlos Orleans Guimarães Airport,-50.214937,-20.276901,1640
+SDFH,Fazenda Amália Airport,-47.370899,-21.444259,2318
+SDFJ,Fazenda Murungaba Heliport,-47.76002,-22.95156,1261
+SDFK,Fazenda Figueira Airport,-52.151064,-22.067804,1234
+SDFL,Fazenda Santa Albana Airport,-48.282217,-23.580552,2051
+SDFN,Fazenda São Francisco Airport,-49.546308,-23.474781,1703
+SDFO,Centro Gráfico - Folha Heliport,-46.860616,-23.46628,2536
+SDFP,Folha de São Paulo Heliport,-46.645781,-23.537527,2612
+SDFQ,Centro Empresarial Botafogo Heliport,-43.182621,-22.94429,187
+SDFR,Riomar Fortaleza Heliport,-38.473485,-3.74122,299
+SDFS,Fazenda Santa Gertrudes Heliport,-48.347511,-22.092275,2080
+SDFT,Virgulino de Oliveira Airport,-46.808977,-22.415132,2152
+SDFU,Fazenda Ponte Funda Airport,-52.164249,-21.871309,968
+SDFV,Federação Paulista de Futevol Helipad,-46.667286,-23.522185,2477
+SDFW,Condomínio Edifício San Paolo Helipad,-46.687835,-23.574909,2707
+SDFX,Casa Nova Airport,-40.937445,-9.157435,1329
+SDGA,Acapulco Heliport,-46.201794,-23.954475,36
+SDGB,Usina Colorado Airport,-48.182671,-20.27688,1988
+SDGC,Garça Airport,-49.656346,-22.181484,2178
+SDGD,Eucatex Heliport,-48.567696,-22.994239,2657
+SDGE,Casas Bahia Heliport,-46.570678,-23.611062,2569
+SDGG,Aché Faria Lima Helipad,-46.694428,-23.561123,2802
+SDGH,Parque do Peão Mussa Calil Neto Heliport,-48.592696,-20.511044,1808
+SDGI,Fazenda Guariroba Heliport,-46.907469,-22.923262,2297
+SDGJ,Fazenda Suíssa Airport,-49.856334,-21.907652,1795
+SDGK,Fazenda Gurucaia Airport,-50.736034,-21.494996,1339
+SDGL,Catedral Mundial da Fé Helipad,-43.274842,-22.880842,148
+SDGN,Empresarial Pontes Corporate Center Heliport,-34.904154,-8.131765,289
+SDGO,Braspress Heliport,-46.485454,-23.454179,2543
+SDGS,Bertolucci Helipad,-46.680352,-23.585877,2657
+SDGW,JKFC Heliport,-46.675053,-23.587232,2644
+SDGY,Fazenda Anhangaí Airport,-50.743803,-20.926714,1181
+SDGZ,Bradesco Cidade de Deus Heliport,-46.772364,-23.549455,2529
+SDHA,HELPN HASP Heliport,-46.644232,-23.51311,2379
+SDHB,Bradesco Heliport,-46.769035,-23.548456,2474
+SDHC,Fazenda Koga Airport,-49.981367,-21.86889,1293
+SDHD,Complexo Hospitalar de Niterói Helipad,-43.115758,-22.894482,187
+SDHE,Fazenda Herdade Airport,-46.843409,-22.492182,2428
+SDHF,Ambroso Heliport,-46.752256,-21.966594,2654
+SDHG,Málaga Heliport,-46.778046,-23.481607,2526
+SDHI,Hospital Gastroclínica Helipad,-46.65245,-23.59524,2562
+SDHJ,Hospital da Polícia Militar Heliport,-46.619453,-23.470232,2612
+SDHL,Lagoa Heliport,-43.216484,-22.974815,10
+SDHN,REC Berrini TNU  Heliport,-46.696706,-23.608035,2674
+SDHO,Bradesco - Santo André Heliport,-46.52876,-23.65549,2523
+SDHP,Modelo II Airport,-53.283775,-21.162035,1168
+SDHQ,Shopping Leste Aricanduva Heliport,-46.505515,-23.567154,2434
+SDHR,Fazenda União Airport,-57.230247,-20.904766,476
+SDHT,Cetenco Plaza - Torre Norte Heliport,-46.657607,-23.558919,2943
+SDHU,Morro da Urca Heliport,-43.165548,-22.951287,692
+SDHV,Hospital Albert Einstein Helipad,-46.715164,-23.600441,2772
+SDHW,Hospital Bandeirantes Helipad,-46.634788,-23.557583,2598
+SDHX,D'Tapes Airport,-51.53543,-30.75022,131
+SDHY,Edifício São Gonzaga Heliport,-46.661172,-23.5567,3002
+SDHZ,Hospital Vera Cruz Heliport,-47.067842,-22.904511,2405
+SDIB,Irmãos Ribeiro Airport,-46.775299,-22.1581,3035
+SDIC,Fazenda Capão Seco Airport,-45.689798,-20.712823,2657
+SDIF,Palácio Tiradentes Helipad,-43.951581,-19.786498,2746
+SDIG,Ibitinga Airport,-48.855595,-21.74723,1778
+SDIH,Fazenda Irohy Airport,-46.071598,-23.563384,2467
+SDII,I Tower Helipad,-46.849201,-23.504785,2890
+SDIK,Alpha Business Empresarial Helipad,-47.035294,-22.819578,2043
+SDIL,Fazenda Pedra Branca Airport,-44.28802,-22.902362,52
+SDIM,Itanhaém Airport,-46.790604,-24.159729,13
+SDIO,Aeroclube de Itápolis Airport,-48.833057,-21.600287,1827
+SDIP,Fazenda Centro de Vôo a Vela Ipuã Airport,-45.775133,-23.042711,1913
+SDIQ,Goettems Heliport,-44.195854,-23.048798,7
+SDIS,The Eagle's Nest Heliport,-49.024055,-23.247539,1867
+SDIT,Itaú NPD Paulista Heliport,-46.65782,-23.576396,2558
+SDIV,Ituverava Airport,-47.769066,-20.374843,2044
+SDIW,Edifício São Paulo Trade Building Heliport,-46.688449,-23.593876,2618
+SDIX,Iporanga - Guarujá Heliport,-46.172066,-23.888478,20
+SDIY,João Durval Carneiro Airport,-38.906164,-12.200694,781
+SDJA,Doutor José Augusto de Arruda Botelho Airport,-47.861839,-22.194598,2569
+SDJB,Quinta da Baroneza II Heliport,-46.70056,-22.973425,2457
+SDJC,Jaboticabal Airport,-48.284212,-21.229755,2018
+SDJD,Juquehy Baleia Heliport,-45.712166,-23.760281,33
+SDJF,Fazenda Jequitibá Airport,-48.448055,-23.846065,2310
+SDJH,Norberto Odebrecht Helipad,-38.436098,-12.96251,154
+SDJI,Avibrás II Heliport,-45.816742,-23.326072,2418
+SDJJ,Francisco Mellão Heliport,-46.688445,-23.593609,2634
+SDJK,Centro Empresarial Araguaia Helipad,-46.842163,-23.501781,2710
+SDJL,Jales Airport,-50.545546,-20.292296,1493
+SDJM,Sítio Santo Antônio Heliport,-46.928049,-23.132643,2520
+SDJN,Fazenda São Luiz Airport,-47.733954,-21.096664,1932
+SDJO,São Joaquim da Barra Airport,-47.841211,-20.594095,2133
+SDJP,Helicentro Carcará Heliport,-43.464406,-22.745286,59
+SDJQ,Fazenda São Joaquim O.B. Airport,-51.007999,-20.8284,1204
+SDJS,Andorinha Airport,-60.241678,4.727303,735
+SDJT,J. Toledo Helipad,-46.908967,-23.175142,2287
+SDJU,Hospital São Luiz Helipad,-46.673089,-23.590686,2539
+SDJV,São João da Boa Vista Municipal Airport,-46.840779,-22.017744,2501
+SDJW,Rede D'Or São Luiz Morumbi Heliport,-46.70359,-23.591053,2552
+SDJX,Fazenda Serra Dourada Airport,-48.386468,-13.102172,1585
+SDJZ,Fazenda Barra do Agudo Airport,-48.222595,-20.810328,1608
+SDKA,Angical Airport,-59.835001,4.164573,184
+SDKB,Casa Branca Municipal Airport,-47.055557,-21.788055,2346
+SDKD,Condomínio América Business Park Heliport,-46.703119,-23.6186,2510
+SDKG,Fazenda Gávea Airport,-49.179169,-23.225,2031
+SDKI,CL Helipad,-45.906875,-23.225061,1998
+SDKJ,Formosa do Rio Preto Airport,-45.186699,-11.0216,1732
+SDKK,Mococa Airport,-47.034123,-21.487802,2116
+SDKL,Caracaranã Airport,-59.777179,3.835853,2116
+SDKM,Hotel Emiliano Helistop,-46.665236,-23.566041,2707
+SDKO,Fazenda Campo Grande Airport,-48.788601,-20.2577,1830
+SDKP,Fazenda Jamaica Airport,-50.274373,-22.188569,1598
+SDKQ,Fazenda São João Airport,-49.051117,-20.190423,1673
+SDKT,Edifício Dacon Heliport,-46.684216,-23.58057,2703
+SDKV,Rede Globo Heliport,-46.696819,-23.6148,2384
+SDKW,Fazenda Sodema Airport,-55.538442,-12.296355,1181
+SDKX,Fazenda Agrovás Airport,-52.411426,-11.513307,1070
+SDKY,Hospital das Clínicas Heliport,-46.668929,-23.558219,2759
+SDKZ,Caraparu 4 Airport,-60.470043,4.557947,784
+SDLA,Condomínio Laranjeiras Heliport,-44.663127,-23.343131,10
+SDLB,Metropolitan Office Helipad,-46.682718,-23.581194,2654
+SDLC,Aeroclube de Lucélia - Cmte João Possibom Airport,-51.017632,-21.748877,1460
+SDLD,Fazenda São Miguel Heliport,-48.642858,-24.198151,2894
+SDLE,Rio de Contas Airport,-41.791037,-13.583044,3576
+SDLF,SBT Heliport,-46.777893,-23.476689,2641
+SDLI,Jeová Gomes Corrêa Airport,-39.115398,-8.73699,1066
+SDLK,Caculé Airport,-42.264702,-14.4812,2064
+SDLL,Yolanda Penteado Airport,-47.380834,-22.225963,2057
+SDLO,Fábio Perini Airport,-38.939999,-13.5648,20
+SDLP,José Boso Municipal Airport,-48.774601,-22.5784,2039
+SDLU,Fazenda Santa Luíza Airport,-48.524502,-22.483101,1782
+SDLW,Fazenda Campo Real Airport,-57.785465,-13.442765,1703
+SDLX,Fazenda Jacareúna Airport,-52.200036,-11.441834,1417
+SDLY,Armando Natali Airport,-48.351095,-21.623884,2083
+SDMA,Fazenda Maristela Airport,-45.603636,-22.954517,1788
+SDMB,Benteler Heliport,-47.116891,-23.00179,2156
+SDMC,Maricá Airport,-42.830898,-22.9195,5
+SDMD,Fazenda Santa Izabel Airport,-54.715714,-18.011274,1109
+SDME,Marchesan S.A. Airport,-48.392816,-21.629456,1936
+SDMF,Maresias Heliport,-45.572213,-23.786737,36
+SDMG,Haxiu Airport,-63.746667,2.675404,394
+SDMH,Mirassol Airport,-49.485301,-20.806853,1916
+SDMI,Comando do 8º Distrito Naval Heliport,-46.646335,-23.593708,2580
+SDMJ,Mogi-mirim Airport,-46.90576,-22.410842,2280
+SDMM,Lago Verde Airport,-60.786111,4.557778,1083
+SDMO,Monte Alto Airport,-48.523511,-21.258981,2461
+SDMP,Erik Heliport,-46.596746,-23.299177,3707
+SDMR,Marambaia Airport,-43.879491,-23.066389,16
+SDMS,Marechiaro Heliport,-44.280546,-23.015625,177
+SDMT,Banco Bradesco Av. Paulista Heliport,-46.654855,-23.561914,2897
+SDMU,Multiplan Helipad,-43.175978,-22.907583,351
+SDMV,Fazenda Morro Vermelho Airport,-48.60415,-22.275223,1736
+SDMW,Fazenda Karajá Airport,-50.680833,-14.1125,833
+SDMX,Fazenda Fontana Airport,-55.381261,-15.50233,2283
+SDMY,Fazenda Cambuhy Airport,-48.479099,-21.6329,2041
+SDMZ,Mercedes Benz do Brasil S/A Heliport,-46.579202,-23.663301,2457
+SDNA,Fazenda Vale Verde Airport,-48.994722,-19.671944,2336
+SDND,Fazenda Nova Damasco Airport,-51.529044,-22.483974,1411
+SDNE,Fazenda São Joaquim Airport,-51.975562,-22.198999,1585
+SDNH,Novo Horizonte Airport,-49.234441,-21.497551,1526
+SDNI,Nascimento I Airport,-46.983252,-23.619402,3090
+SDNJ,Nascimento II Airport,-48.221806,-24.072344,2604
+SDNK,Fazenda Vitória Airport,-54.058585,-14.964991,2333
+SDNM,Brigadeiro Eduardo Gomes Airport,-56.038591,-13.821021,1411
+SDNN,Birmann 21 Helipad,-46.702237,-23.56557,2756
+SDNO,São Manuel Airport,-48.576599,-22.695801,2408
+SDNP,Condomínio Conde Matarazzo Heliport,-46.6374,-23.547432,2644
+SDNQ,Fazenda Água Limpa,-67.491113,-9.980571,646
+SDNR,Banco Santander Heliport,-46.713857,-23.652085,2515
+SDNT,Fazenda Terra Prometida Airport,-48.256667,-10.414444,889
+SDNU,Ministro Nelson Hungria Heliport,-43.172647,-22.906073,223
+SDNV,Aldeia Nacepoti Airport,-54.011944,-9.503889,1001
+SDNX,SEC Heliport,-44.21046,-23.04298,177
+SDOA,Fazenda Lagoa da Floresta Airport,-45.083058,-5.486818,627
+SDOB,Fazenda São José O.B. Airport,-46.754299,-21.4252,2634
+SDOC,Hospital do Coração Heliport,-46.643565,-23.573127,2835
+SDOD,Fazenda Vida Airport,-45.530848,-5.837362,820
+SDOE,Fazenda Sibéria Airport,-45.779741,-5.719401,771
+SDOF,Enseadinha Heliport,-35.007221,-8.549722,16
+SDOG,Península Heliport,-46.2032,-23.997181,203
+SDOH,Cimed Heliport,-45.878024,-22.222019,2680
+SDOI,Centro Nacional de Pára-quedismo Airport,-47.692448,-23.298338,2051
+SDOK,Casas Bahia Heliport,-46.86587,-23.235997,2507
+SDOL,Fazenda Agropesp Airport,-56.907682,-12.442313,991
+SDON,Ônix Helipad,-46.722272,-23.551563,2634
+SDOO,Órion Helipad,-49.269783,-16.696888,3090
+SDOP,ESM/Sigma Pharma 2 Helipad,-47.190534,-22.895864,2126
+SDOQ,Fazenda Campo Claro Airstrip,-51.739294,-12.674353,1135
+SDOR,Fazenda Mosquito Airport,-47.889806,-20.747394,2415
+SDOT,Attilio Tinelli Helipad,-46.693559,-23.602453,2559
+SDOU,Jornalista Benedito Pimentel Airport,-49.912049,-22.966598,1516
+SDOV,Mozarlândia Airport,-50.5642,-14.770575,1076
+SDOW,Ourilândia do Norte Airport,-51.04993,-6.762992,751
+SDOX,Fazenda Pixoxó Airport,-47.882849,-21.780125,2133
+SDOZ,Aldeia Pontal Airport,-58.284104,-8.100681,354
+SDPA,Fazenda Portobello Airport,-44.080185,-22.927133,20
+SDPB,Pedreira Pau Pedra Heliport,-46.425712,-23.350821,2739
+SDPC,Atena Airport,-51.029373,-22.153256,1585
+SDPD,Pindamonhangaba Airport,-45.431389,-22.943611,1883
+SDPI,Makukem Airport,-60.244722,4.687776,617
+SDPK,Panco I Heliport,-46.494951,-23.528066,2628
+SDPL,Ibirapuera Park Hotel Helipad,-46.649389,-23.592736,2707
+SDPM,Palácio dos Bandeirantes Heliport,-46.713032,-23.600205,2600
+SDPN,Penápolis Airport,-50.033659,-21.410012,1352
+SDPO,Plaza Centenário Helipad,-46.696088,-23.605605,2826
+SDPT,Parque Paulista Heliport,-46.659299,-23.560265,2900
+SDPU,Paquetá Heliport,-43.112615,-22.76694,10
+SDPV,Presidente Venceslau Airport,-51.884399,-21.893299,1460
+SDPW,Piracicaba Airport,-47.618198,-22.7115,1917
+SDPX,Nova Vitória Airport,-60.941667,4.498889,1673
+SDPY,Pirassununga Airport,-47.421498,-22.027611,2241
+SDPZ,Sossego Airport,-53.351389,-21.24112,1292
+SDQC,HELPN Quarto COMAR Heliport,-46.612169,-23.566544,2329
+SDQD,Copa d'Or Hospital Helipad,-43.1904,-22.965445,187
+SDQF,Ita Helipad,-46.828608,-23.701433,2638
+SDQG,Fazenda Nova Floresta Airport,-51.178021,-21.892177,1460
+SDQI,Fazenda Quilombo Heliport,-47.086712,-23.074091,2323
+SDQJ,Disco Heliport,-43.231964,-22.980637,177
+SDQK,Fazenda Taboca Airport,-55.366876,-18.883,505
+SDQL,Fazenda Cerro Azul Airport,-55.73428,-21.182418,1191
+SDQM,Helicentro Ribeirão Preto Heliport,-47.770212,-21.210278,1837
+SDQO,Fazenda São Quirino Heliport,-46.845868,-22.917216,2513
+SDQP,Parque Cultural Paulista Heliport,-46.645661,-23.571628,2972
+SDQQ,Companhia Agrícola de Quatá Airport,-50.639444,-22.285609,1949
+SDQR,Alto da Serra Heliport,-49.576918,-28.398591,4570
+SDQT,Office Tower Itaim Heliport,-46.679497,-23.581211,2644
+SDQU,Fazenda Colorado,-44.794825,-9.255998,2091
+SDQV,Fazenda Santa Fé Airport,-58.515394,-16.140032,551
+SDQX,Fazenda Esperança Airport,-48.805278,-23.867778,2267
+SDQY,Shopping Center Iguatemi Helipad,-47.028358,-22.891308,2356
+SDQZ,Fazenda Espinhaço II Airport,-52.074881,-15.397697,991
+SDRA,Fazenda das Represas Airport,-48.0518,-23.875601,2271
+SDRB,Renaissance Hotel Helipad,-46.66227,-23.558888,3007
+SDRC,Fazenda Santana Airport,-50.865319,-22.181663,1608
+SDRE,Recreio Heliport,-43.446972,-23.008019,26
+SDRF,Fazenda Recanto Feliz Airport,-44.050835,-22.746111,1750
+SDRG,Graciosa Heliport,-49.156187,-25.392043,2986
+SDRH,Fazenda Chaparral Airport,-54.526141,-20.844538,1509
+SDRI,Rio Sul Center Heliport,-43.176162,-22.957333,532
+SDRJ,Prefeitura do Rio de Janeiro Heliport,-43.216485,-22.971092,7
+SDRK,Rio Claro Airport,-47.562291,-22.430767,1998
+SDRM,Olomai Airstrip,-64.184722,3.926666,568
+SDRN,Zarzur Helipad,-46.691895,-23.570104,2606
+SDRP,Onkiola Airstrip,-64.163275,3.711335,2242
+SDRR,Avaré-Arandu Airport,-48.987399,-23.0922,2618
+SDRS,Resende Airport,-44.480301,-22.4785,1320
+SDRT,Ponto Geral Airport,-60.784857,4.649533,2343
+SDRU,Fazenda Caramuru Airport,-50.9359,-21.693334,1273
+SDRY,Fazenda São Paulo Airport,-54.841044,-22.953761,1493
+SDRZ,Fazenda Marabá Airport,-57.365214,-21.690967,744
+SDSA,Fazenda Califórnia Airport,-55.716094,-18.035457,486
+SDSC,Mário Pereira Lopes–São Carlos International Airport,-47.903851,-21.875032,2649
+SDSD,Samã I Airport,-60.951436,4.411792,554
+SDSE,Sítio Santa Helena Airport,-50.619578,-21.472486,1414
+SDSM,Fazenda Nossa Senhora da Conceição Airport,-48.542027,-22.758795,2482
+SDSN,São Luiz Heliport,-46.686609,-23.590661,2592
+SDSQ,Usina Santa Rita Airport,-47.657853,-21.725668,2067
+SDSR,Subestação Ibiúna Heliport,-47.103206,-23.659025,2867
+SDSS,Fazenda Baia das Pedras Airstrip,-55.783056,-19.254167,420
+SDST,Fazenda Santa Terezinha da Barra Airport,-47.775972,-21.881406,2320
+SDSU,Pirelli Sumaré Heliport,-47.19222259521485,-22.800556182861328,1557
+SDSV,Fazenda Santa Cândida Airport,-48.171099,-21.333695,2080
+SDSW,Carta Fabril 01 Heliport,-43.992648,-22.582173,1434
+SDSX,ITM Expo Helipad,-46.743984,-23.526045,2444
+SDSZ,Banco Safra Helipad,-46.65971,-23.558019,2979
+SDTB,Atibaia Airport,-46.57465,-23.128167,2615
+SDTC,Edel Trade Center Helipad,-46.660568,-23.602663,2728
+SDTE,Fazenda Tapijara Airport,-49.075844,-23.220197,1929
+SDTF,Tatuí Airport,-47.8783,-23.3319,2083
+SDTG,Edifício Atrium IV Heliport,-46.686546,-23.592936,2608
+SDTI,Tupi Paulista Airport,-51.59959,-21.392141,1198
+SDTJ,Edifício Atrium V Heliport,-46.684444,-23.595833,2594
+SDTK,Paraty Airport,-44.7234,-23.224044,10
+SDTM,Crystal Tower Heliport,-46.852739,-23.493318,2838
+SDTN,Usina Açucareira Santo Antônio Airport,-47.947913,-21.121212,1969
+SDTO,Fazenda Cataco Airport,-49.79484,-21.25517,1358
+SDTP,Tupã Airport,-50.505052,-21.889052,1804
+SDTQ,Fazenda Santa Thereza Airport,-51.207886,-18.229061,2149
+SDTS,Fazenda Planalto Airport,-54.415966,-20.338452,2238
+SDTT,Região das Hortências Heliport,-50.853144,-29.361552,2805
+SDTU,Itausa Helipad,-46.641921,-23.636332,2774
+SDTV,Fazenda São Miguel Airport,-46.23946,-12.607373,2999
+SDTX,Fazenda São José Airport,-51.356352,-20.54064,1237
+SDTY,Usina São Martinho Airport,-48.114899,-21.3398,1713
+SDUB,Ubatuba Gastão Madeira State Airport,-45.075814,-23.441122,10
+SDUC,Santa Rita Airport,-60.188598,4.426748,515
+SDUD,Usina Santa Adélia Airport,-48.315786,-21.331926,2028
+SDUF,Fazenda Touro Peru Airport,-57.495489,-21.071319,492
+SDUI,Centro EmpresariaL Iudice Helipad,-46.694625,-23.513621,2500
+SDUJ,Milennium Heliport,-46.682743,-23.584809,2575
+SDUK,Fazenda Xaimite Airport,-52.9019432068,-14.0966672897,1601
+SDUL,Usina Santa Lydia Airport,-47.920555114746094,-21.20166778564453,2270
+SDUM,Uniban Heliport,-46.59694290161133,-23.50638961791992,2568
+SDUN,Itaperuna Airport,-41.8759002686,-21.219299316399997,410
+SDUQ,Paraguaçu Paulista Airport,-50.60689926147461,-22.42690086364746,1525
+SDUT,Hotel Transamérica Heliport,-46.7227783203125,-23.650833129882813,2379
+SDUU,Usina Califórnia Airport,-50.86833,-21.91111,1476
+SDUV,Columbia Heliport,-40.232426,-20.177503,84
+SDUW,Fazenda Sertãozinho Heliport,-46.34220123291016,-21.64189910888672,2739
+SDUX,Havan Heliport,-48.9075,-27.1069444444,253
+SDUY,Rio Alpha Heliport,-43.18139,-22.91722,495
+SDUZ,Usina São Luiz Airport,-49.764333,-22.947486,1608
+SDVA,Fazenda Campo Vitória Airport,-46.9555549621582,-21.83222198486328,2329
+SDVB,INA Brasil Heliport,-47.41416549682617,-23.43777847290039,2072
+SDVC,Cometa Vila Maria Heliport,-46.579167,-23.517221,2418
+SDVD,Vila Real Heliport,-43.148612,-22.410936,2257
+SDVE,Vera Cruz Airport,-49.81719970703125,-22.230199813842773,2100
+SDVF,Santo Antônio do Pão Airport,-60.181388,4.589723,653
+SDVG,Domingos Pignatari Airport,-50.003134,-20.458426,1676
+SDVH,Fazenda Vale Eldorado - Dr José de Aguiar Leme Airport,-46.636913,-23.0054,2727
+SDVI,Comandante Gastão Airport,-57.5,-14.65,1391
+SDVJ,Fazenda Santa Marta Airport,-50.455,-8.7225,807
+SDVP,São Luiz Cotingo Airport,-60.493611,4.333889,197
+SDVQ,Fazenda Baía das Conchas Airport,-57.639327,-21.19603,364
+SDVS,Fazenda Vassoural Airport,-48.03419876098633,-21.072799682617188,1801
+SDVT,Helbor Tower Heliport,-46.196448,-23.523661,2612
+SDVV,Cragea-Suzano Heliport,-46.322222,-23.641944,2523
+SDVW,Volkswagem do Brasil - Fábrica III Heliport,-45.633888244628906,-23.060556411743164,1873
+SDWA,Aerogalo Heliport,-44.19357,-23.04182,60
+SDWB,Cyk Heliport,-46.651668548583984,-23.56611061096191,2986
+SDWC,Aldeia Baú Airport,-54.826347,-7.35579,797
+SDWH,Fazenda Avanhandava Airport,-49.93610000610352,-21.188600540161133,1444
+SDWI,Fazenda Lagoa do Cavalo Airport,-35.63,-8.17,1709
+SDWK,Junqueira Airport,-47.76750183105469,-20.00166702270508,1850
+SDWL,Três Marias Airport,-47.0750007629,-23.191667556799995,2566
+SDWN,Fazenda Barreiro Grande Airport,-48.772499084472656,-20.34749984741211,1857
+SDWO,Sauba Airstrip,-62.579077,3.862133,818
+SDWS,West Gate Heliport,-46.848781,-23.503225,2694
+SDWT,World Trade Center Heliport,-46.6966667175293,-23.60944366455078,2657
+SDWU,Fazenda Anahí Airport,-57.7405548096,-21.708332061799997,279
+SDWV,Chácara Maringá Airport,-51.953758,-2.572744,98
+SDWX,Pista Sol Nascente,-56.418924,-6.156449,541
+SDWZ,Palo Verde Airport,-50.562228,-21.190584,1276
+SDXA,SAWI Airstrip,-60.004514,4.211866,361
+SDXD,IBM Tutóia Heliport,-46.649376,-23.579962,2786
+SDXE,Chácara Serradinho Airport,-48.35609817504883,-21.264799118041992,2037
+SDXF,Alto Paraíso Airport,-47.53089904785156,-14.121000289916992,4413
+SDXH,Gandini Heliport,-47.326833,-23.251475,2812
+SDXJ,Costa Rica Airport,-53.168135,-18.491283,2428
+SDXK,Ticoça Airport,-60.116667,4.413334,486
+SDXN,Parada Havan Heliport,-48.700677,-26.634535,53
+SDXP,Guararema Parque Hotel Heliport,-46.02027893066406,-23.42388916015625,2034
+SDXR,Fazenda Vaca Mocha Airport,-57.158207,-22.2216,433
+SDXS,Mar Gírios Heliport,-46.705833435058594,-23.594167709350582,2592
+SDXV,Magazine Luiza Heliport,-46.99222183227539,-23.11722183227539,2362
+SDXW,Fazenda Sombra da Serra Airport,-55.133827,-18.996412,NA
+SDXX,Fazenda Santa Vitória Heliport,-44.750831604003906,-22.509443283081055,1755
+SDYA,Carmo Couri Heliport,-46.685279846191406,-23.59666633605957,2585
+SDYB,Fazenda São José do Barreiro Airport,-48.338362,-23.784526,2192
+SDYC,Amarras Heliport,-41.90166854859999,-22.7747211456,125
+SDYD,Senna Heliport,-44.19641,-23.0399,16
+SDYE,Hotal Fazenda Dona Carolina Heliport,-46.701277,-22.941489,2625
+SDYF,Fazenda Irmãos Munaretto Airport,-55.992991,-13.109637,1375
+SDYH,José Roberto Magalhães Teixeira Heliport,-47.08277893066406,-22.92916679382324,2297
+SDYI,Fazenda Buritiz Airport,-45.40250015258789,-17.917499542236328,3045
+SDYJ,José Martins da Silva Airport,-51.348806,-22.226225,1663
+SDYK,Tower 2000 Heliport,-43.11805725097656,-22.892221450805664,187
+SDYL,Flamingos Heliport,-44.290109,-23.02296,131
+SDYN,Fazenda Esmeralda Airport,-51.304197,-22.584782,1365
+SDYO,Hospital Santa Marcelina Heliport,-46.461387634277344,-23.55416679382324,2684
+SDYP,Piracaia Heliport,-46.334442138671875,-22.98611068725586,2887
+SDYR,Panco II Heliport,-46.699898,-23.599671,2641
+SDYS,Aeroportobelo Airport,-48.631111,-27.173611,36
+SDYT,Tucuxim Airport,-63.986944,3.763889,1475
+SDYU,Pericó Vinícola Heliport,-49.922501,-28.299062,4505
+SDYV,Secovi Heliport,-46.648203,-23.603723,2625
+SDYW,Aeroclube de Itapeva Airport,-48.881775,-23.941345,2313
+SDYX,Campo Maior Airport,-42.260555267333984,-4.8541669845581055,490
+SDYZ,Kuka Helipad,-46.601386,-23.569189,2447
+SDZB,ICS - Guarujá Heliport,-46.28444290161133,-23.98555564880371,5
+SDZC,Uxiu Airstrip,-62.668889,2.708055,831
+SDZD,ABB Sorocaba Heliport,-47.361916,-23.425252,1939
+SDZF,Fazenda Lamarão Airport,-47.467459,-15.98442,2945
+SDZG,Pedro Teixeira Castelo Airport,-40.2975,-5.9334,1457
+SDZH,Fazenda Santa Helena Airport,-45.493056,-22.890556,1785
+SDZJ,Fly Green Heliport,-43.831043,-15.28387,1634
+SDZK,Waphuta Airstrip,-63.709722,2.991667,682
+SDZL,Fazenda Campo Zélia Airport,-55.689011,-18.610784,495
+SDZM,Fazenda São Marcos Airport,-48.818298,-23.9224,2257
+SDZN,Warogarem Airstrip,-60.219015,4.804871,2331
+SDZO,Waromada Airstrip,-60.443718,4.576131,2331
+SDZP,Ninho do Pássaro III Helipad.,-49.243225,-26.885369,236
+SDZQ,Zen Tower Helipad,-48.657192,-26.905079,299
+SDZR,Fazenda Cruzeiro Airport,-48.315911,-21.406152,2116
+SDZU,Fazenda Anhumas Airport,-52.19793,-22.121936,1001
+SDZX,Fazenda Suri Airport,-53.124617,-14.813348,1250
+SDZZ,Sítio São José Airport,-48.544439,-21.798767,1788
+SIAD,Estância Regina Airport,-57.353032,-21.010744,394
+SIAE,BASF Guaratinguetá Heliport,-45.170825,-22.786123,1772
+SIAF,Fazenda São José Airport,-58.885555,-13.741112,1903
+SIAK,Volkswagen Heliport,-46.54985,-23.729557,2533
+SIAM,Fazenda Palmital Airport,-48.286419,-20.697327,1709
+SIAN,Santa Casa de Misericórdia de Porto Alegre Helipad,-51.220483,-30.030145,184
+SIAP,Roso Airport,-54.089186,-31.73442,541
+SIAQ,Bom Futuro Airport,-56.098333,-15.506389,768
+SIAV,Helicentro Helipark,-46.830227,-23.564818,2592
+SIAW,Sítio Gurupi Airport,-47.516389,-3.739167,420
+SIBB,Edifício Comendador Alberto Bonfiglioli Helipad,-46.652147,-23.564447,2936
+SIBC,Vila de Tocos Airport,-41.294775,-21.878126,26
+SIBE,Marina Park Heliport,-38.53181,-3.719069,16
+SIBG,Banco Induscred Helipad,-46.65581,-23.564443,2877
+SIBH,Helicidade Helipad,-46.737117,-23.546808,2418
+SIBI,GF Taxi Aéreo Heliport,-46.289102,-24.002906,20
+SIBL,Clínica Porto Dias Heliport,-48.458613,-1.437548,167
+SIBM,Hanger ABC Heliport,-46.580575,-23.61706,2421
+SIBO,Sítio São Luiz Airport,-52.794753,-24.261562,1919
+SIBS,Terminal Petrobras - São Sebastião Heliport,-45.400049,-23.798586,7
+SIBT,Transportadora Americana II Heliport,-47.286208,-22.732279,2004
+SIBU,Jerônimo Sérgio Rosado Maia Airport,-37.756199,-6.36253,892
+SIBV,Fazenda Bela Vista Airport,-54.489515,-21.450333,1211
+SIBW,Conceição Airport,-38.496498,-7.55823,1214
+SIBX,WEM Agropecuária Airport,-50.24378,-21.091756,1345
+SIBY,Lourival Nunes de Farias Airport,-37.139999,-7.87824,2041
+SIBZ,Itaporanga Airport,-38.112701,-7.31166,957
+SICC,Fazenda Campo Alto Heliport,-47.284389,-22.388897,2067
+SICD,Mima 2 Heliport,-41.446268,-21.578516,131
+SICG,Rede TV Helipad,-46.762957,-23.520831,2379
+SICJ,Gaivota Aviação Agrícola Airport,-58.778328,-13.462628,1837
+SICK,Dr. Jucelino José Ribeiro Airport,-42.52943,-17.680607,3481
+SICL,Praia da Piraquara Heliport,-44.438835,-22.985219,148
+SICM,Fazenda Nossa Senhora de Fátima Airport,-52.111745,-21.539444,984
+SICN,Fazenda Vista Bonita Airport,-51.816696,-22.506518,1348
+SICO,Aviação Estrela Bôscoli Airport,-56.049893,-13.325756,1411
+SICP,Associação Aeroclube de Faxinal Airport,-51.327891,-23.972223,2779
+SICQ,Fazenda Luar Airport,-55.690899,-15.554542,768
+SICS,Base Resgate Heliport,-47.906113,-15.775001,3609
+SICT,Elektro Heliport,-47.106392,-22.996694,2041
+SICV,Porto Marina Asturias Heliport,-46.293569,-24.000583,7
+SICW,Fazenda Santa Fé Airport,-47.825008,-17.453632,3094
+SICX,Edifício Salvador Trade Center Heliport,-38.453608,-12.983928,348
+SICY,Fazenda do Cedro Airport,-53.196388,-28.108334,2143
+SICZ,Edifício Comercial Lorena Helipad,-46.655443,-23.573334,2644
+SIDA,Edifício Dakota Helipad,-46.683674,-23.594393,2546
+SIDB,Doutor Almir Lopes de Oliveira Melo Airport,-42.999634,-4.271026,168
+SIDE,Federal Police Helipad,-46.70437,-23.511391,2438
+SIDI,Fazenda Cachoeira Heliport,-43.630353,-19.829464,3583
+SIDJ,Fazenda Arpa Airport,-50.513596,-8.948639,807
+SIDL,Deus é Amor Helipad,-46.624893,-23.555766,2474
+SIDM,Fazenda Cibrapa Airport,-52.099529,-15.036799,919
+SIDQ,Das Quaresmas Heliport,-44.29111,-23.016471,358
+SIDR,Retiro Piúva Airport,-56.703293,-19.837257,328
+SIDT,Edise Heliport,-43.179365,-22.909493,404
+SIDV,Rancho Cajuru Heliport,-44.770421,-20.25331,2510
+SIDW,Fazenda Cortezia Airport,-56.087606,-13.004636,1355
+SIDX,Polícia Federal - Florianópolis Heliport,-48.531638,-27.572937,98
+SIDY,Fazenda Yanduy Airport,-51.819447,-24.07771,1483
+SIEA,Fazenda Ibiporã Airport,-50.79856,-21.466359,1181
+SIED,Colonial Airport,-43.402595,-15.450541,1621
+SIEF,Fazenda São José Airport,-54.716721,-20.572287,1722
+SIEH,Lazzuli Heliport,-34.871188,-8.033757,69
+SIEJ,Monte Verde Airport,-57.485956,-9.942937,1083
+SIEL,Fazenda Várzea Funda Airport,-57.727698,-16.589899,659
+SIEP,Riachuelo - Matriz Helipadt,-46.646276,-23.501068,2595
+SIEQ,Fazenda Táua Airport,-56.573196,-13.306521,1099
+SIER,Cosan Heliport,-47.686898,-22.632926,1667
+SIES,Ciclade Heliport,-45.633259,-23.768939,20
+SIEU,Diamante Heliport,-48.69308,-22.373442,1444
+SIEV,Fazenda Boca da Onça Airport,-56.706834,-20.767219,1050
+SIEW,Areia Branca Airstrip,-61.050532,-7.98806,279
+SIEX,Fazenda São Joaquim I Airport,-50.431983,-19.010015,1450
+SIEY,Palácio das Mangabeiras Heliport,-43.912665,-19.953755,3825
+SIFA,Fazenda Sete Airport,-56.476336,-19.791055,328
+SIFB,Sítio Canhanheiro Heliport,-44.685366,-23.22358,7
+SIFG,Life Center Helipad,-43.924442,-19.935278,3287
+SIFI,Amazonas Business Hotel Heliport,-60.02088,-3.093079,328
+SIFK,Hospital Santa Tereza Helipad,-43.193822,-22.508082,2752
+SIFP,EPCCO Heliport,-47.850641,-24.524704,115
+SIFQ,Condomínio Menega Airport,-51.143836,-29.044699,2566
+SIFT,Fazenda Travessão Airport,-60.12017,-16.144278,906
+SIFU,Fazenda Ribeirão Airport,-43.774735,-22.415472,1319
+SIFV,Primo Bitti Airport,-40.102168,-19.825829,85
+SIFW,Fazenda São Lourenço Airport,-56.996706,-17.719113,400
+SIFY,Fazenda Yndiana Airport,-57.496389,-21.777778,530
+SIFZ,Hungria 1100 Heliport,-46.69435,-23.577813,2514
+SIGB,Morma II Heliport,-48.625692,-28.042989,171
+SIGC,Porto Cubatão Heliport,-47.945434,-24.975702,23
+SIGE,Lagoa do Cavalo Heliport,-35.638233,-8.172905,1722
+SIGI,Gabinete Militar Heliport,-49.255995,-16.681998,2523
+SIGJ,Hospital Central da Aeronáutica Helipad,-43.211594,-22.920117,103
+SIGK,CD Guarulhos Helipad,-46.444563,-23.446839,2648
+SIGN,Asa Delta Airport,-53.233612060546875,-15.571389198303224,1585
+SIGO,Fazenda Araguari Airport,-53.957779,-13.336665,2126
+SIGP,Rio - Bravo Helipad,-43.181956,-22.909286,495
+SIGQ,Aeroclube CSN - Companhia Siderúrgica Nacional Heliport,-44.081687,-22.499642,1234
+SIGS,Fazenda Granja Santiago Airport,-46.66,-17.162222,1946
+SIGT,Fazenda Goiabeira Airport,-49.179169,-23.989445,2260
+SIGU,Fazenda San Jose I Airport,-53.827834,-19.815147,2116
+SIGV,Rede Record Helipad,-46.66253,-23.523759,2412
+SIGX,Fazenda Gairova Airport,-58.235682,-11.198073,1083
+SIGY,Fazenda Progresso Airport,-44.198505,-7.502616,1476
+SIGZ,Represa Helipad,-46.698911,-23.617111,2835
+SIHB,Fazenda Soberana Airport,-46.0625,-5.455833,417
+SIHC,Cel PM Cícero Dantas dos Santos Heliport,-40.312475,-20.293511,62
+SIHD,Divena Helipad,-46.622382,-23.598422,2473
+SIHI,Fazenda Itaipavas Airport,-48.995762,-6.620254,633
+SIHJ,Sítio Flyer Airport,-48.326389,-10.108056,958
+SIHK,Hospital Santa Catarina Heliport,-46.645632,-23.569052,2864
+SIHL,Rio Centro Heliport,-43.409434,-22.97978,33
+SIHM,Dragão do Ar Heliport,-38.434242,-3.81095,33
+SIHO,Kia Helipad,-47.290939,-23.284104,2080
+SIHQ,Águas Claras Official Residence Heliport I,-48.02886,-15.829291,3757
+SIHS,Edifício Faria Lima Premium Heliport,-46.59222030639648,-23.77305603027344,2700
+SIHT,Tanguá Heliport,-44.353148,-23.00213,222
+SIHW,Agrishow Airport,-47.865781,-21.211237,1952
+SIHX,Hospital da Bahia Heliport,-38.450872,-12.987727,105
+SIHZ,Nannai Resort e Spa Heliport,-34.98137,-8.431876,9
+SIIA,Fazenda Paraná Airport,-58.218056,-11.7,653
+SIIB,Suiço Heliport,-46.606388,-23.379999,3189
+SIIC,Caragoatá Heliport,-44.595978,-23.243658,66
+SIID,Crepurizão Airport,-56.841396,-6.819947,623
+SIIE,Fazenda Cachoeira Branca Airport,-53.406103,-20.891107,1063
+SIIG,Eliza Camargo de Arruda Botelho Airport,-51.101661,-22.359959,1756
+SIIH,Torre 2000 Heliport,-46.686423,-23.566623,2730
+SIII,Doutor Heráclito da Motta Luiz Airport,-48.225367,-20.433126,1798
+SIIJ,São Geraldo Airport,-56.568099,-21.260487,1099
+SIIK,Fazenda Santa Lídia Airport,-53.687986,-20.721889,1371
+SIIM,Fazenda Giruá Airport,-54.851448,-18.803423,1394
+SIIN,Independência Airport,-56.699019,-7.594391,1040
+SIIO,Itaorna Heliport,-44.465758,-23.005142,157
+SIIP,Quinta da Baroneza I Heliport,-46.703888,-22.977222,2487
+SIIR,Brascam Century Plaza Heliport,-46.675576,-23.583998,2761
+SIIS,Fazenda Uberaba Airport,-53.833611,-23.655,1099
+SIIT,Fazenda Cachoeira Airport,-55.572227,-20.759998,1188
+SIIU,Santa Marta Airport,-48.712231,-19.642052,2218
+SIIV,Kekafly II Heliport,-48.915188,-27.089266,115
+SIIW,TECNET 2 Helipad,-46.869999,-23.454078,2899
+SIIY,Brasil XXI Heliport,-47.89391,-15.792832,3901
+SIIZ,Fazenda Chalana Airport,-57.158732,-14.165164,1785
+SIJC,Hotel Campos do Jordão Heliport,-45.577753,-22.717752,5381
+SIJD,João Dias Helipad,-46.717826,-23.643649,2533
+SIJE,Fazenda Joana Estãncia Airport,-57.389231,-20.013385,476
+SIJF,Edifício Faria Lima Financial Center Heliport,-46.683376,-23.58596,2693
+SIJG,Fazenda Jaguaretê Airport,-50.725465,-21.443322,1290
+SIJI,Petrobrás - São José dos Campos Heliport,-45.817183,-23.182371,2051
+SIJK,Vazante Airport,-46.861668,-17.955,2457
+SIJM,Fazenda Santa Maria do Porto da Capivara Airport,-56.597778,-17.144444,328
+SIJN,Pouso na Serra Airport,-49.578333,-27.863333,2881
+SIJO,Fazenda São João do Jatobazinho Airport,-57.511111,-18.577222,381
+SIJP,Bolsa-RJ Heliport,-43.174295,-22.902269,161
+SIJQ,Ryhad Palace Hotel Helipad,-49.396983,-25.582584,3081
+SIJR,Ely Rego Airport,-49.60236,-25.539024,2592
+SIJS,Fazenda Tonga Airport,-47.528613,-3.45472,561
+SIJT,Mina 3 Heliport,-41.303068,-21.750123,66
+SIJU,Fazenda Areia Branca Airport,-58.456117,-11.790368,1073
+SIJW,Hospital e Maternidade Santa Marina Heliport,-46.653291,-23.657411,2710
+SIJX,Internacional Plaza Heliport,-46.6816,-23.591255,2615
+SIJY,Campo Comandantes Airport,-48.816387,-26.983055,33
+SIJZ,Fazenda Vera Paz Airport,-56.764721,-7.394722,801
+SIKA,Fazenda Alegria II Airport,-54.558055,-23.110556,1191
+SIKB,Kekafly I Heliport,-48.9254,-27.0829,129
+SIKC,Colider Airport,-55.462283,-10.760403,984
+SIKD,SODEPA Heliport,-46.70449,-23.573529,2402
+SIKE,Wobben Windpower Heliport,-38.848136,-3.620365,200
+SIKF,Plaza Iguatemi Heliport,-46.686659,-23.576687,2722
+SIKH,Hotel Vitória Heliport,-47.183039,-23.085377,1972
+SIKI,Txai Resort Itacaré Heliport,-39.011089,-14.377818,33
+SIKK,Calciolândia Airport,-45.645,-20.250557,2180
+SIKL,Flamboyant Heliport,-49.238711,-16.709683,2739
+SIKM,Fazenda Viamão Airport,-46.001667,-5.289167,863
+SIKN,Fazenda Bonanza Airport,-45.915558,-5.157222,928
+SIKP,Fazenda Santa Teresa Airport,-57.506944,-18.303611,404
+SIKQ,Fazenda Samaúma Airport,-57.103969,-7.237056,612
+SIKR,Fazenda Barra Mansa Airstrip,-56.085522,-19.581399,364
+SIKS,Fazenda Mata Porcos Heliport,-43.106716,-22.442931,3031
+SIKT,Joaquim Floriano Heliport,-46.670984,-23.583339,2687
+SIKV,Aldeia do Vale Heliport,-49.191901,-16.608188,2490
+SIKW,Luciano Peixoto Heliport,-48.925488,-15.930618,2093
+SIKX,Fazenda Continental Airport,-48.651109,-20.236006,1476
+SIKZ,Fazenda Olho D`Água Airport,-43.536072,-5.663818,390
+SILA,Fazenda Santa Ada Airport,-53.83996,-22.756475,1247
+SILC,Municipal Bom Futuro Airport,-55.95025,-13.037861,1358
+SILE,Usina Trapiche Heliport,-35.128056,-8.579444,33
+SILF,New Century Heliport,-46.680372,-23.587857,2691
+SILG,Fazenda Panamá Airport,-58.747817,-13.762288,1690
+SILH,Parque Dom Pedro Heliport,-47.066589,-22.836232,2096
+SILJ,Do Gaúcho Airport,-52.504075,-0.831374,135
+SILK,O Estado de São Paulo Heliport,-46.671719,-23.512751,2539
+SILM,Fazenda Regalito Airport,-46.870703,-14.466194,1598
+SILP,Lojas Cem Heliport,-47.267411,-23.152228,1982
+SILQ,Aeroleve Aeródromo Privado Airport,-53.496006,-24.929094,2254
+SILR,One Hundred Heliport,-46.684449,-23.59502,2550
+SILS,Big Master Airport,-57.608147,-14.63693,1138
+SILT,Santa Fé do Sul Airport,-50.968943,-20.228473,1276
+SILU,BRPEC Agro-Pecuária Airport,-56.987917,-19.865306,427
+SILV,Locar Heliport,-46.483487,-23.471493,2720
+SIMB,Monumental Business Helipad,-46.5692,-23.614697,2661
+SIMD,Reseda Office Heliport,-46.674814,-23.582725,2566
+SIME,Comandante Carlos Inácio Agnes Airport,-47.428032,-5.583771,443
+SIMG,Fazenda Seis Palmas Airport,-57.716895,-21.096121,312
+SIMJ,Capinópolis - Aviação Agrícola Buttarello Ltda. Airport,-49.5476,-18.659201,2005
+SIMK,Tenente Lund Pressoto Airport,-47.3829,-20.592199,3292
+SIMM,Edifício Corporate Park Heliport,-46.672175,-23.58743,2645
+SIMO,Posto de Proteção Ambiental Santo André Airport,-56.172677,-16.770832,449
+SIMP,Marques Plaza Hotel Heliport,-45.916897,-22.218675,2710
+SIMQ,Fazenda Dois de Maio Airport,-55.753373,-18.208867,492
+SIMR,Fazenda Reunidas Airport,-51.151936,-17.751364,2362
+SIMU,Fazenda Mutum Airport,-52.844485,-22.278524,978
+SIMV,Fazenda Mata Velha Airport,-47.849836,-19.838343,2733
+SIMW,Fazenda Retiro do Cervo I Airport,-53.970519,-20.350089,1562
+SIMX,Fazenda Jangada Airport,-56.578056,-15.240833,722
+SIMY,Fazenda Porto Oculto Airport,-54.095982,-23.211108,972
+SIMZ,Fazenda Primeiro de Maio Airport,-54.941565,-17.875572,584
+SINB,Tubarão Heliport,-45.388611,-23.829445,10
+SIND,Ondina Heliport,-38.503983,-13.009093,177
+SINE,Ibar Heliport,-46.330215,-23.524477,2412
+SING,Fazenda São João Airport,-49.288334,-20.556667,1739
+SINH,Fazenda Esperança Airport,-53.562341,-22.64372,804
+SINK,Fazenda Negrinha Airport,-50.8729,-21.874831,1582
+SINL,Costão Heliport,-48.383043,-27.464166,138
+SINN,Fazenda Nova Holanda Airport,-46.358891,-8.806944,1657
+SINP,Fazenda Santa Maria Airport,-56.420438,-21.506016,1063
+SINQ,Laranjal Airport,-52.488164,-0.790406,250
+SINR,Fazenda Recanto Airport,-54.009289,-18.007405,1093
+SINT,Fazenda Santa Adélia Airport,-49.37641,-15.193743,2251
+SINU,Fazenda Xerez Airport,-56.706944,-21.923333,958
+SINW,International Paper Luís Antônio Heliport,-47.913834,-21.572616,1697
+SINY,Fazenda Nova Heliport,-36.196893,-8.159848,1542
+SINZ,Xanadu Airport,-50.527904,-25.438527,2796
+SIOB,Fazenda Guanabara Airport,-51.266799,-20.818202,1362
+SIOC,Santo Expedito Airport,-51.544011,-21.14321,1300
+SIOE,Mocelin Airport,-53.035909,-25.793554,1850
+SIOH,Cauê-Ijaci Heliport,-44.941453,-21.194765,3019
+SIOL,Fazenda Pontal Airport,-48.84401,-18.322459,1706
+SIOO,Fazenda Água Doce do Pantanal Airport,-57.902884,-22.025799,273
+SIOQ,Fazenda Mato Alto Airport,-54.309314,-23.505490000000002,1313
+SIOR,Fazenda São Miguel Airport,-57.153332,-18.098057,358
+SIOS,Fazenda Santa Josefa Airport,-53.957269,-22.769395,1313
+SIOT,Fazenda Santa Vergínia Airport,-52.407285,-21.488074,1043
+SIOW,Hospital Alemão Osvaldo Cruz Helipad,-46.643524,-23.569833,2926
+SIPA,Aeroclube de São José do Rio Pardo Airport,-46.928262,-21.647157,2849
+SIPB,CAVU - Clube de Aviação Ultraleve Airport,-44.120864,-2.448485,109
+SIPD,Vitória Hotel Residence Heliport,-47.048323,-22.902398,2361
+SIPE,Itapessoca Airport,-34.856499,-7.65601,16
+SIPG,Fazenda Água Preta Airport,-51.469531,-14.137595,794
+SIPI,Alphacentro Helipad,-46.862307,-23.498096,2451
+SIPK,SESC Pantanal Airport,-56.422199,-16.4974,348
+SIPN,Fazenda Progresso Airport,-57.69055,-21.516014,328
+SIPO,Sebastião José Pereira Airport,-41.956669,-14.924167,2260
+SIPS,Haras Forum Heliport,-44.147551,-19.65932,2743
+SIPT,Petrobrás Refinaria de Paulínea Replan Heliport,-47.137803,-22.731765,1955
+SIPX,Gramado Heliport,-47.004265,-22.907754,2395
+SIPZ,Papaiz Heliport,-46.618209,-23.676378,2684
+SIQA,Senador Antônio Farias Airport,-35.044753,-6.407982,138
+SIQC,Fazenda Paraíso Airport,-52.998313,-19.164086,1887
+SIQD,Fazenda Estância Regina Airport,-54.791619,-20.644541,1968
+SIQE,Botelho Airport,-47.726636,-15.937469,3399
+SIQF,Recanto das Marés Heliport,-48.530822,-27.378013,181
+SIQG,Fazenda Morro Alto Airport,-55.709881,-10.504746,899
+SIQH,Universidade Mogi das Cruzes Heliport,-46.73451,-23.527919,2419
+SIQI,Aerolis Airport,-50.467404,-30.536381,20
+SIQJ,Morro do Chapéu II Airport,-55.800701,-14.9583,989
+SIQK,Nova Odessa Airport,-47.334557,-22.781533,1909
+SIQL,Duas Rodas Heliport,-49.06477,-26.486726,79
+SIQS,Fazenda Terra do Sol Airport,-57.131084,-15.375074,722
+SIQU,Alcoolvare Airport,-51.309468,-20.08639,1280
+SIQV,Fazenda Matão Airport,-58.57503,-12.891057,1499
+SIQY,Fazenda Amizade Airport,-55.945,-12.628056,1264
+SIQZ,Fazenda Carolina Airport,-46.603227,-15.594296,1871
+SIRB,Fazenda Mimoso Airport,-54.381668,-21.771111,1476
+SIRC,Fazenda Jarinã Airport,-53.58592,-10.325341,1112
+SIRF,José Múcio Monteiro Airport,-35.271667,-8.631111,479
+SIRH,Fazenda Morada da Lua Airport,-54.311836,-18.263323,1450
+SIRI,Barra Grande Airport,-38.940804,-13.906082,23
+SIRJ,Caima Airport,-56.218103,-4.304645,115
+SIRK,Hospital Pronto Socorro João XXIII Helipad,-43.931354,-19.925768,2818
+SIRL,Virgínia Lyra Heliport,-48.264903,-19.982484,1936
+SIRN,Fazenda Jaó Airport,-51.985738,-14.769135,854
+SIRO,Maksoud Plaza Helipad,-46.651356,-23.56324,2920
+SIRS,Fazenda São Sebastião Airport,-48.789251,-19.636525,2461
+SIRU,Fazenda Bahia Airport,-54.070919,-16.927115,6234
+SIRV,Fazenda Morro Branco Airport,-58.765835,-16.118055,400
+SIRW,Fazenda Serra Vermelha Airport,-45.306809,-6.874737,1657
+SIRX,Vila Velha Heliport,-44.342784,-23.024389,79
+SIRY,Hiper Bergamini Heliport,-46.581903,-23.465835,2481
+SIRZ,Condomínio Faria Lima Pinheiros Heliport,-46.691203,-23.569435,2714
+SISC,Senador Carlos Lyra Heliport,-47.768866,-19.957345,1968
+SISD,Fazenda São Sebastião Airport,-51.273805,-18.14522,1982
+SISH,Vega Heliport,-38.542485,-3.720225,33
+SISJ,Fazenda São José do Piquiri Airport,-55.56373,-17.455984,427
+SISK,Fazenda Cimal Airstrip,-52.0474,-18.8645,2158
+SISL,Fazenda Santa Lúcia Airport,-55.90672,-16.894737,509
+SISM,Hospital Miguel Arraes Helipad,-34.891157,-7.920322,161
+SISN,Fazenda Valiosa Airport,-45.874819,-17.072613,1716
+SISO,Fazenda Santo Ambrósio Airport,-49.580555,-0.091667,20
+SISQ,Tino Heliport,-48.933334,-26.306389,53
+SIST,Zizico Heliport,-48.460347,-25.683651,21
+SISV,Fazenda Promissão Airport,-57.104208,-13.897372,1690
+SISW,Fazenda Mato Grosso Airport,-59.163458,-13.824526,1690
+SISX,Santa Terezinha Airport,-56.057986,-19.379788,361
+SISY,Piraquara Airport,-49.1422,-25.450986,3212
+SITB,Fazenda Touro Branco Airport,-53.790618,-23.01328,951
+SITE,Telefônica Helipad,-46.642617,-23.566308,2976
+SITG,INTO Helipad,-43.215054,-22.893898,167
+SITJ,Fazenda São Gabriel Airport,-46.144934,-7.4904,738
+SITK,Jomarca Helipad,-46.485917,-23.467395,2592
+SITL,Fazenda Flores Airport,-40.234167,-5.049167,1148
+SITP,Sítio Santa Izabel Heliport,-47.273335,-23.602222,2737
+SITQ,Vivo S/A Helipad,-46.69904,-23.620374,2484
+SITR,Fazenda Córrego Limpo Airport,-55.074709,-20.140971,745
+SITS,Estância Indiana Airport,-55.981722,-13.130369,1388
+SITU,Fazenda Santa Genoveva Airport,-50.339237,-17.944125,1526
+SITX,Fazenda Chapéu de Pano Airport,-55.521667,-19.774445,519
+SIUD,Montes Horere Helipad,-46.607577,-23.538534,2507
+SIUE,Grande Hotel São Pedro Heliport,-47.881100000000004,-22.598926,1611
+SIUF,Fazenda São Francisco Airport,-53.701668,-10.156944,1165
+SIUG,Fazenda Santa Irene Airport,-51.905572,-22.496183,1116
+SIUI,ITH Helipad.,-43.361251,-21.781148,2854
+SIUM,Fazenda Planeste Airport,-46.849998,-8.556111,1841
+SIUO,Fazenda Santa Adélia Airport,-52.27856,-10.720669,1063
+SIUP,Ford Camaçari Heliport,-38.273449,-12.673637,135
+SIUQ,Fazenda Primavera Airport,-54.329528,-20.975095,1624
+SIUR,Fazenda Ribeirão Airport,-53.496045,-19.610011,1549
+SIUS,Fazenda Dona Rosa S. Rezek Airport,-54.045042,-22.711748,1240
+SIUU,Fazenda Santa Eulalia Airport,-57.041305,-16.518436,394
+SIUW,Candote Airport,-52.301478,-20.839112,1093
+SIVB,Helicentro Zona Sul Heliport,-43.965118,-19.985428,3645
+SIVC,Fazenda Iporanga Airport,-49.477873,-13.760061,1231
+SIVD,Fazenda dos Três Rios Airport,-46.272526,-16.944212,1723
+SIVE,Clube de Vôo Fazenda Royal Airport,-48.000453,-23.503805,2477
+SIVG,Clube Aerodesportivo Selva Airport,-55.444443,-11.876013,1280
+SIVH,Sítio Santa Catarina Heliport,-47.881379,-20.70517,2300
+SIVI,Monte Sinai Heliport,-47.064126,-22.91273,2405
+SIVJ,Cirrus Sociedade Aerodesportiva Airport,-43.899779,-19.451074,2402
+SIVN,Fazenda Sansara Airport,-43.771033,-16.602173,2149
+SIVO,Fazenda Malu Airport,-51.774166,-12.448056,1378
+SIVP,Bela Manhã Airport,-50.535837,-14.441618,899
+SIVQ,Fazenda Annalu Airport,-54.201111,-22.082222,1083
+SIVR,Fazenda MP Airport,-56.746169,-7.629534,925
+SIVS,Vicente Spisso Heliport,-47.000595,-23.610947,3022
+SIVT,Fazenda Boa Vitória Heliport,-44.110851,-20.283996,2606
+SIVU,João Moteiro Airport,-40.332484,-20.422911,16
+SIVV,Fazenda Bororeo Airport,-56.228961,-16.931465,489
+SIVW,Banaer de Jacupiranga Airport,-48.022828,-24.709625,89
+SIVX,Cia. Brasileira de Alumínio Heliport,-47.265912,-23.530615,2855
+SIVZ,Mata-Fome Airport,-56.543949,-29.187105,220
+SIWA,Fazenda Estrela do Aripuanã Airport,-59.373776,-10.74854,925
+SIWB,Fazenda Sperafico Airport,-55.289855,-23.190468,1968
+SIWE,Nelson Pizzani Airport,-50.956501,-27.2127,3223
+SIWI,Fazenda Guapirama Airport,-57.242759,-13.927482,1788
+SIWJ,Campo Verde Airport,-55.141441,-15.528713,2533
+SIWK,Fazenda Mãe Margarida Airport,-55.38485,-14.050007,1759
+SIWM,Fazenda Bandeirantes Airport,-49.538319,-17.988193,1900
+SIWN,Fazenda Vargem das Flores Airport,-49.582296,-17.849879,2146
+SIWQ,Fazenda Mateira Airport,-53.070509,-20.96167,1260
+SIWR,Fazenda Amazonas Airport,-50.488808,-13.799722,919
+SIWS,Hotel Portobello Heliport,-44.075153,-22.949709,13
+SIWV,Fazenda Boa Vista Airport,-56.716441,-7.856935,902
+SIWX,Blau Farmacêutica Helipad,-46.897845,-23.598274,2658
+SIWY,Fazenda Campo Augusta Airport,-55.773161,-17.512801,443
+SIWZ,Fazenda Fazendinha Airport,-56.484526,-19.481135,344
+SIXA,Fazenda União Suzanópolis Airport,-51.096039,-20.529893,1398
+SIXC,Embrase Helipad,-46.692951,-23.510562,2392
+SIXD,Fazenda da Paz Airport,-55.566051,-30.844725,892
+SIXE,Aeroclube de Eldorado do Sul Airport,-51.443611,-30.050278,33
+SIXF,Fazenda Soledade Airport,-47.536232,-17.383446,2717
+SIXG,Fazenda Pouso Alegre Airport,-47.463856,-18.03226,2812
+SIXH,Hospital Unimed Heliport,-48.845537,-26.288918,17
+SIXJ,Volare Helicentro Heliport,-44.918587,-20.166146,2480
+SIXK,Nossa Senhora do Carmo Airport,-54.202307,-23.167497,961
+SIXO,Fazenda Nossa Senhora de Fátima Airport,-59.656623,-13.983586,1516
+SIXP,Fazenda Paiaguás Airport,-57.450699,-14.0723,2038
+SIXQ,Fazenda São João Airport,-55.436156,-23.843515,1519
+SIXS,EZ Towers A Helipad,-46.7025,-23.626944,2844
+SIXV,Fazenda Rancho do Planalto Airport,-53.363466,-18.145292,2707
+SIYB,Almenat Heliport,-46.882439,-23.646465,3006
+SIYC,Cesaroni Heliport,-38.317058,-12.859253,82
+SIYE,Fazenda Campo Hélio Airport,-55.569721,-19.09639,463
+SIYG,Gorduras e Margarinas Especiais - GME Helipad,-38.474057,-3.719256,79
+SIYH,Fazenda Cruzeiro Airport,-55.291829,-18.981943,508
+SIYI,Fazenda Planalto Airport,-51.146516,-17.261915,2874
+SIYK,Fazenda Sorriso Metálico Airport,-48.21527862548828,-17.456666946411133,2605
+SIYL,Santuário Nacional de Nossa Senhora da Conceição Apare Heliport,-45.23777771,-22.8538894653,1854
+SIYN,Eletro Primavera LTDA Airport,-61.22775,-11.902683,749
+SIYO,Fazenda Goiás Barreiro Airport,-51.30638885498047,-17.255556106567383,2848
+SIYU,Edifício Ronaldo Sampaio Ferreira Heliport,-46.68055725097656,-23.599443435668945,2592
+SIYV,Mário Henrique Simonsen Heliport,-43.346549,-22.996973,20
+SIYY,Ilha do Caracará Airport,-56.841111,-17.456944,346
+SIYZ,Condomínio Edifício Berrini 1681 Heliport,-46.694695,-23.611512,2576
+SIZB,Hospital São José Heliport,-42.980177,-22.424998,3239
+SIZC,Fazenda Fenix Airport,-41.995556,-20.779444,1581
+SIZE,Coppersteel Bimetálicos Heliport,-47.123618,-22.996625,2222
+SIZF,Nossa Senhora das Graças Airport,-53.956111907958984,-23.9950008392334,873
+SIZG,Fazenda Encontro das Águas Airport,-48.387901,-22.607901,1631
+SIZH,Fazenda Vista Alegre Airport,-51.51416778564453,-19.99305534362793,1483
+SIZI,Fazenda Vitória Airport,-51.477224,-18.755003,1680
+SIZJ,Fazenda Santa Zélia Heliport,-48.44718,-20.979532,1870
+SIZK,Fazenda Vera Cruz Airport,-52.110643,-14.87378,896
+SIZL,Fazenda Lagoa,-49.844977,-22.747696,1909
+SIZO,Calcário Vale do Araguaia Airport,-51.643902,-14.1903,853
+SIZQ,Fazenda Real Airport,-48.441111,-23.036667,3077
+SIZS,Agropecuária Equus Airport,-53.440619,-13.536658,1201
+SIZU,Agrochapada Airport,-54.276536,-13.434653,1427
+SIZV,Sada Heliport,-44.117841,-19.960035,3157
+SIZW,Darinha Heliport,-38.248055,-4.111667,33
+SIZX,Inácio Luís do Nascimento Airport,-57.5495,-11.2966,870
+SIZY,IMOCOP Heliport,-47.561842,-22.695981,1775
+SJAB,Helisul - Cataratas Heliport,-54.432597,-25.692776,623
+SJAC,Fazenda Rio Preto Airport,-51.688922,-11.47151,886
+SJAD,Tecno Bag Heliport,-45.109295,-22.757058,1765
+SJAF,Fazenda Água Limpa Airport,-57.899783,-13.671667,1804
+SJAG,Fazenda Paredão Airport,-60.283854,-13.63208,778
+SJAH,Fazenda Gesso Integral,-45.164722,-5.773889,755
+SJAI,Fazenda Davilândia Airport,-48.753031,-13.184792,1263
+SJAJ,Estação Convention Center Helipad,-49.267792,-25.438934,3104
+SJAK,Fazenda F5 Airport,-48.872128,-18.364181,1726
+SJAM,Estância Lajota Heliport,-46.57112,-23.248582,3183
+SJAN,Grupo Santander Banespa - Panamericana Park Helipad,-46.725186,-23.653713,2405
+SJAO,Natura Heliport,-46.831144,-23.403681,2414
+SJAP,Fazenda Mrajan Heliport,-46.984856,-22.914178,2290
+SJAQ,Fazenda Renascença Airport,-46.354453,-16.116865,3038
+SJAR,Fazenda Bela Manhã Airport,-50.893669,-20.017684,1227
+SJAS,Fazenda São Roque Airport,-49.173057556152344,-21.669166564941406,1450
+SJAT,Monte Moriá Heliport,-46.871454,-22.886912,2766
+SJAU,Araguacema Airport,-49.557499,-8.83772,680
+SJAW,Fazenda Citrícola Airport,-48.377154,-21.724679,2051
+SJAX,Fazenda Acalanto Airport,-45.972805,-12.95931,2657
+SJAZ,Fazenda Querubim Airport,-46.023488,-12.770401,2733
+SJBA,Friboi Heliport,-46.73104,-23.513706,2445
+SJBB,Fazenda Bacaba Airport,-49.889005,-9.525193,640
+SJBC,Fazenda União Airport,-51.215305,-8.989448,1099
+SJBD,Mundo Plaza Helipad,-38.461263,-12.97964,483
+SJBE,Ortosíntese Helipad,-46.724435,-23.438866,2743
+SJBG,Edifício Torre Almirante Heliport,-43.178181,-22.909572,417
+SJBH,Tranportadora Americana Heliport,-46.738458,-23.514999,2407
+SJBI,Edra Heliport,-47.698463,-22.440285,2002
+SJBJ,Guancan Helipad,-46.851491,-23.613051,2690
+SJBK,Iriri Airport,-54.244999,-5.679363,581
+SJBL,Fazenda São José Heliport,-47.488994,-22.330565,2113
+SJBP,Atrium VI.com Heliport,-46.687474,-23.595482,2664
+SJBQ,CBMM Heliport,-46.9041,-19.675929,3649
+SJBT,Fazenda Vera Lúcia Airport,-56.100508,-19.575061,417
+SJBU,Fazenda Baluarte Airport,-44.791897,-17.014975,1719
+SJBV,Rio Verde/Mercosul Heliport,-49.464636,-25.457364,2940
+SJBX,Severino Lopes Airport,-35.241276,-6.018827,329
+SJBY,João Silva Airport,-45.3452,-3.65428,82
+SJBZ,Fazenda Três Barras Airport,-51.110233,-18.958246,1552
+SJCA,Comandante Vittorio Bonomi Airport,-47.04727,-21.532177,2037
+SJCB,Classic Helipad,-46.734129,-23.513543,2398
+SJCD,Fazenda Pingo d`Água Airport,-53.938361,-17.72516,1303
+SJCF,Fazenda Estrela D`Alva Airport,-52.312903,-13.191879,1250
+SJCG,Iate Clube de Santos - Angra dos Reis Heliport,-44.433582,-22.977854,214
+SJCH,Fernando João Pereira dos Santos Filho Airport,-36.181313,-8.15749,1621
+SJCI,Cap PM Paulo José de Menezes Filho Heliport,-45.874583,-23.194975,1962
+SJCL,Fazenda Araçatuba Airport,-50.411162,-14.529421,1100
+SJCO,Fazenda Aparecida Airport,-50.094019,-21.49784,1510
+SJCP,Fazenda São Roberto Airport,-50.846266,-17.068934,2516
+SJCQ,Fazenda Serra Azul Airport,-40.050701,-11.9355,1125
+SJCS,Continental Square Heliport,-46.683961,-23.595772,2678
+SJCV,Roots Heliport,-46.036706,-22.865024,5085
+SJCW,Jatapu Airport,-58.5112,-1.71205,132
+SJCY,Estância Santa Rita Airport,-55.95603,-15.680085,617
+SJCZ,Fazenda Paraíso Airport,-54.250435,-12.430112,1158
+SJDB,Fazenda Santa Elisa Airport,-51.363991,-15.055868,853
+SJDE,Fazenda União Airport,-54.09762,-22.644834,1332
+SJDF,Anchieta Hospital Heliport,-48.06718,-15.824037,4013
+SJDI,Fazenda Concórdia Airport,-54.208249,-22.852064,1247
+SJDJ,Arenhart Aviação Agrícola Airport,-57.14191,-29.889211,259
+SJDK,Oeste Plaza Shopping - MC Helipad,-51.369345,-20.884696,1339
+SJDL,Fazenda Paraíso Airport,-55.852776,-17.302378,1313
+SJDN,Fazenda Campo Alegre Airport,-55.741625,-19.456729,558
+SJDO,Maroum Heliport,-45.371325,-23.82192,10
+SJDP,My Way Heliport,-44.287831,-23.015344,98
+SJDQ,Trade Tower Heliport,-47.04688,-22.897723,2294
+SJDS,M Dias Branco Airport,-38.489179,-3.917155,66
+SJDT,Fazenda São Roque Airport,-55.312922,-19.51876,453
+SJDU,Nossa Senhora do Loreto Airport,-56.960771,-29.728093,318
+SJDW,Fazenda Canadá Airport,-57.290997,-22.122402,548
+SJDX,Fazenda Bandeirantes Airport,-55.549932,-19.412815,427
+SJDY,Fazenda da Barra Airport,-54.068611,-18.663055,1533
+SJDZ,Fazenda Canduá Airport,-46.571946,-15.833989,3084
+SJEA,Cadete 56-147 Santana Airport,-48.226832,-12.850863,985
+SJEB,Milennium Office Park Helipad,-46.689636,-23.592965,2484
+SJEC,Eduardo Cordeiro de Araújo Airport,-52.467703,-31.686676,151
+SJEF,Fazenda Costa Rica Airport,-56.042912,-19.747751,342
+SJEG,Estância Esmeralda Airport,-57.158804,-20.159584,433
+SJEH,Clemente Verillo Airport,-48.226719,-22.101357,2395
+SJEI,New England Helipad,-46.661564,-23.552618,2920
+SJEK,Satélite Aviação Agrícola Airport,-52.208673,-13.540849,1362
+SJEM,Vera Municipal Airport,-55.333889,-12.319167,1231
+SJEN,Plá e Silva Airport,-52.977319,-33.142894,10
+SJEP,Sementes Roos Heliport,-52.815174,-28.44261,1722
+SJER,Fazenda Canadá Airport,-50.338433,-17.360044,1811
+SJEX,Fazenda Vitória Airport,-46.107366,-13.008656,2966
+SJEZ,República dos Palmares Helipad,-35.740645,-9.65983,69
+SJFA,West Side Heliport,-46.849317,-23.503735,2932
+SJFB,Fazenda Bacuri Airport,-46.4404,-8.377661,1815
+SJFC,Federação do Comércio do Estado de São Paulo Helipad,-46.652107,-23.558072,2707
+SJFD,Méier Medical Center Helipad,-43.281696,-22.899339,178
+SJFE,Condomínio Jacumã Ocean Resort Heliport,-39.109418,-16.705722,13
+SJFF,Frigo Estrela Airport,-50.41055,-20.294722,1595
+SJFH,I.I.J.O.- Rosário Heliport,-48.217235,-20.412554,1808
+SJFI,CIFI Airport,-55.990239,-15.645028,644
+SJFJ,Fazenda Santa Joana Airport,-55.226651,-17.234575,522
+SJFK,Fazenda Cachoeira Airport,-49.532516,-12.591994,771
+SJFL,Fazenda Campo Formoso Airport,-49.866018,-12.560166,1083
+SJFM,Fazenda Macuco Airport,-54.24448,-23.838938,1149
+SJFN,Fazenda Brasil Novo Airport,-54.927159,-18.371768,752
+SJFP,Fazenda Perobal Airport,-61.370498,-12.91236,984
+SJFQ,Fazenda Quatrirmãs Airport,-48.664874,-22.949012,2441
+SJFR,Fazenda São Gabriel 2 Airport,-58.235558,-12.523889,1434
+SJFT,Fazenda Triunfo Rio Turvo Airport,-57.726944,-10.093056,850
+SJFU,Tabuleiro Airport,-35.631234,-6.696417,1716
+SJFV,Fazenda Gaia Airport,-48.754891,-18.766281,2697
+SJGC,Fazenda Busato I Airport,-45.494492,-12.899685,1201
+SJGD,Fazenda Rio Brilhante Airport,-45.721911,-12.7948,2799
+SJGE,Nações Unidas Airstrip,-56.29239,-6.083471,591
+SJGF,Nova Era Airport,-52.442014,-30.21298,164
+SJGG,Plaza II Heliport,-46.696181,-23.611193,2671
+SJGH,Aeropel Airport,-55.988827,-28.710631,300
+SJGI,Fazenda Cypi Airport,-56.905017,-19.334916,305
+SJGL,Pitangueira Heliport,-49.830833,-27.37611,1290
+SJGM,Quadra Hungria Heliport,-46.695896,-23.575384,2491
+SJGN,Fazenda Agromar Airport,-56.481761,-13.668074,1237
+SJGU,Araguatins Airport,-48.11427,-5.68603,411
+SJGW,Tasi Airport,-55.540395,-11.783531,1280
+SJGY,Fazenda Barriguda Airport,-46.743243,-13.708326,1965
+SJGZ,Fazenda Araçatuba Airport,-52.674999,-22.093583,1231
+SJHB,Real Hospital Português Helipad,-34.898098,-8.064302,221
+SJHC,Canal Heliport,-42.011451,-22.872063,7
+SJHE,Fazenda Palmeira Airport,-55.992689,-12.088032,1194
+SJHG,Confresa Airport,-51.565836,-10.633296,781
+SJHH,Fazenda Poruína Airport,-52.217222,-18.119722,2244
+SJHI,Flow Water Heliport,-45.532672,-22.750265,6063
+SJHJ,Fazenda Remanso Airport,-61.088936,-11.18294,745
+SJHM,Fazenda Globo Airport,-58.587798,-12.949012,1588
+SJHO,Fazenda Colorado Airport,-57.103978,-13.944093,1804
+SJHQ,Fazenda São José da Reunidas Airport,-52.368194,-11.016676,1155
+SJHR,Flamboyant Heliport,-44.137063,-2.520691,125
+SJHS,Fazenda São Vicente Airport,-48.343315,-19.310409,2477
+SJHU,Agropecuária Vale do Guaporé Airport,-60.096176,-13.882563,958
+SJHW,Professor Maurício Joppert Airport,-43.958836,-17.295497,2221
+SJIA,Ipiaú Heliport,-39.700384,-14.153981,430
+SJIB,Itabuna Heliport,-39.320261,-14.82404,217
+SJIC,Pedro da Costa Lima Airport,-52.76981,-21.244874,1444
+SJID,Fazenda Goiaba Airport,-52.63138961791992,-19.917221069335938,1549
+SJIF,Fazenda Nova Era Airport,-54.749171,-23.407549,1247
+SJIG,Edifício Times Square Business Helipad,-47.810558,-21.206323,2238
+SJIL,Fazenda Santa Bárbara Airport,-55.8425,-19.091111,440
+SJIR,Engenheiro Joaquim Martins Airport,-40.878315,-13.31104,1733
+SJIW,Helicenter Alphaville Heliport,-46.828505,-23.475312,2723
+SJIX,Marina Porto Imperial Heliport,-44.715493,-23.230926,10
+SJIZ,Módulo Aguapei Airport,-59.234167,-15.826944,1129
+SJJB,Fazenda Cacique Airport,-52.77758,-20.769296,1421
+SJJE,Jequié Heliport,-40.103595,-13.840653,709
+SJJF,Pousada do Rio Roosevelt Airport,-60.955747,-8.49523,335
+SJJG,Fazenda Tanguru Airport,-52.38028,-12.721846,1050
+SJJJ,Fazenda Juliana Airport,-61.089262,-12.682861,1161
+SJJK,Fazenda Taquaral Airport,-56.7383,-10.028889,980
+SJJL,Fazenda Campo Aberto Airport,-45.965409,-11.787449,2418
+SJJN,Fazenda Shangri-lá Airstrip,-56.325556,-10.282778,1096
+SJJO,João de Oliveira Bueno Airport,-47.120251,-13.192744,1431
+SJJR,Fazenda Recreio Airport,-44.203892,-21.71417,3796
+SJJS,BS Colway Heliport,-49.102677,-25.461476,2986
+SJJT,Fazenda Vale Verde Airport,-49.754587,-9.957995,581
+SJJU,Fazenda Barra Mansa Airport,-60.15419,-14.045111,725
+SJJX,Maca Aero Airport,-48.958611,-2.898056,179
+SJJY,Indaiaúba Heliport,-45.309205,-23.908788,325
+SJJZ,Ilha de Terrapleno Heliport,-52.072953,-32.032855,10
+SJKA,Aerocampo Airport,-57.900965,-13.62797,1798
+SJKB,Fazenda Adelaide Airport,-58.025833,-13.087501,1538
+SJKD,Helisilva Heliport,-48.62111282348633,-27.02638816833496,10
+SJKF,Lago Azul Heliport,-47.582517,-23.508973,2008
+SJKH,Boa Fé Airport,-56.339181,-7.42367,883
+SJKI,Hangar Comandante Salomão Alcolumbre Airport,-51.012373,0.208793,66
+SJKJ,Fazenda Mangabas Airport,-53.809748,-17.440417,2592
+SJKL,Canã Airport,-60.078414,4.620442,994
+SJKM,Canawapai Airport,-60.026486,4.812213,1886
+SJKN,Caracanã Airport,-60.267033,4.700648,1988
+SJKO,Cararuau Airport,-60.165075,4.062941,594
+SJKP,Caraparu Airport,-60.463032,4.542682,1194
+SJKQ,Caramambataí (Mapae) Airport,-60.588872,5.129066,1989
+SJKS,Catrimani I Airport,-63.008952,2.375485,1092
+SJKT,Contão Airport,-60.546974,4.173141,381
+SJKU,Cumaipá Airport,-60.470941,4.815093,2188
+SJKV,Cumanã I Airport,-60.777175,4.467722,1587
+SJKW,Cumanã II Airport,-60.826435,4.425608,1191
+SJKX,Cutia Airport,-59.747576,4.166814,505
+SJKY,Comeri Santos Helipad,-46.325387,-23.952249,66
+SJKZ,Estevão Airport,-60.436378,4.444776,994
+SJLA,Flechal Airport,-60.290176,4.666607,2076
+SJLB,Fazenda Chaparral Airport,-57.773998,-15.570615,571
+SJLC,Hakoma Airport,-63.577944,2.722243,2335
+SJLD,Fazenda Porto do Campo Airport,-57.711388,-15.715556,433
+SJLE,Halikato-u Airport,-63.202282,3.223961,994
+SJLH,Jacamim Airport,-59.78390121459961,2.176110029220581,495
+SJLI,Fazenda Lilliani Airport,-46.974998474121094,-4.213611125946045,958
+SJLJ,Jatapuzinho Airport,-59.22169876098633,0.5972219705581665,397
+SJLK,Lago Grande I Airport,-60.352500915527344,3.442780017852783,298
+SJLL,Maturucá Airport,-60.10029983520508,4.460830211639404,1493
+SJLM,Leão de Ouro Airport,-61.42779922485352,4.151669979095459,298
+SJLN,Maloquinha Airport,-60.590599060058594,4.726940155029297,1890
+SJLO,Manalaí Airport,-60.37889862060547,5.084169864654541,2189
+SJLP,Manoá-Pium Airport,-60.09529876708984,2.9800000190734863,348
+SJLQ,Maracanã Airport,-60.016700744628906,4.364999771118164,1791
+SJLR,Cambiju Heliport,-49.918208,-25.246976,3330
+SJLS,Marupá Airport,-59.8213996887207,2.1252799034118652,495
+SJLT,Milho Airport,-60.40779876708984,3.3855600357055664,358
+SJLU,Missão Catrinami Airport,-62.286399841308594,1.7408299446105957,397
+SJLV,Morro Airport,-59.970001220703125,4.35722017288208,1792
+SJLW,Mudubim I Airport,-60.48970031738281,4.421669960021973,1493
+SJLX,Mutum Airport,-59.85390090942383,4.453060150146484,1792
+SJLY,Helicentro BH Heliport,-43.962353,-20.047227,4401
+SJMA,Fazenda Mundo Acabado Airport,-54.930143,-17.939595,574
+SJMB,Fazenda Mombaça Heliport,-44.289015,-23.016399,128
+SJMC,Monte Carlo Trade Center Heliport,-46.85197,-23.493146,2759
+SJMD,Paapiu Novo Airport,-62.95029830932617,2.7227799892425537,696
+SJME,Mato Grosso Airport,-60.903099,4.57056,2783
+SJMF,Pacu Airport,-60.222198486328125,4.1638898849487305,994
+SJMH,Palimiú Airport,-62.97123,3.329557,896
+SJMI,Parafuri Airstrip,-63.849808,3.282719,1988
+SJMJ,Pedra Branca Airport,-60.269018,4.455811,1489
+SJMK,Pedra Preta Airport,-60.476604,4.711271,2188
+SJML,Piolho Airport,-60.734148,4.702439,2287
+SJMM,Pipi Airport,-60.319226,4.931882,2585
+SJMN,Raposa Airport,-60.092908,3.809596,495
+SJMO,Santa Isabel Airport,-60.864053,4.46907,1194
+SJMP,Santa Liberdade Airstrip,-60.259441,4.288972,1890
+SJMQ,Santa Maria de Normândia Airstrip,-60.141154,4.173909,847
+SJMR,Maragogipe Airport,-54.300302,-23.457518,998
+SJMS,Mineração Serra Grande Heliport,-49.968041,-14.57481,1267
+SJMT,São Miguel Cachoeirinha Airport,-60.9906005859375,4.4902801513671875,1194
+SJMU,Sauparú Airport,-60.4356002808,4.98971986771,2287
+SJMV,Serra do Sol Airport,-60.47529983520508,4.942500114440918,2480
+SJMW,Socó Airport,-60.17689895629883,4.46999979019165,1690
+SJMX,Suapi Airport,-60.858299255371094,4.57528018951416,2487
+SJMY,Monte Rey Heliport,-51.142012,-29.135182,2795
+SJMZ,Fazenda Mizote Airport,-46.006204,-12.95748,2701
+SJNA,Clube de Esportes Aéreos e Náuticos do Pará Airport,-48.43,-1.267222,17
+SJNB,Ubaru Airport,-60.80220031738281,4.501669883728027,1194
+SJNC,Uraricoera Airport,-62.230371,3.147511,794
+SJNE,Wapum Airport,-59.957199,1.99,495
+SJNF,Wilimon Airport,-60.17610168457031,4.635000228881836,1739
+SJNG,Xidea Airport,-63.871121,2.611256,1988
+SJNK,Fazenda Três Perobas Airport,-61.639999,-12.081667,1119
+SJNL,Fazenda Reata Airport,-57.583187,-13.626771,1791
+SJNM,Fazenda Santa Luzia Airport,-55.940962,-13.993894,1526
+SJNO,Fazenda Nazaré Airport,-57.123735,-18.672115,348
+SJNP,Novo Progresso Airport,-55.400833,-7.125833,794
+SJNQ,Destilaria Medasa Airport,-40.156317,-17.491096,656
+SJNU,Fazenda Campo Alto Airport,-51.713889,-13.038091,1099
+SJNV,Fazenda São Francisco Airport,-50.256111,-18.431389,1857
+SJNW,Fazenda Nhandu Airport,-55.216341,-9.632569,1103
+SJNX,Cosmos Aviação Agrícola Airport,-52.63028,-18.408056,2730
+SJNY,Iberostar Praia do Forte Heliport,-37.990776,-12.549641,33
+SJNZ,Fazenda Três Lagoas Airport,-58.727975,-13.258413,1755
+SJOA,Fazenda Fortaleza Heliport,-45.471429,-23.178892,2155
+SJOC,Hotel Paradise Heliport,-48.964466,-21.110785,1952
+SJOE,Haras Cachoeira Heliport,-47.42483,-23.24671,1745
+SJOG,Ariquemes Airport,-63.047115,-9.880436,466
+SJOH,Juruti Airport,-56.090279,-2.186667,108
+SJOJ,Simasa Airport,-47.390409,-4.870714,656
+SJOL,RS Morizono Heliport,-46.83610916137695,-23.508056640625,2362
+SJOO,Doutor João Osmar de Oliveira Airport,-59.81972122192383,-14.134166717529297,864
+SJOP,Minas da Conceição Heliport,-43.252886,-19.650479,3054
+SJOQ,Cristália Heliport,-46.717498779296875,-22.467777252197266,2185
+SJOT,Oliveira Heliport,-48.934243,-27.105627,131
+SJOU,Minerva Paranatinga Airport,-54.03456,-14.462784,1627
+SJOV,C.B.E. - Companhia Brasileira de Equipamentos Heliport,-48.344165802,-24.1486110687,2474
+SJOW,Fazenda Guadalupe Airport,-50.52694320678711,-20.981666564941406,1188
+SJOX,Fazenda Brinquinho Airport,-46.244999,-12.825,3145
+SJOY,Jorge Luiz Stocco Airport,-49.80028,-25.40068,3438
+SJOZ,Faria Lima Square Heliport,-46.682732,-23.588629,2612
+SJPB,Guarapiranga Golfe Heliport,-46.78166580200195,-23.787500381469727,2487
+SJPD,Riacho Verde Heliport,-35.772499084472656,-8.256111145019531,1664
+SJPE,Praia da Armação Heliport,-45.343055725097656,-23.73500061035156,10
+SJPF,Polícia Federal Heliport,-54.572498,-25.515833,709
+SJPI,Fazenda Pirapitinga Airport,-48.634816,-15.417558,2323
+SJPJ,Prefeitura do Município de Jundiaí Heliport,-46.90027618408203,-23.171388626098633,2454
+SJPM,Capitão PM Cidimar Antunes de Almeida Heliport,-43.12333297729492,-22.86666679382324,13
+SJPO,Xingó Airport,-37.777803,-9.5879740000000009,781
+SJPP,Aero Rural Airport,-56.00444412231445,-9.85694408416748,879
+SJPQ,Fazenda Buriti Airport,-47.225277,-16.319721,3215
+SJPV,Fazenda Cedro Airport,-56.184574,-12.970052,1378
+SJPW,Fazenda Guimarães II Airport,-56.371944427490234,-12.901944160461426,1312
+SJPX,Fazenda Cidade Verde Airport,-54.3722229004,-15.4152784348,2028
+SJPZ,Fazenda Santo Antônio Heliport,-45.01277923583984,-3.1161110401153564,59
+SJQA,Fazenda Clarim Airport,-46.239696,-13.201802,3241
+SJQC,Jequitimar Heliport,-46.18722152709961,-23.968332290649418,36
+SJQE,Graciosa Airport,-49.050479,-25.407713,2999
+SJQF,Fazenda Londrina Airport,-57.755001068115234,-13.355555534362791,1690
+SJQG,HSBC Heliport,-49.279998779296875,-25.502500534057617,2956
+SJQI,Porto Jofre Airport,-56.773707,-17.358759,361
+SJQK,Barra do Vento Airport,-60.81420135498047,2.6955599784851074,279
+SJQL,Águas Claras Aviação Agrícola Airport,-47.555554,-19.322112,3117
+SJQM,Fazenda Valor Heliport,-45.202893,-3.650974,115
+SJQN,Quirinópolis Airport,-50.40919876098633,-18.44610023498535,1922
+SJQP,Estância Rebog Airport,-50.628347,-12.801619,801
+SJQQ,Fazenda Terra Alta Airport,-50.99277877807617,-2.865000009536743,66
+SJQR,Jacarezinho Airport,-50.900817,-21.14233,1312
+SJQT,Fazenda Haras RPC Airport,-43.92747,-20.169079,4209
+SJQW,Warna Roos Heliport,-53.21666717529297,-28.18111038208008,1804
+SJQX,Fazenda Uruará Airport,-53.393923,-3.523351,797
+SJQY,Terminal do Solimões Heliport,-63.163612365722656,-3.944166898727417,112
+SJRB,Fazenda VR Airport,-52.505001068115234,-10.113056182861328,1191
+SJRC,Serra da Borda Airport,-59.68805694579999,-14.8272218704,1575
+SJRD,Ilha Josefa Heliport,-44.3922233581543,-23.040555953979492,131
+SJRE,Vila Adail Heliport,-47.390181,-23.050326,1975
+SJRF,Lavalpa Heliport,-45.97639083862305,-23.293611526489254,1968
+SJRG,Rio Grande Regional Airport,-52.167184,-32.083065,27
+SJRH,Fazenda Galheiro Airport,-54.59972381591797,-15.308055877685549,1788
+SJRI,Condomínio Boa Esperança Airport,-45.44138717651367,-8.406389236450195,1825
+SJRK,Agropecuária São Roberto Airport,-50.93027877807617,-9.232221603393556,860
+SJRM,Monte das Oliveiras Heliport,-46.52027893066406,-23.665000915527344,2566
+SJRN,Carlos Gomes Center Heliport,-51.176666259765625,-30.031389236450195,419
+SJRO,Fazenda Santa Elisa Airport,-50.6349983215332,-20.530555725097656,1312
+SJRP,Fazenda Santângelo Agropecuária Airport,-56.371142999999996,-20.13247,479
+SJRQ,Hospital São Camilo Pompéia Heliport,-46.688331604,-23.533889770499997,2703
+SJRR,Fazenda Barreiro Airport,-50.9283332824707,-17.054166793823242,2461
+SJRS,Fazenda Guanabara Airport,-51.4033317565918,-21.343610763549805,1017
+SJRV,PCH Garganta da Jararaca Airport,-57.61555480957031,-13.38611125946045,1394
+SJRW,PCH Buriti Airport,-52.690202,-19.341592,1608
+SJRX,Grupamento Aéreo da Polícia Militar Heliport,-46.493669,-24.034368,6
+SJRY,Mega Mix Heliport,-46.618638,-23.535898,2526
+SJRZ,João Domingues de Araújo Helipad,-46.694019,-23.604645,2631
+SJSA,Fazenda Aimorés Airport,-54.5977783203125,-22.789722442626953,1263
+SJSD,Fazenda São Bento Airport,-55.123229,-21.071248,1752
+SJSE,Serabi Airport,-55.79499816894531,-6.3197221755981445,1017
+SJSG,Usina Serra Grande Heliport,-36.07027816772461,-8.978055953979492,1175
+SJSH,Fly Ville Airport,-48.614509,-27.372117,33
+SJSL,Fazenda Santa Luiza Airport,-53.499599,-23.350885,1162
+SJSN,Fazenda Carvalho Airport,-49.36138916015625,-14.83666706085205,1871
+SJSO,Fazenda Divisão II Airport,-56.321154,-12.968735,1342
+SJSR,Fazenda Santa Rosa Airport,-49.763057708740234,-13.99222183227539,1044
+SJSS,Agrifor Airport,-55.69527816772461,-12.508333206176758,1100
+SJST,Umbará Energy Heliport,-49.293609619140625,-25.604167938232425,2798
+SJSU,Fazenda São Marcus Airport,-53.795096,-23.561605,958
+SJSV,Fazenda Guiné Airport,-46.191348,-20.248257,2495
+SJTB,Fazenda Buriti Airport,-55.622501373291016,-15.46500015258789,2451
+SJTD,Plaza JK Heliport,-46.684444427490234,-23.59055519104004,2618
+SJTF,Fazenda Mequens Airport,-62.25749969482422,-13.061944007873535,552
+SJTH,Fazenda Pôr do Sol,-47.37075,-16.249545,2963
+SJTL,Aero Agrícola Gaivota Airport,-51.54861068725586,-22.97861099243164,1821
+SJTM,Santa Cecília Airport,-50.98833465576172,-20.88777732849121,1260
+SJTP,Tapurah Airport,-56.502102,-12.722894,1260
+SJTS,Terra Santa Airport,-56.488887786865234,-2.0727779865264893,83
+SJTT,Fazenda Lagoa do Barro Airport,-49.709442138671875,-13.238611221313477,926
+SJTU,Fazenda Tucano Airport,-57.559444427490234,-13.582777976989746,1765
+SJTV,Tivoli Center Heliport,-46.73658,-23.628636,2644
+SJTX,Fazenda Nelore Heliport,-45.27333450317383,-3.731389045715332,182
+SJTY,Gran Meliá Mofarrej Heliport,-46.65583419799805,-23.56416702270508,2969
+SJTZ,Dom Eliseu Airport,-47.581668853759766,-4.3027777671813965,800
+SJUA,Fazenda Ipanema Airport,-46.1379,-13.621507,3101
+SJUB,Fazenda Rio Azul Airport,-60.2216682434,-15.1833333969,896
+SJUE,Ecological Center Heliport,-46.87472152709961,-23.53472137451172,2575
+SJUF,Silvestre Heliport,-51.88833236694336,0.8561109900474548,446
+SJUG,SPEL Embalagens Helipad,-46.652976,-23.059775,2638
+SJUH,Fazenda Lagoinha Airport,-47.497779846191406,-19.238611221313477,3346
+SJUI,Fazenda São Francisco Heliport,-47.008821,-22.382795,2149
+SJUJ,Fazenda Juína Airport,-59.256831,-13.440685,1900
+SJUL,Fazenda Rio Pardo Airport,-49.03777694702149,-22.877777099609375,2257
+SJUN,Unimed - Nordeste Helipad,-51.200817,-29.164722,2534
+SJUQ,Fazenda Vista Alegre Airport,-52.606647,-19.739436,1350
+SJUR,Fazenda Reunidas Airport,-54.103724,-13.483526,1575
+SJUS,Fazenda Acará Airport,-51.15888977050781,-15.074443817138672,804
+SJUT,Cimento Rio Branco Heliport,-49.3193,-25.1954,3066
+SJUU,Fazenda Paraná Airport,-46.87111282348633,-14.028056144714355,1450
+SJUW,CPFL Sede Heliport,-47.04499816894531,-22.857778549194336,2350
+SJUX,MBP - Metalúrgica Barra do Piraí Heliport,-43.85166549682617,-22.476388931274418,1182
+SJUY,Sinal Empreendimentos Heliport,-41.934444427490234,-22.48833274841309,33
+SJUZ,Santo Aleixo Heliport,-46.79194259643555,-22.920833587646484,3006
+SJVA,DJY Heliport,-46.685405,-23.597377,2603
+SJVD,Fazenda Nazaré Airport,-45.248167,-17.848373,2513
+SJVE,VR Campos do Jordão Heliport,-45.544166564941406,-22.74333381652832,5673
+SJVH,Condomínio Edifício Mansão Macedo Heliport,-38.501288,-3.729614,276
+SJVI,Zona 01 Heliport,-48.591967,-27.142204,23
+SJVJ,Chácara da Capela Heliport,-47.709308,-23.126099,1676
+SJVK,Pian Airstrip,-51.895627,-31.079916,72
+SJVL,Fazenda Cachoeirinha Airport,-47.129459,-19.359251,3281
+SJVM,Estância Califórnia Airport,-56.12944412231445,-9.89194393157959,945
+SJVO,Aragarças Airport,-52.2411,-15.8994,1061
+SJVP,Vila Pitinga Airport,-60.0838890076,-0.799166977406,876
+SJVR,Fazenda São Joaquim Airport,-56.48722076416016,-21.491943359375,1181
+SJVS,Vale do Paranaíba Airport,-49.68694305419922,-18.70305633544922,1739
+SJVT,Rio Negro Heliport,-42.266684,-21.910653,781
+SJVX,Pagrisa Airport,-47.76333236694336,-3.7005560398101807,453
+SJWE,Fazenda Araribá Airport,-52.848331451416016,-13.404722213745115,1279
+SJWF,Mima Heliport,-41.024102,-21.64749,16
+SJWG,Itagro Airport,-55.696214,-29.779866,328
+SJWI,Fazenda Flor Airport,-53.755278,-21.500833,1355
+SJWJ,HPE Helipad,-46.703181,-23.669927,2424
+SJWK,FIEC Helistop,-38.509286,-3.740863,131
+SJWL,Botuvera Airport,-53.982009,-13.58332,1654
+SJWN,Fazenda Santa Dulcina Airport,-49.257689,-23.56246,2083
+SJWP,Warpol Airport,-45.928568,-12.621524,2687
+SJWQ,Aeroclube de Birigui - CMTE Munir Djabak Airport,-50.305613,-21.21655,1338
+SJWR,Heligalo Heliport,-44.201768,-23.034234,344
+SJWS,Praia de Olaria Heliport,-45.405451,-23.766744,13
+SJWV,Fazenda São Judas Airport,-50.424442291259766,-13.378055572509766,1030
+SJWW,Fazenda Cachoeira Preta Airport,-53.21611022949219,-20.02138900756836,1083
+SJWX,Rio Alegre Airport,-52.51561,-22.57281,942
+SJWY,Parkway Heliport,-47.971782,-15.911695,3724
+SJWZ,E-Tower Helipad,-46.690398,-23.593762,2861
+SJXB,Aquapey Airport,-58.804064,-15.762033,600
+SJXC,Usina Santa Cruz Airport,-39.358055,-16.183056,410
+SJXD,Escarpas Heliport,-46.00361251831055,-20.640277862548828,2602
+SJXF,RDB Heliport,-39.255705,-3.223128,30
+SJXG,Fazenda Agroplan Airport,-52.861164,-11.662765,1083
+SJXJ,Alimentos Dallas Airport,-54.389028,-21.454039,1404
+SJXK,Eldorado Helipad,-46.697742,-23.573408,2831
+SJXL,Hospital Unimed Primavera Helipad,-42.815899,-5.057847,249
+SJXM,Carolina de Assis Repetto Airport,-43.891947,-21.730022,3452
+SJXP,Alice Maria Sampaio Ferreira Heliport,-46.694571,-23.611173,2579
+SJXQ,Ribeirão Shopping Heliport,-47.818122,-21.21176,2037
+SJXR,B. Cao Viño Heliport,-46.417628,-24.009943,177
+SJXS,Veracel Airport,-39.363887786865234,-16.10444450378418,434
+SJXT,Iguassú Heliport,-44.192779541,-23.121110916099997,16
+SJXV,Fazenda Bela Vista Airport,-55.054443359375,-22.93111038208008,1256
+SJXX,Recreio Airport,-55.540557861328125,-22.679443359375,1968
+SJXY,Piratas Mall Helistop,-44.301862,-23.003974,7
+SJYD,Fazenda Kajussol Airport,-61.686668395996094,-11.9647216796875,636
+SJYE,Água Fria Airport,-60.277198791503906,4.620560169219971,994
+SJYF,Ajarani Airport,-61.475799560546875,2.007780075073242,594
+SJYG,Alto Mucajaí Airport,-62.22140121459961,2.765000104904175,237
+SJYH,Fazenda Cachoeira Alta Airport,-50.969022,-8.780178,1020
+SJYI,Araí Airport,-60.847198486328125,4.44389009475708,1500
+SJYJ,Aratha-Ú Airport,-63.78139877319336,3.160830020904541,236
+SJYK,Baixo Catrimani Airport,-62.218299865722656,1.0711100101470947,171
+SJYL,Baixo Mucajaí Airport,-62.01940155029297,2.7369399070739746,499
+SJYM,Bala Airport,-60.60329818725586,3.8372199535369873,348
+SJYN,Centro Empresarial Araguaia II - CEA II Helipad,-46.840859,-23.502096,2687
+SJYO,Bananal Airport,-60.585601806640625,4.632780075073242,892
+SJYP,Bananeira Airport,-60.19390106201172,4.321109771728516,892
+SJYQ,Barreirinha Airport,-60.28783,4.330405,1194
+SJYR,Caju Airport,-60.510851,4.709441,794
+SJYS,Camará Airstrip,-60.182043,3.990654,594
+SJYT,Campo Formoso Airport,-60.771013,4.717904,1194
+SJYU,Campo Grande Airstrip,-60.800278,4.685556,1194
+SJYV,Cauê-Apiaí Heliport,-48.850213,-24.517239,2963
+SJYW,Fazenda Santa Terezinha Airport,-50.949444,-10.319167,751
+SJYX,Foz do Chopim Heliport,-53.12309,-25.571932,1240
+SJZB,Vale do Tucanã Airport,-58.645019,-10.682237,909
+SJZC,Destilaria São Luiz Airport,-35.78499984741211,-8.778888702392578,1371
+SJZD,Fazenda Bandeiras Airport,-56.70305633544922,-17.8619441986084,361
+SJZF,Fazenda Campo Triste Airport,-52.028074,-20.629329,1197
+SJZH,Fazenda Rio do Fogo Airport,-55.001118,-10.887441,1168
+SJZI,Monte Carmelo Heliport,-46.330767,-23.958315,108
+SJZJ,Villa Dória Heliport,-45.52958,-22.698136,5223
+SJZK,Projac Heliport,-43.405984,-22.960169,89
+SJZL,Banco Santander Helipad,-46.690972,-23.591245,2815
+SJZN,Campo Bahia Resort Heliport,-39.009167,-16.241667,10
+SJZP,Mathovi Airport,-55.465929,-9.837772,912
+SJZS,Fazenda Canel Airport,-44.8224983215332,-7.539999961853027,1280
+SJZT,Fazenda Busato II Airport,-43.737819,-13.242396,1500
+SJZU,Seculum Heliport,-46.683832,-23.584023,2605
+SJZV,Terras de São José Heliport,-47.295626,-23.298859,2037
+SJZW,Fazenda Regina Airport,-48.737621,-23.288179,2044
+SJZY,Centro Administrativo Rio Negro Heliport,-46.848637,-23.500526,2739
+SJZZ,Fazenda Passo Fundo Airport,-53.933451,-15.013956,2070
+SNAB,Araripina Airport,-40.535431,-7.586417,2428
+SNAC,Fazenda Santa Rosa Airport,-50.091425,-7.033812,699
+SNAD,Fazenda Águia Branca Airport,-46.777507,-3.327482,410
+SNAE,Arcoverde Airport,-37.088333,-8.407778,2126
+SNAG,Araguari Airport,-48.190498,-18.668301,3107
+SNAI,Fazenda Nossa Senhora das Graças Airport,-53.803235,-22.742494,997
+SNAJ,Fazenda Jaguaré Airport,-48.329964,-3.419487,436
+SNAK,Carajás Heliport,-50.074194,-6.077553,2142
+SNAL,Arapiraca Airport,-36.628983,-9.776589,886
+SNAN,Empresa Agrícola Chiapeta Airport,-53.877368,-28.066857,1562
+SNAO,Trimonte Jorge Mussi Airport,-42.05293,-22.513224,10
+SNAP,Janaúba Airport,-43.322905,-15.731948,1745
+SNAQ,Elisa Heliport,-46.780182,-23.154728,2690
+SNAR,Cirilo Queiróz Airport,-40.684024,-16.165579,640
+SNAS,Três Marias Airport,-45.188999,-18.222401,2579
+SNAU,Aeroclube de Sergipe Airport,-37.082921,-10.901452,26
+SNAV,Agrovale Airport,-40.36996,-9.504348,1289
+SNAX,Marcelo Pires Halzhausen Airport,-50.455983,-22.638601,1850
+SNBB,Fazenda Agronol Airport,-45.723528,-11.954774,2464
+SNBC,Barra do Corda Airport,-45.215833,-5.5025,526
+SNBF,Fazenda Vale Verde Airport,-52.749112,-13.356903,1217
+SNBG,Baixo Guandu - Aimorés Airport,-41.041801,-19.499001,262
+SNBH,Biocor Helipad,-43.944905,-19.981481,3907
+SNBI,Bacabal Airport,-44.82,-4.22771,64
+SNBL,Fazenda Agropecuária Camargos Airstrip,-46.7692,-16.55293,2067
+SNBM,Cristiano Ferreira Varella Airport,-42.394402,-21.126101,886
+SNBN,Balbinot Airport,-50.491668701171875,-2.875833034515381,203
+SNBQ,Bela Cintra Heliport,-46.658533,-23.553977,2864
+SNBR,Dom Ricardo Weberberger Airport,-45.008999,-12.0789,2451
+SNBS,Balsas Airport,-46.053364,-7.525305,948
+SNBT,Benedito Leite Airport,-44.550556,-7.216944,984
+SNBU,Fazenda Alegria Heliport,-44.056764,-19.359449,2211
+SNBX,Barra Airport,-43.147499,-11.0808,1345
+SNBZ,Paramirim Airport,-42.229164,-13.490582,1788
+SNCA,Campo Belo Airport,-45.33509826660156,-20.89229965209961,3182
+SNCB,Castanhal Airport,-53.939720153808594,-2.523611068725586,502
+SNCD,Catuama Heliport,-34.875831604003906,-7.690556049346924,16
+SNCE,Campo do Meio Airport,-45.8046989440918,-21.10610008239746,2559
+SNCH,UTGCA Heliport,-45.49811,-23.657645,26
+SNCI,Cibrasa Airport,-47.20059967041016,-1.2309999465942385,174
+SNCJ,Piquiatuba Airport,-54.711039,-2.543727,407
+SNCL,Lorenzo Airport,-38.91,-13.389444,3
+SNCM,Caponga Heliport,-38.208889,-4.023611,20
+SNCN,Parque Cidade Heliport,-47.893569,-15.795914,3855
+SNCO,Agropecuária Santa Paola Airport,-55.063155,-23.516971,1204
+SNCP,Planalto Serrano Regional Airport,-50.358253,-27.634128,2887
+SNCR,Viganó I Heliport,-43.9555549621582,-19.963056564331055,3426
+SNCS,Campos Sales Airport,-40.358274,-7.051714,2001
+SNCT,Ubaporanga Airport,-42.112099,-19.7253,2067
+SNCV,Campina Verde Airport,-49.497425,-19.551478,1805
+SNCW,Alcântara Space Center Airport,-44.3964,-2.373,148
+SNCX,Colatina Airport,-40.579362,-19.487476,502
+SNCY,Campo da Praia Airport,-36.285352,-10.222636,138
+SNCZ,Ponte Nova Airport,-42.916500091552734,-20.40329933166504,1877
+SNDA,Fazenda Vale Formoso Airstrip,-58.649722,-15.381944,778
+SNDC,Redenção Airport,-49.979687,-8.031188,679
+SNDD,Fazenda Eldorado Airport,-45.26903,-3.692355,118
+SNDE,BNDES Heliport,-43.180207,-22.908681,440
+SNDH,Aba Airport,-45.033695,-12.162858,1682
+SNDK,C.T.O Itaú Heliport,-46.618610382099995,-23.5580558777,2661
+SNDL,Luciano Cavalcante Heliport,-39.12623,-3.345783,46
+SNDM,Karina Heliport,-46.4352,-23.4404,2532
+SNDN,Cemaden - CIGE Heliport,-38.425784,-12.94398,256
+SNDO,Ouro Branco Airport,-47.015343,-16.711423,3031
+SNDQ,Fazenda Soya Airport,-45.56944274902344,-12.92111110687256,2549
+SNDR,Domingos Rego Airport,-42.873699,-5.07979,373
+SNDT,Diamantina Airport,-43.650398254399995,-18.232000351,4446
+SNDU,Ponta Do Sol Airport,-45.998056,-20.638333,2854
+SNDV,Brigadeiro Cabral Airport,-44.870899200439,-20.180700302124,2608
+SNDX,Cachoeira Airport,-36.32638931274414,-10.039999961853027,345
+SNEB,Nagib Demachki Airport,-47.316474,-3.019798,443
+SNEC,Outeiros da Brisas Airport,-39.142413,-16.712959,130
+SNED,Sócrates Rezende Airport,-38.954700469971,-15.666999816895,19
+SNEE,Vacaria Airport,-51.023322,-28.43248,2999
+SNEF,Praia de Santa Rita Heliport,-44.645556,-23.190833,49
+SNEG,Fazenda Netolândia Airport,-57.888688,-14.650115,1066
+SNEI,Fazenda São Miguel Airport,-52.169479,-30.175022,243
+SNEO,Dezoito Airport,-49.199524,-16.438905,2700
+SNEQ,Ouro Negro Heliport,-43.222778,-22.912778,282
+SNET,Fazenda Estrela Airport,-55.215984,-21.273939,1539
+SNEU,Euclides da Cunha Airport,-39.03269958496094,-10.527299880981444,1499
+SNEV,Posthaus Heliport,-49.138813,-26.880945,105
+SNEW,Fazenda Congonhas Airport,-50.95130157470703,-19.662599563598633,1375
+SNEZ,Fazenda Palmeira do Capim Airport,-50.714757,-15.960277,1220
+SNFA,Fazenda Vale Verde III Airport,-46.521124,-16.716028,1795
+SNFB,Fazenda Minas Gerais Airport,-59.047437,-14.773264,2395
+SNFE,Comandante Paschoal Patrocínio Filho Airport,-45.932098,-21.4314,2871
+SNFF,Feijó Airport,-38.614597,-3.809903,82
+SNFG,Citropar Airport,-47.184196,-1.840391,220
+SNFH,Fazenda Dom Felipe Airport,-55.381143,-22.559118,1864
+SNFI,Fazenda São José do Parnaíba Airport,-48.86166763305664,-18.387500762939453,1676
+SNFJ,Pousada Thaimaçu Airport,-56.59333419799805,-9.06277847290039,751
+SNFN,Fazenda Santa Fé Airport,-47.87,-20.94,1739
+SNFO,Formiga Airport,-45.48360061645508,-20.395299911499023,3337
+SNFP,Fazenda Pirapó Airport,-55.788612365722656,-12.181388854980469,1273
+SNFQ,Fazenda Paineira Airport,-45.763611,-22.147502,3001
+SNFT,Fazenda Serinhaém Airport,-38.989373,-13.834423,9
+SNFU,Frutal Airport,-48.958401,-20.0028,1808
+SNFW,Benjamin de Moura Leal Airport,-42.247088,-8.391481,833
+SNFX,São Félix do Xingu Airport,-51.9523,-6.6413,656
+SNFZ,Fazenda Villa Terezinha Airport,-43.939852,-17.405837,2765
+SNGA,Guarapari Airport,-40.491901,-20.6465,30
+SNGB,Gilbués Airport,-45.368457,-9.830924,1414
+SNGD,Guadalupe Airport,-43.58219909667969,-6.782219886779785,564
+SNGE,Ilha do Retiro Heliport,-34.90194,-8.06667,66
+SNGF,Fazenda Manacá Heliport,-35.504722595214844,-8.191389083862305,1749
+SNGG,Bom Jesus do Gurguéia Airport,-44.37110137939453,-9.057250022888184,1066
+SNGI,Guanambi Airport,-42.746101,-14.2082,1815
+SNGK,Fazenda Bela Vista Airport,-48.97222137451172,-19.04833221435547,1984
+SNGL,Boa Vista Heliport,-47.559444,-23.181944,1949
+SNGM,Fazenda Epemaju Airstrip,-50.965282,-5.559945,787
+SNGN,Garanhuns Airport,-36.4716,-8.83428,2533
+SNGP,Fazenda Santa Maria Airport,-48.86916732788086,-18.586944580078125,2624
+SNGR,Gorotire Airport,-51.133888244628906,-7.783610820770264,656
+SNGS,Aeroclube de Alagoas Airport,-35.752795,-9.584875,285
+SNGT,Gentio de Ouro Airport,-42.5181999206543,-11.441699981689451,3501
+SNGX,Guaxupé Airport,-46.730835,-21.325766,2786
+SNGY,Fazenda Santapazienza Heliport,-46.8267,-23.0683,2520
+SNGZ,Bardahl Heliport,-46.845,-23.340278,3182
+SNHA,Comandante Endeel Gabriel Helipad,-44.251246,-2.484987,125
+SNHB,Base de Paracuru Heliport,-39.00027847289999,-3.40027809143,20
+SNHC,Hospital Regional de Caraguatatuba Helipad,-45.44,-23.657222,118
+SNHD,Fazenda Floresta do Lobo Airport,-48.130278,-19.0775,3159
+SNHE,Fazenda Inhumas do Chapadão Airport,-48.193333,-19.305833,2792
+SNHF,Figaro Heliport,-47.816985,-15.774067,3294
+SNHG,Fazenda Varjadão Airport,-49.621111,-12.341389,794
+SNHH,Helibrás Heliport,-45.478057861328125,-22.426666259765625,2762
+SNHI,Polo Industrial Heliport,-36.38444519042969,-5.127500057220459,49
+SNHJ,Usina de José Bonifácio Airport,-49.914722,-21.095,1404
+SNHM,HELPN Morro da Gavazza Heliport,-38.530689,-13.007736,154
+SNHN,Megafort Heliport,-44.0533332824707,-19.891111373901367,2913
+SNHR,Fazenda Água Santa Airport,-47.359499,-19.364173,3478
+SNHS,Santa Magalhães Airport,-38.328888,-8.061433,1542
+SNHT,Togni Heliport,-46.59611129760742,-21.780277252197266,3885
+SNHU,FazendaBola Sete Airport,-47.47,-4.57,699
+SNHV,Vaska Heliport,-46.409476,-23.388919,2651
+SNHW,Fazenda Agro-Maratá Airport,-46.22833251953125,-4.3222222328186035,1001
+SNHY,Hospital Esperança Heliport,-34.89500045776367,-8.066944122314453,159
+SNHZ,Amazonas State Government Palace Heliport,-60.060239,-3.092774,213
+SNIB,Itaberaba Airport,-40.269901,-12.5,929
+SNIC,Irecê Airport,-41.84700012207031,-11.339900016784668,2561
+SNID,Instituto Doutor Arnaldo Heliport,-46.66777801513672,-23.55611038208008,3038
+SNIE,Caetité Airport,-42.494001,-14.012329,3202
+SNIF,Fazenda Serra Dourada Airport,-56.43611145019531,-5.717222213745117,443
+SNIG,Iguatu Airport,-39.294448,-6.346319,699
+SNIJ,Suape Helipad,-35.008932,-8.363247,47
+SNIM,Pegoraro Joaçaba Heliport,-51.516238,-27.175885,2119
+SNIN,Prainha Airport,-53.489909,-1.784101,151
+SNIO,Cipó Airport,-38.486946,-11.125278,732
+SNIP,Itapetinga Airport,-40.277198791503906,-15.244500160217283,915
+SNIQ,Morro do Ouro II Heliport,-46.878991,-17.177657,2395
+SNIR,Fazenda Mata Escura Airport,-43.5988883972168,-5.7427778244018555,712
+SNIS,Fazenda Rio Largo Airport,-43.597778,-5.196944,459
+SNIT,Ibotirama Airport,-43.22209930419922,-12.16860008239746,1398
+SNIU,Ipiaú Airport,-39.68399,-14.173538,433
+SNIV,Fazenda Jumari Airport,-49.88542,-18.646843,1424
+SNIW,Fazenda Carmelo Airport,-55.330596,-21.479299,1637
+SNIX,Fazenda Masutti Airport,-59.100278,-13.553333,1617
+SNIZ,Fazenda Jaqueline Airport,-60.119444,-12.8825,1772
+SNJA,Capivari Airport,-50.511431,-30.134621,43
+SNJB,Jacobina Airport,-40.553101,-11.1632,1640
+SNJD,Fazenda Jardim,-52.658446,-18.43107,2598
+SNJE,Fazenda Trijunção Airport,-46.005,-14.795278,3097
+SNJF,Rural Verde Airport,-43.518764,-12.64743,1453
+SNJI,Fazenda Fortaleza de Santa Terezinha Airport,-44.64950180053711,-17.186800003051758,2077
+SNJJ,Fazenda Vô Anízio Airport,-55.379722,-20.715278,837
+SNJK,Jequié Airport,-40.071602,-13.8777,646
+SNJM,Aeroporto Elias Breder Airport,-42.183887,-20.259722,2723
+SNJN,Januária Airport,-44.385502,-15.4738,1575
+SNJP,João Pinheiro Airport,-46.119998931884766,-17.787500381469727,2990
+SNJQ,Jequitinhonha Airport,-41.03689956665039,-16.4419002532959,853
+SNJR,Prefeito Octávio de Almeida Neves Airport,-44.225299,-21.085638,3117
+SNJU,Nossa Senhora da Penha Airport,-52.746539,-10.812993,1138
+SNJV,Fazenda Santa Mônica Airport,-43.73833,-15.998333,2077
+SNJX,Hospital Monte Sinai Heliport,-43.364834,-21.781061,2776
+SNJZ,Fazenda Jaú Airport,-52.935777,-7.090949,735
+SNKA,Fazenda Perto d`Água Heliport,-48.9075,-23.253889,2041
+SNKB,Aeroclube Airport,-35.990276,-7.178333,1926
+SNKC,Cocos Airport,-44.54666667,-14.17277778,2018
+SNKD,Conceição do Mato Dentro Airport,-43.43389892578125,-19.020299911499023,2196
+SNKE,Fazenda São Francisco Airstrip,-45.321389,-18.581944,1955
+SNKF,Das Bandeirinhas Airport,-43.797444,-20.738585,3478
+SNKH,Creputiá Airport,-57.117222,-8.116944,984
+SNKI,Cachoeiro do Itapemirim - Raimundo de Andrade Airport,-41.1856,-20.834299,256
+SNKJ,Fazenda Rio Dourado Airport,-51.446711,-8.33482,912
+SNKK,Caicó Airport,-37.0783,-6.43917,600
+SNKN,Currais Novos Airport,-36.540279388427734,-6.280832767486572,1148
+SNKO,Brotas de Macaúbas Airport,-42.634899,-11.9994,2667
+SNKP,Conquista do Pontal Airport,-52.110901,-22.385159,1342
+SNKR,Corrente Airport,-45.136391,-10.451944,1552
+SNKS,Santa Rita de Cássia Airport,-44.51572,-10.98927,1503
+SNKU,Canudos Airport,-39.032776,-9.903055,1220
+SNKV,Fazenda Campo Verde Airport,-50.516700744599994,1.04278004169,49
+SNKY,Fazenda Cikel Airport,-48.823451,-3.65731,354
+SNLA,Fazenda Lagoa das Antas Airport,-49.719444274902344,-6.567500114440918,899
+SNLB,Fazenda Magdalena Airstrip,-65.708531,-9.203051,466
+SNLG,Serra do Cipó Airport,-43.746387,-19.398611,2621
+SNLI,Abaeté Airport,-45.494801,-19.1556,2178
+SNLL,Brennand Heliport,-35.03974,-8.580003,3
+SNLN,Linhares Municipal Airport,-40.07128,-19.355202,138
+SNLO,São Lourenço Airport,-45.044498,-22.0909,2871
+SNLQ,Fazenda Conforto Airport,-50.41590118408203,-14.065799713134766,1001
+SNLR,Itautec Heliport,-46.57194519042969,-23.530832290649418,2438
+SNLT,Paulistana Airport,-41.15388870239258,-8.166388511657715,1181
+SNLU,Fazenda Boa Luz Airport,-37.196016,-10.838153,171
+SNLY,Lagoa da Prata Airport,-45.554901123046875,-20.061399459838867,2159
+SNLZ,Fazenda Boca da Mata Airport,-49.5911102295,-9.43194389343,669
+SNMA,Monte Alegre Airport,-54.0742,-1.9958,325
+SNMC,Macaúbas Airport,-42.672298,-13.025,2133
+SNMD,Mundico Coelho Airport,-56.843234,-6.837733,469
+SNME,Costa dos Coqueiros Airport,-38.023664,-12.490391,233
+SNMF,Agropastoril Monte Alegre Airport,-46.25055694580078,-21.350555419921875,2841
+SNMG,Miguel Dias Heliport,-38.4908332824707,-3.766666889190674,66
+SNMI,Mina Caraíba Airport,-39.886667,-9.83,1476
+SNMJ,Maracás Airport,-40.4333000183,-13.4333000183,3280
+SNMK,Mocambinho Airport,-43.97909927368164,-15.093000411987305,1519
+SNML,Manduca Leão Airport,-35.824949,-9.544221,387
+SNMN,Minas Novas Airport,-42.539165,-17.263889,2707
+SNMP,Fazenda Marocopa Airport,-46.544106,-17.324341,1752
+SNMQ,Tigre Heliport,-48.866206,-26.316964,108
+SNMR,Maraú Airport,-39.006603,-14.143352,30
+SNMT,Profitus Helipad,-45.45551,-23.916507,148
+SNMU,Mucuri Airport,-39.864321,-18.048901,276
+SNMV,Fazenda Flávia Airport,-53.751654,-18.347233,1250
+SNMX,São Mateus - Ernesto Bonomo Airport,-39.833698,-18.7213,98
+SNMY,Medic Life Helipad,-46.856907,-23.48512,2749
+SNMZ,Porto de Moz Airport,-52.236026,-1.741307,52
+SNNB,Fazenda Cana Brava Airport,-46.30172,-17.173798,1772
+SNNC,Rio Capim Airport,-47.893055,-2.820278,236
+SNNE,São João Nepomuceno Airport,-43.02111053466797,-21.542221069335938,1322
+SNNF,Nossa Senhora de Fátima Airport,-42.705555,-5.033611,607
+SNNJ,Fazenda Santa Cruz Airport,-46.839056,-14.21848,1529
+SNNM,Entre Rios Airport,-51.495162,-25.56849,3688
+SNNN,Fazenda Buriti II Airport,-45.997848,-15.989751,1673
+SNNO,Fazenda São Domingos Airport,-59.850057,-14.05894,1001
+SNNP,Nilo Peçanha Airport,-52.16722106933594,-8.066944122314453,984
+SNNU,Nanuque Airport,-40.329662,-17.823158,656
+SNNX,Fazenda Boa Vista Airport,-61.354722,-12.8275,745
+SNOB,Sobral Public Airport,-40.336802,-3.67889,210
+SNOC,Morro do Chapéu Airport,-41.180055,-11.533278,3586
+SNOD,SKYJU Airport,-37.323831,-11.421918,10
+SNOE,Oeiras Airport,-42.167247,-7.01835,873
+SNOF,Ouro Fino Airport,-46.392418,-22.297213,2818
+SNOG,Ceará Mirim Airport,-35.41365,-5.661399,171
+SNOI,Fazenda Rio Mutuca Airport,-58.163115,-10.434484,758
+SNOK,Fazenda Chão de Estrelas Airport,-47.656222,-2.332414,126
+SNOL,Agropecuária Mariana Airport,-56.216799,-9.969649,1001
+SNOM,Fazenda Guaporeí Airport,-60.220738,-15.00665,1027
+SNON,Royal Palm Hall Helipad.,-47.070944,-22.939742,2382
+SNOQ,Fazenda Agropecuária Crioulo Airport,-55.145457,-23.599379,1224
+SNOS,José Figueiredo Municipal Airport,-46.662011,-20.731838,2697
+SNOT,Fazenda Santa Fé do Guaporé Airport,-59.88146,-14.013917,951
+SNOU,Feijó Airport,-70.340821,-8.141213,551
+SNOV,Povoado de Camaçari Airport,-36.291983,-10.122006,279
+SNOW,Fazenda Turmalina Airport,-50.972232,-21.982995,1378
+SNOX,Oriximiná Airport,-55.836201,-1.71408,262
+SNOZ,Coronel Alexandre Raposo Airport,-44.1213,-2.52097,154
+SNPA,Pará de Minas Airport,-44.6012,-19.8426,2753
+SNPC,Picos Airport,-41.525871,-7.061385,1099
+SNPD,Patos de Minas Airport,-46.491292,-18.672673,2794
+SNPI,De Piatã Airport,-41.771946,-13.165556,4157
+SNPJ,Patrocínio Airport,-46.98270034790039,-18.909400939941406,3229
+SNPK,WF Heliport,-49.14675,-26.821561,167
+SNPL,Fazenda Pacuruxu Airport,-51.72888946533203,-21.25638961791992,1181
+SNPN,Fazenda Água Fria Airport,-50.92583465576172,-21.030277252197266,1378
+SNPO,Pompeu Airport,-45.02330017089844,-19.20330047607422,2313
+SNPP,Morro de São Paulo Airport,-38.913689,-13.428781,33
+SNPQ,Pesqueira Airport,-36.637813,-8.374808,2067
+SNPR,Gilson Machado Heliport,-35.616111755371094,-8.1997222900390625,1529
+SNPS,Fazenda Córrego da Ponte Airport,-46.762402,-15.2601,3277
+SNPU,Paraguaçu Airport,-45.75170135498047,-21.55920028686523,2838
+SNPV,Solidão Airport,-50.557139,-30.692516,56
+SNPX,Pirapora Airport,-44.86029815673828,-17.3169002532959,1808
+SNPY,São Sebastião do Paraíso Airport,-46.9832,-20.9482,3110
+SNPZ,Pedra Azul Airport,-41.16722106933594,-16.067222595214844,2625
+SNQA,Fazenda Tracajá Airport,-47.86222076416016,-2.6405560970306396,138
+SNQC,IGESP Heliport,-46.650833,-23.561111,2890
+SNQD,Sousa Airport,-38.233398,-6.78544,745
+SNQE,Fazenda Serra Grande Airport,-49.84000015258789,-6.068889141082764,682
+SNQG,Cangapara Airport,-43.077301,-6.84639,689
+SNQH,Wheaton Heliport,-46.567035,-23.715128,2605
+SNQI,Fazenda Camagril Agropecuária Airport,-57.34111022949219,-14.118056297302246,2756
+SNQK,Muro Alto Beach Resort Heliport,-34.983333587646484,-8.43722152709961,39
+SNQM,Queimadas Airport,-39.62055587768555,-10.988332748413086,1050
+SNQN,Fazenda Estrela Airport,-52.569736,-13.15562,1102
+SNQP,Fazenda São Francisco Airport,-50.23030090332031,-20.5674991607666,1437
+SNQR,Fazenda Bahia - Don Bosco Airport,-57.23333358764648,-16.7277774810791,3
+SNQS,Fazenda Nossa Senhora Auxiliadora Airport,-54.030555725097656,-22.304443359375,1001
+SNQT,Fazenda Estrela do Sul Airport,-53.47972106933594,-23.795833587646484,1542
+SNQU,Mucugê Airport,-41.444099,-13.0312,3461
+SNQV,Curvelo Airport,-44.458427,-18.749965,2205
+SNQW,Cururu Airport,-57.739871,-7.564736,453
+SNQX,Quixadá Airport,-38.987622,-4.979006,735
+SNQY,Colina Verde Heliport,-47.795644,-21.22932,2129
+SNRA,Nossa Senhora da Abadia Airport,-48.586541,-14.655641,2041
+SNRB,Fazenda Rosa de Maio Airport,-56.108461,-4.31616,102
+SNRC,Ouro Verde Heliport,-49.332202,-25.507931,3155
+SNRD,Prado Airport,-39.271131,-17.296976,89
+SNRE,Fazenda Rebeca Airport,-43.871498,-12.6827,1575
+SNRF,Ecofabril Heliport,-46.938558,-23.175832,2375
+SNRG,Furnas Centrais Elétricas S/A Heliport,-43.19111251831055,-22.955278396606445,262
+SNRI,Riviera de São Lourenço Heliport,-46.056224,-23.798053,23
+SNRL,Folhamatic Heliport,-47.324642,-22.759016,1886
+SNRM,Remanso Airport,-42.115917,-9.579994,1332
+SNRN,Fazenda Vinte de Maio Airport,-49.97111129760742,-21.80888938903809,1509
+SNRP,Rio Paranaíba Airport,-46.2406005859375,-19.212499618530273,3757
+SNRQ,Porto Rico Airport,-57.37944412231445,-6.1041669845581055,331
+SNRR,Fazenda Aratau Airport,-50.163867,-4.151456,541
+SNRU,Caruaru Airport,-36.0135,-8.28239,1891
+SNRV,Fazenda Rio Vermelho Airport,-49.463890075683594,-6.882778167724609,450
+SNRX,Riachão Airport,-46.6338996887207,-7.350279808044434,1312
+SNRY,Redpoint I Heliport,-43.934722900390625,-19.97249984741211,3812
+SNRZ,Oliveira Airport,-44.8653,-20.7146,3334
+SNSC,Sacramento Airport,-47.42219924926758,-19.89310073852539,3288
+SNSD,Franor Airport,-45.722453,-12.91656,2664
+SNSE,Sento Sé Airport,-41.854662,-9.7576,1306
+SNSF,Fazenda Entre Rios Airport,-57.101212,-21.358627,1050
+SNSG,Salgueiro Airport,-39.136398,-8.04716,1539
+SNSH,São José Airport,-54.734431,-2.574525,440
+SNSI,Santa Maria do Suaçuí Airport,-42.46611022949219,-18.198610305786133,1575
+SNSJ,Fazenda Fogliatelli Airport,-58.573333740234375,-13.529722213745115,1723
+SNSK,Santa Rita do Sapucai Airport,-45.639991,-22.27298,2851
+SNSL,Fazenda Califórnia Airport,-53.818049,0.338457,1680
+SNSM,Salinópolis Airport,-47.336111,-0.696111,105
+SNSO,Serro Airport,-43.42409896850586,-18.60849952697754,2428
+SNSQ,Centro Empresarial Nações Unidas - Torre Norte Heliport,-46.696388244599994,-23.6102771759,2900
+SNSR,Fazenda Santos Reis Airport,-46.97869873046875,-17.54789924621582,2165
+SNSS,Salinas Airport,-42.321999,-16.2083,2504
+SNST,Souto Soares Airport,-41.640701,-12.0973,2753
+SNSU,Chácara Araguaia Airport,-49.15766,-6.882288,485
+SNSW,Soure Airport,-48.519759,-0.697844,32
+SNSX,Fazenda São Martinho Airport,-51.255308,-20.357312,1148
+SNSY,Fazenda São José Airport,-56.495498,-20.942881,1247
+SNTA,Fazenda São Miguel Airport,-50.11639022827149,-21.86861038208008,1444
+SNTD,Fazenda Mamoneira Airport,-46.5010986328125,-16.586200714111328,1862
+SNTE,Terras II Heliport,-47.306111,-23.342778,2139
+SNTF,9 de Maio - Teixeira de Freitas Airport,-39.668499,-17.524392,344
+SNTH,Fazenda São Francisco Heliport,-45.033333,-3.211666,49
+SNTI,Óbidos Municipal Airport,-55.514596,-1.867981,328
+SNTK,Monte Carmelo Airport,-47.485187,-18.718712,2969
+SNTL,Brigadeiro Sampaio Airport,-40.37473,-4.857619,1207
+SNTM,Turmalina Airport,-42.733890533447266,-17.233888626098633,2894
+SNTN,Gama Helipad,-46.856024,-23.484847,2713
+SNTO,Juscelino Kubitscheck Airport,-41.513599,-17.8923,1572
+SNTP,Agropalma Airport,-48.75194549560547,-2.525278091430664,66
+SNTQ,Buritirama Airport,-43.65470123291016,-10.724200248718262,1690
+SNTR,Piritiba Airport,-40.569499969499994,-11.7381000519,1896
+SNTS,Aeroporto Brigadeiro Firmino Ayres,-37.251598,-7.03899,869
+SNTY,Correntina Airport,-44.62207,-13.379952,2159
+SNUA,Fazenda Paulista Airport,-54.409799,-25.392105,820
+SNUB,Ubá Airport,-42.881901,-21.121,1115
+SNUC,Açu Airport,-36.960899,-5.59505,364
+SNUE,Aero Sepé Aviação Agrícola Airport,-53.639973,-30.18543,509
+SNUG,Fazenda Eunice Airport,-59.6227798462,-14.9555559158,787
+SNUH,Piumhi Airport,-45.9928016663,-20.438600540200003,2444
+SNUI,Araçuaí Airport,-42.045633,-16.851571,1076
+SNUN,Unaí Airport,-46.9277,-16.356501,1998
+SNUO,Banco Central Helipad,-43.182777,-22.902012,443
+SNUP,Usina Porto Rico Airport,-36.22249984741211,-9.802778244018556,404
+SNUQ,Pão de Açúcar Heliport,-46.65533,-23.57404,2651
+SNUR,Iguatemi Empresarial Helipad,-38.490611,-3.753724,180
+SNUS,Usina Delta I Airport,-47.771367,-19.941324,2100
+SNUT,Utinga Airport,-41.074501,-12.1055,1962
+SNUX,Fazenda Santo Antônio Airport,-53.308492,-21.410506,1133
+SNUZ,Usina Coruripe Airport,-36.18639,-10.094107,210
+SNVA,Fazenda Bela Vista Airport,-50.63166809082031,-7.987500190734863,1037
+SNVB,Valença Airport,-38.992401,-13.2965,21
+SNVC,Viçosa Airport,-42.841946,-20.744722,2162
+SNVD,Santa Maria da Vitória Airport,-44.222878,-13.404851,1850
+SNVE,Fazenda Vale das Estrelas Heliport,-43.140896,-22.270898,2792
+SNVF,Banco Itaú Helistop,-43.223701,-22.899591,207
+SNVH,Fazenda Santa Helena Airport,-58.13833236694336,-16.168611526489258,492
+SNVI,Mélio Viana Public Airport,-45.26818,-21.789115,3203
+SNVN,Fazenda Santa Clara Airport,-50.757018,-21.305062,1529
+SNVO,Fazenda Pontal Airport,-50.970002,-19.970496,1329
+SNVR,Aeroclube da Bahia Airport,-38.665727,-13.024053,12
+SNVS,Breves Airport,-50.443600000000004,-1.63653,98
+SNVT,Pires do Rio Heliport,-46.546894,-23.615587,2477
+SNVU,Fazenda Itatuba Airport,-46.859697,-20.432625,2260
+SNVV,Valente Airport,-39.440988,-11.411776,1096
+SNVW,Fazenda Santa Paula Airport,-60.056667,-14.016944,771
+SNVX,Helisul Slin Heliport,-48.624635,-27.542352,63
+SNVY,Aeródromo de  Fazenda Ouro Verde,-55.365276,-23.976944,1299
+SNWC,Camocim - Pinto Martins Airport,-40.859299,-2.895596,16
+SNWD,Fazenda Guavirá Airport,-54.60833358764648,-23.430278778076172,1335
+SNWF,Fazenda Cachoeirinha Airport,-55.231666564941406,-22.43805694580078,1476
+SNWG,Fazenda Iporã Airport,-54.048893,-23.582209,591
+SNWH,Fazenda São Mateus Airport,-53.545769,-22.963045,883
+SNWI,Fazenda São João do Guapore Airport,-60.009167,-14.068889,594
+SNWJ,Fazenda Rancho Alegre Airport,-58.62472152709961,-15.208056449890137,1345
+SNWK,Fazenda Santa Terezinha Airport,-54.266387939453125,-16.6744441986084,722
+SNWM,Fazenda Bonito Airport,-51.197617,-20.387468,1181
+SNWN,Fazenda Aliança Airport,-54.391648000000004,-16.670708,968
+SNWO,Fazenda Vera Cruz Airport,-54.62444305419922,-23.017778396606445,1001
+SNWQ,Fazenda Santa Cecília Airport,-54.336362,-29.330071,1257
+SNWR,Wilma Rabelo Airport,-51.82708,-2.636603,201
+SNWS,Crateús Airport,-40.704201,-5.21135,1043
+SNWU,Fazenda Ponte Quinhá Airport,-55.50928,-23.005477,1575
+SNWV,Viganó 3 Heliport,-44.395334,-19.725484,2356
+SNWW,Paradise Golf Heliport,-46.258624,-23.590501,2477
+SNWY,Rodoviária Heliport,-40.353172,-20.321814,3
+SNXB,Caxambu Airport,-44.96817,-21.917066,2838
+SNXC,Viganó II Heliport,-44.072406,-19.953922,3238
+SNXE,Aero Z Ferrus Airport,-51.120833,0.993333,239
+SNXF,Retiro Santo Antônio da Fazenda Triunfo Airport,-56.996995,-17.892909,394
+SNXG,Fazenda dos Castanhais Airport,-49.361131,-6.774796,745
+SNXH,Itapecuru Airport,-44.021529,-4.513833,184
+SNXJ,Juscelino Plaza Helipad,-46.675565,-23.589155,2651
+SNXK,Fazenda Lagoa do Triunfo Airport,-52.769169,-6.536944,558
+SNXL,Primavera Airport,-52.153889,-12.616667,1201
+SNXQ,Xique-Xique Airport,-42.683399,-10.8341,1401
+SNXR,Fazenda Conforto Airport,-56.520532,-7.389945,771
+SNXT,Pousada Alvorada Airport,-56.021894,-17.181518,407
+SNXV,Tranquilo Testolin Airport,-45.107601,-18.7582,2009
+SNXX,Maxaranguape Airport,-35.5284,-5.38414,305
+SNXY,Cikel Brasil Verde Airport,-50.525951,-2.694926,98
+SNYA,Almeirim Airport,-52.578214,-1.479524,584
+SNYB,Ituiutaba Airport,-49.487442,-19.002434,1985
+SNYE,Pinheiro Airport,-45.105003,-2.477426,66
+SNYF,Fazenda Parnaíba Airport,-46.074772,-8.509897,1847
+SNYG,Naturágua Heliport,-38.473307,-3.832385,16
+SNYH,Fazenda Vale Sereno Airport,-51.172743,-8.700599,1096
+SNYI,Fazenda HJ Airport,-47.296011,-16.611883,2815
+SNYJ,Pista São Jorge Airport,-57.401467,-6.135433,810
+SNYK,Cumbuco Heliport,-38.733047,-3.623912,3
+SNYP,Chácara Paraíso Airport,-48.298706,-1.317782,69
+SNYR,Fazenda Água Azul Airport,-56.552703,-5.942021,509
+SNYS,WD Agroindustrial Airport,-45.995484,-18.222582,3199
+SNYT,Ituaçu Airport,-41.302299,-13.8283,1755
+SNYU,Iturama Airport,-50.22018,-19.71799,1558
+SNYV,Fazenda Socôco Airport,-48.642923,-2.119009,102
+SNYW,Antônio Guerreiro Airport,-44.651114,-2.109444,245
+SNZA,Pouso Alegre Airport,-45.919102,-22.2892,2904
+SNZC,Fazenda Águas Claras Airport,-54.508514,-23.333609,1273
+SNZE,Aeroxingu Airport,-52.19025,-3.168979,369
+SNZG,Fazenda São Benedito Airport,-48.236658,-23.861232,2034
+SNZH,Fazenda Pequena Holanda Airport,-46.136162,-9.009188,2835
+SNZI,Helvétia Heliport,-47.159988,-23.059923,2077
+SNZJ,Edifício América Helipad,-48.173643,-21.80497,2260
+SNZK,Fazenda Canadá Airport,-44.039101,-15.0243,1510
+SNZM,JCPM Trade Center Helipad,-34.881865,-8.089764,282
+SNZN,Fazenda Naná Porã Airport,-55.185006,-23.839362,1329
+SNZO,Fazenda Bebida Velha Airport,-35.536667,-5.297096,131
+SNZR,Pedro Rabelo de Souza Airport,-46.883099,-17.242599,2359
+SNZT,Fazenda Recreio Airport,-48.333146,-3.504396,499
+SNZU,Fazenda Nova Conceição Airport,-48.231727,-2.855909,243
+SNZV,Fazenda Jamaica Airport,-47.477739,-3.722566,361
+SNZW,Ituberá Airport,-39.140377,-13.731571,23
+SNZX,WSTC Helipad,-38.479427,-3.788185,253
+SNZZ,Muzzi Airport,-36.198891,-9.968121,331
+SSAA,Hospital da Unimed Heliport,-43.919601,-19.921843,2871
+SSAB,Moisés Lupion Airport,-50.263,-23.762199,1968
+SSAD,Fazenda Ribeirão Airport,-52.917599,-18.764,2736
+SSAE,Arroio Grande Airport,-53.055544,-32.229154,161
+SSAF,Aeroclube de Foz do Iguaçu Airport,-54.470508,-25.36971,840
+SSAG,Fazenda Lobo Airport,-52.726921,-19.711728,1410
+SSAH,Fazenda Sorriso Airport,-51.223622,-11.527549,728
+SSAI,Fazenda Panamá Airport,-46.797615,-14.10529,1640
+SSAK,Carlos Ruhl Airport,-53.610095,-28.657934,1542
+SSAL,Mostardeiro Heliport,-51.204054,-30.028309,364
+SSAN,Andirá Airport,-50.2271,-23.027335,1608
+SSAO,Fazenda Olhos D'Água Airport,-40.274425,-12.009456,1329
+SSAP,Captain João Busse Airport,-51.384301,-23.609099,2625
+SSAQ,Aeroclube Airport,-52.516701,-28.250601,1969
+SSAR,Fazenda Jacaré Airport,-53.967499,-21.503056,1214
+SSAS,Edifício Serrador Helipad,-43.176246,-22.911802,292
+SSAU,Centeno Airport,-51.430526,-30.745976,43
+SSAV,Fazenda Amonguijá Airport,-57.475126,-21.689941,400
+SSAY,Sítio Pouso do Aviador Airport,-54.48339,-20.48616,1946
+SSAZ,Quatro Barras Heliport,-49.084809,-25.376624,3041
+SSBC,Fazenda Barra do Tietê Airport,-51.588612,-20.72611,1115
+SSBF,Fazenda JL Airport,-51.38345,-20.002079,1400
+SSBG,Aeroclube de Bento Gonçalves Airport,-51.540791,-29.147424,2209
+SSBI,Condomínio Irmãos Gatto Airport,-46.302258,-11.85146,2851
+SSBK,Fazenda Araruna Airport,-54.641158,-17.583754,1886
+SSBL,Blumenau Airport,-49.093569,-26.831661,60
+SSBN,Belém Novo Airport,-51.182148,-30.188978,16
+SSBP,Parque Barigui Heliport,-49.315429,-25.430927,2936
+SSBQ,Marfrig Bataguassu MS Airport,-52.4805,-21.744471,1224
+SSBR,Bandeirantes Airport,-50.423099517822266,-23.072799682617188,1319
+SSBT,Fazenda Santa Ilídia Airport,-53.095477,-22.323932,942
+SSBU,Fazenda Baguassu Airport,-57.146527,-21.45465,1132
+SSBV,Bela Vista Airport,-56.538601,-22.0816,770
+SSBW,Fazenda Boa Sorte Airport,-55.016881,-20.914864,1197
+SSBX,Fazenda Lageado Airport,-54.796101,-18.445355,728
+SSBY,Orlando Chesini Ometto Airport,-56.7939,-20.099501,443
+SSCA,Fazenda Pantanal Airport,-52.604213,-18.73438,2730
+SSCB,Fazenda Santa Maria Airport,-49.934503,-13.769686,830
+SSCC,SC401 Square Corporate Helipad,-48.509863,-27.53462,115
+SSCD,Chapadão do Sul Airport,-52.488116,-18.839125,2680
+SSCE,Aeroclube de Bagé,-54.134724,-31.327778,728
+SSCF,Max Fontoura Airport,-49.524194,-25.426398,3140
+SSCG,Orla 62 Helipad,-44.195884,-23.038528,115
+SSCH,Fazenda Cachoeirão Airport,-53.226976,-21.598487,1066
+SSCI,Coxim Airport,-54.714699,-18.477699,965
+SSCJ,Fazenda Celeiro Airport,-54.661987,-21.545365,1071
+SSCK,Olavo Cecco Rigon Airport,-52.051755,-27.180511,2461
+SSCL,Cassilândia Airport,-51.676941,-19.146861,1568
+SSCM,Fazenda Caçadinha Airport,-54.79561,-21.61412,1299
+SSCN,Canela Airport,-50.831729,-29.370091,2746
+SSCO,Comandante Marilda Zaiden de Mesquita Airport,-52.451879,-31.775068,33
+SSCP,Cornélio Procópio Airport,-50.602868,-23.152711,1860
+SSCQ,Salcã Airport,-54.929386,-29.900249,285
+SSCR,Balduino Helmuth Jope Airport,-54.054699,-24.512699,1381
+SSCT,Engenheiro Gastão de Mesquita Filho Airport,-52.642091,-23.69157,1837
+SSCU,Fazenda Santa Marina Airport,-50.481324,-8.86894,1007
+SSCW,Fazenda Santa Glória Airport,-56.005554,-18.039722,456
+SSCX,Fazenda Coxilha Airport,-52.335746,-28.095087,2133
+SSCY,Sikorski Heliport,-49.448541,-25.438472,3149
+SSDA,Água Mansa Heliport,-45.404187,-23.741404,7
+SSDD,Nossa Senhora de Fátima Heliport,-51.183286,-29.932878,13
+SSDG,Fazenda Nazaré Airport,-45.57298,-9.335862,2034
+SSDI,Fazenda Bacatuba Airport,-43.705702,-5.659765,584
+SSDK,São Pedro,-44.727917,-20.075955,2713
+SSDL,Fazenda Ribeirão Airport,-45.333596,-8.008883,1588
+SSDO,São Pedro Airport,-39.316389,-16.753778,262
+SSDP,Fazenda Fortaleza do Guaporé Airport,-60.174884,-14.463956,778
+SSDQ,Fazenda Marema Airport,-56.634712,-20.180732,463
+SSDT,Fazenda Pau d'Arco Airport,-50.180906,-7.941807,794
+SSDV,Fazenda Santa Maria Airport,-55.465482,-18.209771,518
+SSDW,Fazenda Potrich Airport,-55.535563,-12.915799,1335
+SSDX,Fazenda da Coxilha Airport,-51.708516,-31.013962,33
+SSEB,Mata Serena Airport,-46.772192,-13.772931,1440
+SSEC,Edifício Sequóia Heliport,-47.804453,-21.218996,2411
+SSED,Fazenda Escalada Airport,-54.430442,-17.96497,932
+SSEE,Vale do Taquari Regional Airport,-51.934072,-29.453107,105
+SSEF,Fazenda Passaredo Airport,-47.231553,-21.320047,4632
+SSEH,Fazenda Pantera Airport,-53.246868,-17.953015,2946
+SSEJ,Moinho Velho Heliport,-46.84559,-23.626064,2831
+SSEK,Fazenda Lontra Airport,-53.254715,-20.01777,1299
+SSEN,Fazenda Baviera Heliport,-39.829334,-14.121219,538
+SSEO,Fazenda Mimoso Airport,-53.562494,-20.730548,1404
+SSEP,São Sepé Airport,-53.579399,-30.182199,502
+SSEQ,Fazenda Aldebaran Airport,-53.940833,-21.92332,1099
+SSER,Erechim Airport,-52.271489,-27.663614,2498
+SSEU,Tabocal Airport,-56.582297,-7.281926,915
+SSEV,São Camilo Airport,-57.130864,-18.089084,289
+SSEW,Sítio Limoeiro Airport,-48.309794,-23.145561,3084
+SSEX,Estância Caiman Airport,-56.311269,-19.968191,289
+SSEZ,Espumoso Airport,-52.857248,-28.738719,1198
+SSFA,Foz do Areia Airport,-51.640701,-25.981501,3701
+SSFB,Paulo Abdala Airport,-53.063827,-26.05938,2113
+SSFC,Safra Airport,-54.621667,-31.0225,443
+SSFD,Fazenda Acarajá Airport,-54.700604,-23.002675,1194
+SSFE,Estância Hércules Airport,-54.598468,-25.460699,584
+SSFG,Fazenda Guanabara Airport,-52.142143,-22.661462,1010
+SSFH,Vale dos Dinassauros Airport,-47.811638,-19.785486,2438
+SSFJ,Fazenda Retiro da Cachoeira Airport,-54.618119,-20.810952,1460
+SSFK,Forte Coimbra Airport,-57.779889,-19.906111,279
+SSFL,João Pereira dos Santos Filho Airport,-40.628379,-7.100147,1470
+SSFO,Fazenda Novo Horizonte Airport,-56.32027816772461,-20.039722442626953,354
+SSFR,Fronteira Airport,-49.187636,-20.278662,1598
+SSFS,Fazenda Sapezal Airport,-58.782143,-13.332545,1778
+SSFX,Fazenda Primavera Airport,-50.580087,-23.45713,2239
+SSFY,Furnas Centrais Elétricas Heliport,-54.54207,-25.473278,751
+SSGA,Garibaldi Airport,-51.531674,-29.269047,2231
+SSGB,Guaratuba Airport,-48.611759,-25.881559,49
+SSGE,Fazenda Periquitos Airport,-51.833131,-20.501698,1180
+SSGF,Fazenda Formosa Airport,-53.223825,-20.198188,1640
+SSGH,Fazenda Capão Verde Airport,-56.073249,-20.073735,413
+SSGJ,Fazenda Poleiro Grande Airport,-56.272494,-17.250266,390
+SSGL,Fazenda Falcão Airport,-54.181111,-15.399444,1975
+SSGM,Fazenda Seriema Airport,-56.5625,-21.693333,1053
+SSGN,Fazenda Guaíba Airport,-54.540208,-23.236148,1401
+SSGO,Rosada Airport,-54.588751,-19.428081,2192
+SSGP,Piquet Airport,-47.808639,-15.854319,3570
+SSGT,Fazenda Capão Alto Airport,-54.81588,-21.69569,1050
+SSGU,Fazenda Gurucaia Airport,-53.326093,-23.186335,886
+SSGV,Sorocred Heliport,-47.477778,-23.556667,2080
+SSGW,Manoel Ribas Airport,-53.044453,-24.220459,1608
+SSGX,Fazenda Rio Negro Airport,-56.245297,-19.569416,358
+SSGY,Guaíra Airport,-54.1917,-24.0811,889
+SSGZ,Fazenda Santa Helena do Pindó Airport,-53.867508,-22.893908,1050
+SSHA,Aeroclube de Aquidauana Airport,-55.76944351196289,-20.480833053588867,620
+SSHD,Fazenda Bipandora II Airport,-54.904273,-22.001521,1335
+SSHE,Fazenda Nova Guaporé,-60.322462,-13.90646,705
+SSHG,Fazenda Tereré Airport,-55.763847,-22.357945,2277
+SSHH,Helisul I Heliport,-54.493876,-25.608954,732
+SSHK,Fazenda Jaguarandy Airport,-55.56944274902344,-22.5897216796875,1968
+SSHL,Fazenda Jussara Airport,-52.40833282470703,-23.575000762939453,1213
+SSHM,Hospital Moinho de Vento Heliport,-51.21110916137695,-30.024444580078125,253
+SSHN,Recanto das Águias Airport,-51.87555694580078,-23.2450008392334,1637
+SSHO,Hospital Santa Rita Helipad,-34.946861,-7.126055,213
+SSHR,Horus Heliport,-48.848045,-26.331964,43
+SSHS,Helisul IV Heliport,-54.481528,-25.612929,689
+SSHT,Ingazeira Airport,-56.7186355591,-10.1304620248,853
+SSHU,Fazenda Centenário Airport,-56.0452766418457,-19.45805549621582,426
+SSHV,Fazenda Genipapo Airport,-44.61594,-17.724468,1923
+SSHX,Aeródromo de Fazenda Jatobá,-55.300022,-23.922994,1335
+SSHZ,Walter Bündchen Airport,-54.3391,-27.6383,1063
+SSIA,Fazenda Ipê Airport,-45.310246,-8.427943,1739
+SSIC,APLIC Aviação Agrícola Ltda Airport,-54.824444,-22.306667,1405
+SSIE,Teruel Ipanema Estância Airport,-54.59553,-20.604145,1732
+SSIF,Fazenda Baunilha Airport,-54.030358,-23.562109,958
+SSIH,Fazenda Fortaleza Airport,-52.721681,-20.946947,1296
+SSIJ,João Batista Bos Filho Airport,-53.846568,-28.368711,1197
+SSIK,VIVO Heliport,-46.857891,-23.465628,2526
+SSIN,Sítio Costa dos Calhaus Heliport,-44.633209,-23.216775,361
+SSIP,Fazenda Santa Otília Airport,-57.043427,-21.186742,833
+SSIQ,Itaqui Airport,-56.538343,-29.171981,230
+SSIR,Ibirubá Airport,-53.078888,-28.604168,1499
+SSIS,Major José Ignácio Airport,-48.097222,-22.047778,1962
+SSIT,Issaig I Heliport,-49.303132,-28.702032,89
+SSIU,Sítio Enel Airport,-52.365496,-30.137259,223
+SSIW,Fazenda Damaro Airport,-56.435725,-19.980153,344
+SSIX,Fazenda Campo Verde Airport,-53.507444,-22.652796,843
+SSIZ,Condomínio Fazenda da Grama Heliport,-47.0625,-23.059167,2257
+SSJA,Santa Terezinha Airport,-51.553327,-27.171514,2546
+SSJB,Salenco Airport,-54.348861,-18.862268,1263
+SSJC,Fazenda do Jacuí Airport,-51.301625,-29.983505,7
+SSJF,Polícia Federal Curitiba Heliport,-49.2277,-25.3762,3064
+SSJG,Fazenda Santa Ana Airport,-57.68138885498047,-21.216388702392575,351
+SSJH,Fazenda Guarani Airport,-53.56893,-22.164289,988
+SSJI,Jardim Airport,-56.152599,-21.493099,1053
+SSJJ,Fazenda Tupi Airport,-53.128837,-21.805647,1377
+SSJK,Júlio de Castilho Airport,-53.74330139160156,-29.153099060058594,1633
+SSJM,Fazenda Júlio Martins Airport,-52.49944305419922,-18.842500686645508,2621
+SSJN,Fazenda Santa Helena Heliport,-46.680259,-22.970268,2625
+SSJO,Fazenda Angico Airport,-57.45277786254883,-19.376388549804688,511
+SSJP,Fazenda Junqueira Airport,-51.929168701171875,-22.895000457763672,1427
+SSJQ,Fazenda Floresta Airport,-51.873778,-12.806725,1266
+SSJS,Malwee Heliport,-49.127257,-26.517934,141
+SSJV,Fazenda Piratininga Airport,-56.480037,-17.938848,150
+SSJW,Fazenda Jauru Airport,-53.8922233581543,-21.782499313354492,1017
+SSJX,São Bento Airport,-57.01416778564453,-19.478055953979492,150
+SSJY,São João Airport,-56.21722030639648,-17.707500457763672,150
+SSJZ,Fazenda Três Unidos Airport,-54.007129,-24.052209,1013
+SSKA,Fazenda Campinas Airport,-56.35972213745117,-18.905555725097656,328
+SSKB,Fazenda Tupanciretan Airport,-56.377220153808594,-19.474443435668945,312
+SSKC,Fazenda União Airport,-52.05937,-19.292785,1758
+SSKE,Campo Primavera,-53.078492,-23.12116,1250
+SSKF,Porto Bonito Airport,-53.872329,-23.344521,1180
+SSKG,Estância Santa Maria Airport,-54.5255012512207,-20.505300521850582,2028
+SSKH,Fazenda Karl Hermann Isenberg Airport,-55.53889083862305,-22.911666870117188,1853
+SSKI,Fazenda Santa Helena Airport,-50.585196,-23.340699,1673
+SSKK,Capão da Canoa Airport,-50.036945,-29.763611,33
+SSKM,Campo Mourão Airport,-52.3568,-24.009199,1883
+SSKP,Copacel Airport,-53.84222030639648,-24.30888938903809,1050
+SSKQ,Fazenda Santa Rosa Airport,-50.461944,-14.541111,1001
+SSKR,Fazenda Primavera Airport,-50.82,-17.17,2306
+SSKS,Cachoeira do Sul Airport,-52.940799713134766,-30.00189971923828,253
+SSKT,Aeroclube de Santa Catarina Airport,-48.672779,-27.611668,20
+SSKU,Curitibanos Airport,-50.604832,-27.286827,3209
+SSKW,Cacoal Airport,-61.4508,-11.496,778
+SSKX,Fazenda São Luíz do Matão Airport,-50.652886,-19.869993,1168
+SSKY,Fazenda Querência Airport,-58.3552777778,-14.4736111111,2362
+SSKZ,Carazinho Airport,-52.8162002563,-28.3225002289,1854
+SSLB,Fazenda São Paulino Airport,-55.92610931396485,-19.025278091430664,394
+SSLD,Fazenda Lourdes Airport,-56.75944519042969,-18.643888473510746,328
+SSLE,Eldorado Brasil Heliport,-51.613889,-20.595277,1037
+SSLG,São Luís Gonzaga Airport,-55.037498474121094,-28.376388549804688,656
+SSLH,Helipalm Heliport,-46.314775,-23.651964,2493
+SSLL,Fazenda Itaguassu Airport,-55.926764,-22.249873,1788
+SSLM,Estância Acrobata Airport,-48.941534,-16.548655,3510
+SSLN,Helmuth Baungarten Airport,-49.5424995422,-27.1599998474,1095
+SSLO,Loanda Airport,-53.148998,-22.917101,1542
+SSLP,Fazenda Lucero Porã Airport,-57.64666748046875,-21.91083335876465,299
+SSLQ,Fazenda Campanário Airport,-55.072604,-22.783302,1362
+SSLR,Ocorema Airport,-57.59333419799805,-19.104999542236328,413
+SSLT,Alegrete Novo Airport,-55.894707,-29.811595,410
+SSLU,Fazenda Aurora Airport,-56.611667,-21.523332,754
+SSLX,Fazenda Brasília do Sul Airport,-54.608345,-22.701258,1296
+SSLY,Norte Sul Heliport,-47.046944,-22.901944,2356
+SSMB,Fazenda Oriente Airport,-43.628157,-22.282949,1877
+SSMC,Fazenda São Miguel da Catequese Airport,-53.52000045776367,-22.087778091430664,1209
+SSME,Fazenda Ipiranga Airport,-55.565663,-20.976584,899
+SSMG,Uno Heliport,-46.331389,-23.956667,226
+SSMH,Fazenda Santa Maria Airport,-52.4636116027832,-31.929443359375,66
+SSMJ,Maracaju Airport,-55.144906,-21.633888,1280
+SSMK,El Dorado Airport,-51.40972137451172,-30.073333740234375,20
+SSMM,MACAÉ Heliport,-40.284467,-6.103733,1247
+SSMO,Fazenda Luma Airport,-52.730275,-19.344942,1821
+SSMP,Fazenda Três Minas Airport,-52.01039,-23.673252,1368
+SSMQ,Chácara Monte Alegre Heliport,-46.680556,-22.69,2454
+SSMR,Manoel Ribas Airport,-51.651714,-24.5296,2822
+SSMT,Mostardas Airport,-50.910301208496094,-31.103599548339844,59
+SSMU,Magnum Heliport,-51.10527801513672,-29.946943283081055,66
+SSMV,Fazenda Boa Vista Airport,-47.56,-22.0425,2434
+SSMW,ICA (Ilha Clube Aerodesportivo) / Ultraleves Airport,-47.013889,-24.315277,49
+SSMX,Fazenda Planalto Airport,-46.483921,-21.142698,3937
+SSMY,São Miguel do Iguaçu Airport,-54.234722,-25.398889,951
+SSMZ,Fazenda São Mateus Airport,-59.983333,-13.917222,1070
+SSNA,Estância Miranda Airport,-56.427346,-19.896503,436
+SSNB,Naviraí Airport,-54.180199,-23.0348,1332
+SSND,Santa Maria Airport,-52.82,-11.16,1119
+SSNF,Fazenda Naisa Airport,-48.810001373291016,-20.329721450805664,1739
+SSNG,Montenegro Airport,-51.48939895629883,-29.71940040588379,125
+SSNH,Novo Hamburgo Airport,-51.08169937133789,-29.69610023498535,66
+SSNI,Fazenda Novo Rumo Airport,-53.87694549560547,-22.98527717590332,1247
+SSNJ,Fazenda Primavera Airport,-55.90528,-19.5075,341
+SSNK,Sementes Petrovina Airport,-54.064558,-16.848464,2362
+SSNM,Guarantã Airport,-54.884974,-9.962281,968
+SSNP,Nova Prata Airport,-51.60419845581055,-28.802499771118164,2264
+SSNQ,Nioaque Airport,-55.830276,-21.184723,984
+SSNR,Fazenda Novo Horizonte Airport,-54.93555450439453,-18.31861114501953,754
+SSNS,Fazenda Pajuçara Airport,-45.104738,-13.183082,2372
+SSNU,Santa Isabel Airport,-48.025001525878906,-22.240833282470703,2582
+SSNV,Fazenda Novo Hamburgo Airport,-57.02972030639648,-19.233055114746097,285
+SSNW,Aeródromo Fazenda Milano,-45.513889,-12.302778,2264
+SSNX,Fazenda da Toca Heliport,-47.73666763305664,-22.213333129882813,2572
+SSNY,Fazenda Florida Airport,-58.216667,-17.183611,541
+SSOA,Blue Tree Tower Faria Lima Heliport,-46.680752,-23.591218,2680
+SSOD,Fazenda Pouso Alegre Airport,-56.415279388427734,-20.247777938842773,374
+SSOE,São Miguel do Oeste Hélio Wasum Airport,-53.503502,-26.781601,2180
+SSOG,Arapongas Airport,-51.491967,-23.352636,2599
+SSOI,Pederneiras Airport,-48.771942138671875,-22.307222366333008,1788
+SSOJ,Fazenda Estrela Airport,-51.735,-19.979167,1509
+SSOK,14 Bis Airport,-51.1836,-23.21456,1932
+SSOL,Padre Israel Airport,-44.963902,-21.240601,3146
+SSON,Fazenda Joalice Airport,-55.02916717529297,-23.787778854370117,1476
+SSOQ,Fazenda Barranco Alto Airport,-56.1522216796875,-19.577777862548828,502
+SSOR,Chico Ledur Airport,-55.714634,-29.817701,381
+SSOS,Osório Airport,-50.249191,-29.902286,56
+SSOT,Fazenda Saco da Tapera Airport,-45.34916687011719,-16.34694480895996,1946
+SSOU,Aripuanã Airport,-59.457469,-10.187375,755
+SSOY,FazendaMorada do Sol Airport,-57.019444,-12.290556,971
+SSOZ,Mina Brucutu Heliport,-43.395261,-19.86961,2959
+SSPA,Fazenda Marajoara Airport,-49.038368,-11.963583,873
+SSPB,Fazenda São José do Pontal Airport,-53.598889,-20.651944,1155
+SSPC,Fazenda Santa Júlia Airport,-51.34,-13.731667,866
+SSPD,Fazenda Paraguá Airport,-60.033333,-14.766667,922
+SSPE,Essência Retiro do Rio Cuiabá Airport,-55.609444,-14.435556,837
+SSPG,Paranaguá Airport,-48.5312,-25.5401,16
+SSPH,Fazenda Santa Lucia Airport,-56.097017,-12.928641,1352
+SSPI,Paranavaí Airport,-52.488499,-23.089899,1526
+SSPL,Palmeira das Missões Airport,-53.32970047,-27.9018001556,2083
+SSPM,Porto Murtinho Airport,-57.880199,-21.7096,260
+SSPN,Paranaíba Airport,-51.199402,-19.651199,1446
+SSPO,Aplicação Aviação Agrícola II Airport,-54.789722442599995,-22.0091667175,1165
+SSPQ,Santa Rosa do Purus Airport,-70.483364,-9.446646,751
+SSPR,Porto Walter Airport,-72.7458,-8.276196,651
+SSPS,Palmas Airport,-51.97589874267578,-26.472000122070313,3609
+SSPT,Palotina Airport,-53.828701,-24.3433,1220
+SSPV,Marechal Thaumaturgo Airport,-72.779721,-8.959443,751
+SSPW,Fazenda São Paulo Airport,-53.153537,-18.100558,2867
+SSPX,Manoel Urbano Airport,-69.260038,-8.8501,531
+SSPY,Porto Índio Airport,-57.748711,-17.672559,390
+SSQA,Fazenda Guaporé Airport,-60.315277099609375,-13.723055839538574,830
+SSQB,Jordão Airport,-71.946944,-9.189444,873
+SSQC,Siqueira Campos Airport,-49.815582,-23.67462,2313
+SSQD,Ilha do Cavaco Heliport,-44.267371,-23.013773,7
+SSQE,TV Mundial I Heliport,-46.70833206176758,-23.568056106567383,2405
+SSQF,Fazenda Floresta Negra Airport,-54.698456,-23.815239,1263
+SSQH,Hospital Mater Dei Heliport,-43.94889068603515,-19.927221298217773,3054
+SSQI,Santa Anastácia Airport,-55.684722222199994,-12.5091666667,1250
+SSQJ,Company Helipad,-46.703256,-23.572749,2536
+SSQP,Monte Santo Airport,-39.286476,-10.464823,1453
+SSQR,Fazenda Primavera Airport,-53.597493,-21.385867,1184
+SSQS,Fazenda Brasil Airport,-52.310209,-15.032426,1001
+SSQT,Castro Airport,-49.959651,-24.807723,3314
+SSQU,Fazenda Alegrete - Retiro Carabda Airport,-55.70166778564453,-20.064722061157227,410
+SSQV,UNICID - Universidade Cidade de São Paulo Heliport,-46.55916595458984,-23.53583335876465,2529
+SSQW,Royal Palm Plaza Heliport,-47.0716667175293,-22.935556411743164,2457
+SSQX,Frei Caneca Shopping Heliport,-46.65250015258789,-23.553611755371097,2713
+SSQY,Centro Empresarial de São Paulo Heliport,-46.72944259643555,-23.648889541625977,2503
+SSQZ,Mimoso do Oeste Airport,-45.895,-12.106389,2543
+SSRB,Rio Brilhante Airport,-54.527779,-21.847778,1024
+SSRC,Fazenda Santa Inês Airport,-54.36833190917969,-21.70305633544922,1084
+SSRE,Realeza Airport,-53.512699127197266,-25.80120086669922,1693
+SSRF,Castro Alves Airport,-39.44670104980469,-12.765700340270996,869
+SSRH,Fazenda Marimbondo Airport,-55.982938,-20.778055,577
+SSRJ,Fazenda Jequitibá Airport,-53.815477,-21.878395,1181
+SSRK,Campo Alegre de Lourdes Airport,-42.995098,-9.51391,1519
+SSRM,Fazenda São Sebastião Airport,-56.276112,-21.019444,791
+SSRN,Aeroclube de Rio Negrinho Airport,-49.521372,-26.321385,3025
+SSRS,Rancho Sumidor Airport,-49.832029,-27.19232,1476
+SSRU,São Lourenço do Sul Airport,-52.03279876708984,-31.38330078125,28
+SSRV,Riviera Helipad,-48.639763,-26.952773,2756
+SSRW,Fazenda J Campos Airport,-48.102146,-23.203627,1781
+SSRZ,Dário Brasil Capoano de Oliveira Airport,-54.923916,-30.277493,335
+SSSA,Fazenda Sant`Anna do Apa Airport,-56.240001,-21.996186,1047
+SSSB,São Borja Airport,-56.034599,-28.6549,262
+SSSC,Santa Cruz do Sul Airport,-52.412201,-29.684099,653
+SSSD,Soledade Airport,-52.540569,-28.863762,2208
+SSSE,Jihad Dehaini Heliport,-49.393611907958984,-25.57666778564453,2972
+SSSG,São Gabriel Airport,-54.267799377441406,-30.344999313354492,472
+SSSH,Fazenda Santo Inácio Airport,-57.011112213134766,-19.19916725158691,275
+SSSI,Fazenda Manto Verde Airport,-45.01548,-7.868144,1450
+SSSJ,HSM Helipad,-48.468673,-1.4378,174
+SSSK,FC Airport,-43.922377,-4.507177,236
+SSSN,do Açu Heliport,-41.01890182495117,-21.7992000579834,13
+SSSO,Fazenda São José I Airport,-52.032259,-21.412791,971
+SSSP,Fazenda Santa Delfina Airport,-56.310001373291016,-20.0402774810791,328
+SSSR,Fazenda Santa Rosa Airport,-52.73333358764648,-20.316389083862305,1476
+SSSS,São Francisco do Sul Airport,-48.567381,-26.219866,49
+SSST,Santiago Airport,-54.84222,-29.215,1460
+SSSV,Fazenda Palmitos Airport,-54.755788,-13.820338,1824
+SSSW,Fazenda Santa Maria Airport,-51.950343,-19.722091,1460
+SSSY,Fazenda Silvana Airport,-53.51166534423828,-22.516666412353516,781
+SSSZ,Sertanópolis Municipal Airport,-51.013901,-23.062201,1181
+SSTA,Santa Maria Airport,-54.80083465576172,-30.245832443237305,709
+SSTB,Três Barras Airport,-50.310902,-26.135799,2559
+SSTC,Copesul Heliport,-51.381111145,-29.882778167699996,92
+SSTD,Fazenda Arco de Canto Airport,-51.59611129760742,-28.55083274841309,2311
+SSTF,Fazenda Triunfo Airport,-57.131681,-17.874997,325
+SSTG,Fazenda Santa Terezinha Airport,-57.058636,-18.467249,525
+SSTH,Fazenda Thália Airport,-49.682472,-25.520223,3346
+SSTI,Arraial d`Ajuda Airport,-39.155511,-16.455421,279
+SSTJ,Walter Ewaldo Siegel Airport,-49.818611145,-27.3491668701,1322
+SSTK,Fazenda União de Iguatemi Airport,-54.53972244262695,-23.682777404785156,794
+SSTP,Fazenda Baessa Airport,-50.320556,-17.970833,1591
+SSTQ,Silvestre Airport,-51.907722,0.849317,482
+SSTR,Usina CEM Airport,-49.24176,-17.93653,2805
+SSTS,Fazenda Bandeirantes Airport,-53.444055,-22.610683,813
+SSTT,Lemon Hotel Heliport,-34.905278,-8.074722,13
+SSTU,Fazenda Jauru Airport,-54.10499954223633,-18.729999542236328,1250
+SSTV,Fazenda Diamantino Airport,-55.40103,-12.120698,1227
+SSTW,Quissamã Airstrip,-41.481111,-22.059444,52
+SSTY,Usina Foz do Chopim Airport,-53.166547,-25.556812999999998,1640
+SSUA,Fazenda Sonora Estância Airport,-54.77000045776367,-17.63111114501953,1575
+SSUC,Fazenda Aurora II Airport,-53.203887939453125,-21.491111755371097,1194
+SSUF,Rede D'Or São Luiz Anália Franco Helipad,-46.558315,-23.54891,2694
+SSUG,Aurora Heliport,-42.698064,-21.460757,499
+SSUH,Porto Frade Heliport,-44.444443,-22.969999,16
+SSUI,Fazenda Novo Horizonte Airport,-48.760541,-7.096976,607
+SSUJ,Estrada do Iate Clube Heliport,-47.263057708740234,-23.607221603393555,2897
+SSUL,Ultraleve Clube Curitiba Airport,-49.154167,-25.476944,3215
+SSUM,Orlando de Carvalho Airport,-53.313801,-23.7987,1552
+SSUN,Terminal Petrobrás - Guarulhos Heliport,-46.44694519042969,-23.470277786254883,2474
+SSUO,Unifly Heliport,-46.3305549622,-23.4086112976,2641
+SSUP,Hospital Santa Joana Heliport,-34.89805603027344,-8.051667213439941,135
+SSUR,Fazenda Tamanduá Bandeira Airport,-52.869372,-21.585423,1260
+SSUS,Uniggel Sementes - Fazenda Santa Maria Airport,-52.896824,-18.413577,2680
+SSUU,Fazenda Colorado Airport,-49.47999954223633,-10.741666793823242,761
+SSUV,José Cleto Airport,-51.066754,-26.233224,2467
+SSUW,Fazenda Palmeiras Airport,-51.505539,-22.775956,1470
+SSUY,Fazenda Menina Airport,-51.476898,-20.640499,1115
+SSVA,Fazenda Visa Estância Airport,-57.62916564941406,-19.0625,805
+SSVB,Fazenda Vaca Branca Airport,-53.821174,-23.066515,1086
+SSVE,Fazenda Cerro Verde Airport,-55.05777740478515,-23.81277847290039,1250
+SSVG,Fazenda Santa Virgínia Airport,-55.653944,-22.279057,2087
+SSVH,Fazenda Paquetá Airport,-55.127777099609375,-22.366943359375,1398
+SSVI,Videira Airport,-51.141899,-26.999701,2766
+SSVK,Fazenda Dom Arlindo Airport,-54.156944274902344,-22.794443130493164,1299
+SSVL,Fazenda Santa Claudina Airport,-54.677776,-22.521667,1476
+SSVN,Veranópolis Airport,-51.568067,-28.935407,2218
+SSVO,Usina de Monções Airport,-50.1269454956,-20.8716678619,1437
+SSVP,Fazenda São Joaquim Airstrip,-39.86629,-18.263982,180
+SSVS,Zezé Heliport,-47.003283,-23.128289,2480
+SSVU,Fazenda Serra do Cabral Airport,-44.350278,-17.698889,3773
+SSVV,Fazenda Vaticano Airport,-56.120272,-21.285926,1027
+SSVW,Fazenda Galera Airport,-59.55694580078125,-14.513055801391602,975
+SSVY,Fazenda Três Barras Airport,-48.173301696777344,-20.93779945373535,1575
+SSVZ,Autovias Heliport,-47.754722,-21.163333,1804
+SSWG,Laguna Helistop,-46.556594,-21.781182,4249
+SSWH,Dr. Emílio Fehr Airport,-47.820806,-21.906268,2300
+SSWI,Escas-Ipê Heliport,-46.320833,-23.157222,2848
+SSWJ,Studart Heliport,-37.794722,-4.457222,56
+SSWM,Fazenda Santa Maria Airport,-51.320029,-23.495871,2461
+SSWP,Fazenda Araguaia Airport,-50.209812,-8.741466,771
+SSWR,Fazenda Campana Airport,-54.294185,-21.894132,1043
+SSWS,Caçapava do Sul Airport,-53.458177,-30.549625,1365
+SSWU,Quick Heliport,-49.2605552673,-16.62027778,1552
+SSWV,Fazenda Barra Grande Airport,-50.036105,-23.589072,1772
+SSWW,Fazenda Belém Airport,-55.89472198486328,-18.67416763305664,262
+SSWY,Flamboyant Heliport,-47.167742,-23.049027,2100
+SSWZ,Fazenda Dona Neném Airport,-46.2738876343,-18.5094432831,3458
+SSXA,Fazenda Congonhas Airport,-50.934444427490234,-23.038610458374023,1526
+SSXB,Casa das Onças Airport,-56.570669,-17.152219,351
+SSXD,Sarandi Airport,-52.86360168457031,-27.98110008239746,2034
+SSXF,Alexandre Castro e Silva Helipad,-34.892798,-8.111772,199
+SSXH,Sócrates Mariani Bittencourt Airport,-41.817501,-14.2554,1673
+SSXI,Fazenda Macisa Airport,-56.798977,-11.182804,1193
+SSXJ,Unidade de Tratamento de Gás de Cacimbas (UTCG) Heliport,-39.7583312988,-19.4658336639,16
+SSXL,Laguna Airport,-56.33583450317383,-20.434722900390625,554
+SSXM,Fazenda Guaciara Airport,-53.880853,-22.78595,1063
+SSXN,Aéreo Amazônia Airport,-55.11472222,-8.298333333,820
+SSXO,Pousada das Águias Airport,-52.12916564941406,-23.288888931274418,1932
+SSXQ,Fazenda Jota III Airport,-51.971108,-19.330599,1700
+SSXS,Miramar Maragogi Heliport,-35.178611755371094,-8.95888900756836,10
+SSXT,Clube Céu Heliport,-43.390267,-22.977676,3
+SSXV,Fazenda Santa Rita Airport,-54.11222076416016,-22.950000762939453,1201
+SSXW,Fazendas Reunidas Schlatter Airport,-52.600277,-18.807777,2625
+SSXX,Xanxerê Airport,-52.372862,-26.875067,2986
+SSXZ,Fazenda Santa Rosa Airport,-50.12916564941406,-19.747499465942383,1348
+SSYA,Fazenda Tropical Airport,-49.195157,-14.87732,1854
+SSYC,Fazenda Mimoso Airport,-52.966901,-19.049771,1959
+SSYD,Fazenda Andorinha I Airport,-49.208057,-7.548056,643
+SSYE,Fazenda Roberta Airport,-58.50166702270508,-15.320833206176758,1033
+SSYF,Fazenda do Café Airport,-48.72055435180664,-18.871667861938477,2762
+SSYG,Edifício Palládio Heliport,-46.685619,-23.59502,2589
+SSYI,Fazenda Sesmarias Airport,-40.833663,-13.055395,1119
+SSYJ,Igreja Messiânica Mundial do Brasil Heliport,-46.75555419921875,-23.761943817138672,2513
+SSYL,Fazenda Tuju Puitan Airport,-54.56888961791992,-23.341110229492188,1142
+SSYO,Cachoeira Rica Airport,-55.614723,-15.2625,1155
+SSYP,Gessomar Airport,-43.919575,-4.521275,190
+SSYQ,Agropecuária Monte Alverne Airport,-52.879444,-28.378889,1752
+SSYR,Fazenda Santa Maria Airport,-52.319283,-20.346468,1306
+SSYS,Fazenda Imbaúba Airport,-52.536388,-19.90889,1552
+SSYT,Itapiranga Airport,-53.685799,-27.1425,1247
+SSYU,Fazenda Três Pontes Airport,-52.585309,-19.830639,1440
+SSYV,Fazenda Progresso Airport,-52.85139083862305,-19.726388931274418,1650
+SSYW,Fazenda Terra Forte Airport,-54.778775,-18.266569,1460
+SSYY,Fazenda Fundãozinho Airport,-53.149444580078125,-18.95111083984375,1923
+SSYZ,Fazenda Cedro Airport,-55.410152,-22.84986,1594
+SSZA,Fazenda São Sebastião da Formosa Airport,-56.753334,-17.722221,331
+SSZC,Fazenda Lambari Airport,-54.999262,-18.025275,564
+SSZF,Fazenda Santa Gertrudes Airport,-56.02166748046875,-18.4777774810791,150
+SSZG,Fazenda São João Airport,-52.89638900756836,-19.257221221923828,1575
+SSZH,Fazenda Corrientes Airport,-54.714375,-23.645969,1122
+SSZI,Condomínio Laguna Heliport,-35.800694,-9.703204,13
+SSZL,Fazenda Córrego Azul Airport,-52.157492,-21.44161,1047
+SSZM,Reserva Acurizal Airport,-57.554401,-17.832875,351
+SSZN,Prudentópolis Airport,-50.923443,-25.182639000000002,2510
+SSZO,Santa Marta I Airport,-50.652199,-8.541299,909
+SSZP,Fazenda Santa Adriana Airport,-54.2158317565918,-22.69611167907715,1499
+SSZQ,Fazenda Panorama Airport,-56.269402,-22.039,1050
+SSZR,Luis Alberto Lehr Airport,-54.520628,-27.90658,1014
+SSZT,Fazenda São João Airport,-49.34111022949219,-22.794166564941406,2146
+SSZU,Fazenda Três Marias Airport,-53.049556,-19.503125,1821
+SSZW,Usina Coruripe - Filial Limeira do Oeste Airport,-50.654031,-19.520191,1384
+SWAA,Fazenda Ykaraí Airport,-50.592777,-14.5439,896
+SWAB,Bradesco Previdência Heliport,-46.856843,-23.486573,2815
+SWAC,Mina Águas Claras Heliport,-43.91452,-19.96895,3848
+SWAD,Fazenda Santa Adelaide Airport,-49.597006,-18.260878,1598
+SWAE,Uaicas Airport,-63.169445,3.551929,1083
+SWAG,Agrícola Rio Galhão Airport,-46.076944,-10.424722,2552
+SWAI,Fazenda Alvorada I Airport,-52.654444,-10.706667,1699
+SWAJ,Viatec Aviação Agrícola Airport,-53.266308,-33.215966,92
+SWAK,Assunção do Içana Airport,-67.603585,1.061726,492
+SWAM,Fazenda Agropecuária Gomes Airport,-49.151692,-23.64966,2165
+SWAO,Anamoim Airport,-67.406097,1.785851,335
+SWAQ,Érico Airport,-62.409401,3.76333,689
+SWAR,Fazenda Aruanã Airport,-51.587892,-13.081903,968
+SWAU,Fazenda Nossa Senhora Aparecida Airport,-48.583883,-19.948255,2592
+SWAX,Fazenda Sassapão Airport,-45.845278,-10.748889,2392
+SWAZ,Santo Atanázio Airport,-69.35463,0.470769,394
+SWBC,Barcelos Airport,-62.918603,-0.981191,112
+SWBE,Walfrido Salmito de Almeida Airport,-40.893813,-4.042841,2900
+SWBF,Fazenda Boa Fortuna Airport,-49.492019,-10.005019,741
+SWBG,André Antônio Maggi Airport,-59.3848,-15.1934,870
+SWBI,Barreirinha Airport,-57.058023,-2.79192,46
+SWBJ,Fazenda Itarema Airport,-52.044446,-13.255318,1339
+SWBK,Fazenda Paladino Airport,-45.8325,-13.089444,2746
+SWBM,Bauminas Heliport,-42.732444,-21.375625,630
+SWBR,Borba Airport,-59.602402,-4.40634,98
+SWBU,Projeto Paraíba Airport,-55.08553,-10.213519,948
+SWBV,Auaris Airport,-64.493635,4.003466,2490
+SWBX,Fazenda Santo Antônio do Paraíso Airport,-55.222148,-17.491674,653
+SWBY,Fazenda Goiasa Airport,-49.704762,-18.033436,2100
+SWBZ,JPO Airport,-55.764263,-12.60692,1155
+SWCA,Carauari Airport,-66.897552,-4.871473,355
+SWCB,Campos Belos Airport,-46.711208,-13.006213,2198
+SWCC,Fazenda Curitiba Airport,-60.418333,-13.546667,705
+SWCE,Fazenda Colibri Airport,-55.398701,-16.2043,2310
+SWCF,Fazenda Fronteira do Guaporé Airport,-60.477222,-13.735278,673
+SWCI,Agropecuária Rio da Prata Airport,-46.550022,-14.223138,1752
+SWCJ,Coperjava Airport,-49.712237,-11.835873,630
+SWCM,Fazenda Couto Magalhães Airport,-52.933202,-13.994372,1378
+SWCO,Fazenda Continental Airport,-51.213759,-14.706057,896
+SWCQ,Costa Marques Airport,-64.251602,-12.4211,623
+SWCS,Corticeiras Airport,-51.936816,-30.978246,79
+SWCT,Santa Rosa Pantanal Hotel Airport,-56.791377,-17.366367,364
+SWCU,Fazenda Canuanã Airport,-49.9037,-11.975223,787
+SWCZ,Ceres Airport,-49.604019,-15.34422,1962
+SWDC,Fazenda Arco-Íris Airport,-53.573424,-16.93555,2710
+SWDE,Fazenda Piratininga Airport,-50.328188,-12.822572,722
+SWDF,Braço do Norte Airport,-55.040184000000004,-9.522029,1407
+SWDG,Fazenda São José Airport,-49.164722,-21.744444,1509
+SWDH,Damha Golfe Heliport,-47.89818,-21.951226,2802
+SWDJ,Fazenda Tundavala Airport,-52.036239,-14.85733,886
+SWDL,Del Rey Heliport,-38.440159,-12.992708,26
+SWDM,Diamantino Airport,-56.400398,-14.3769,1539
+SWDN,Dianópolis Airport,-46.846699,-11.5954,2415
+SWDP,Haras da Mata Heliport,-47.924278,-23.175074,2064
+SWDQ,Fazenda Saltos do Poente Airport,-55.266176,-16.437618,1352
+SWDV,Descalvados Lenda Turismo Airport,-57.757403,-16.737443,354
+SWDX,Edifício Torre Almirante Heliport,-43.175486,-22.907299,417
+SWDY,Fazenda Água Fria Airport,-50.377499,-14.754531,1175
+SWEA,Fazenda Santiago de Compostela,-60.270319,-13.450612,876
+SWEC,Estância Araguaia Airport,-52.09569,-15.89748,1017
+SWED,Fazenda Eldorado Airport,-49.127489,-7.758636,686
+SWEE,Estirão do Equador Airport,-71.560799,-4.52378,98
+SWEF,Fazenda Europa Airport,-51.1567,-14.812989,846
+SWEI,Eirunepé Airport,-69.879709,-6.639533,400
+SWEK,Canarana Airport,-52.268296,-13.576545,1306
+SWEM,Emal - Empresa de Mineiração Aripuanã Ltda. Airport,-54.003334045399995,-14.618888855,1837
+SWEN,Estância Recanto Airport,-56.087244,-9.937751,1004
+SWEO,Itapara Sport Fishing Airport,-61.54999923706055,0.20972199738025665,262
+SWEP,Estância Punta del Este Airport,-50.982379,-22.804394,1148
+SWET,Fazenda Encantado Airport,-58.799697,-13.312904,558
+SWEU,Ecotur Univini Park Airport,-61.662983,0.797558,266
+SWEW,Fazenda Felicidade Airport,-58.63166809082031,-15.842222213745115,656
+SWFA,Fazenda Pamplona Airport,-47.61722183227539,-16.25055694580078,3281
+SWFB,Fazendas Bergamini Heliport,-49.424154,-23.78721,1982
+SWFG,Fazenda Guanabara Airport,-51.6775016784668,-12.029999732971191,1116
+SWFL,Fazenda Peixe Bravo Airport,-50.382778,-10.093889,600
+SWFN,Flores Airport,-60.021937,-3.072917,203
+SWFP,Fazenda Primavera Airport,-52.028684,-10.637303,801
+SWFQ,Fazenda Alvorada Airport,-48.67919921875,-10.392000198364258,943
+SWFR,Formosa Airport,-47.345699,-15.5551,3166
+SWFT,Fazenda Santa Márcia Airport,-52.141618,-16.579439,2175
+SWFU,Fortuna Airport,-59.50055694580078,-16.16694450378418,866
+SWFV,Terramare Airport,-45.864788,-20.722335,2569
+SWFX,São Félix do Araguaia Airport,-50.689602,-11.6324,650
+SWFZ,Fazenda Shalon Airport,-56.675869,-9.987398,876
+SWGC,Agricenter Airport,-55.57916,-22.627129,2073
+SWGD,Fazenda Maiador Airport,-48.211119,-18.174926,2073
+SWGH,Fazenda Primavera Airport,-57.621388,-16.246111,1299
+SWGI,Gurupi Airport,-49.132198,-11.7396,1148
+SWGK,Fazenda Sete Barras Airport,-51.694515,-12.56158,801
+SWGN,Araguaína Airport,-48.240501,-7.22787,771
+SWGO,Santa Cecília Airport,-49.13533,-15.342632,2219
+SWGP,Palmeiras de Goiás Airport,-49.87889862060547,-16.826900482177734,1995
+SWGQ,Fazenda Monte Alegre Airport,-57.35416793823242,-14.78083324432373,755
+SWGT,Fazenda Nova Airport,-50.208507,-17.172918,1909
+SWGU,Fazenda Água Fria Airport,-50.063592,-12.402723,738
+SWGV,Fazenda Cocal II Airport,-52.607777,-12.801944,1004
+SWGW,Fazenda Santa Rita do Araguaia Airport,-51.599684,-15.437529,1047
+SWGX,Primavera Hospital Helipad,-37.064921,-10.950251,128
+SWGY,Sierra Móveis Gramado Heliport,-50.853374,-29.41732,2182
+SWGZ,Usinas Itamarati Airport,-57.188846,-14.776846,988
+SWHC,Caracol Heliport,-50.851886,-29.317271,2221
+SWHD,Fazenda Ipuitã Airport,-53.901218,-23.022277,1063
+SWHI,Gold Meat Heliport,-47.311667,-21.265,2680
+SWHK,Hbuster Helipad,-46.884922,-23.619013,2746
+SWHL,Fazenda Marabá Airport,-55.12166595458984,-15.274999618530272,2247
+SWHM,Lobo Agropecuaria Airport,-53.662833,-18.3125,1450
+SWHP,Frederico Carlos Müller Airport,-52.152003,-14.019959,1476
+SWHQ,Fazenda Santa Cruz Airport,-59.9391670227,-15.1891670227,1060
+SWHR,Estância Rio Paraná Airstrip,-52.185663,-21.856125,919
+SWHS,Fazenda São João Airport,-50.38694381713867,-18.053333282470703,1729
+SWHT,Humaitá Airport,-63.072101593,-7.532120227810001,230
+SWHU,Fazenda Izaura - Usina Cocal Airport,-50.865278000000004,-22.506667,1542
+SWHZ,Fazenda Taquaruçu Retiro Airport,-55.96555709838867,-10.338610649108888,1010
+SWIB,Fazenda Santa Laura Airport,-54.91416549682617,-10.862777709960938,1096
+SWIC,Fazenda Rancho Alegre Airport,-56.066678,-13.519624,1467
+SWIE,Fazenda São Francisco Airport,-50.009998,-13.919444,984
+SWIF,Rio Santos Helipad,-43.764716,-22.854725,72
+SWIH,Fazenda Felicidade Airport,-52.734673,-14.901675,1355
+SWII,Ipiranga Airport,-69.694264,-2.940141,220
+SWIK,Fazenda Vanguarda Airport,-51.278507,-14.910862,935
+SWIL,Fazenda Tarumã Airport,-54.348671,-17.011811,1188
+SWIM,Fazenda Três Ranchos Airport,-51.66972351074219,-16.126667022705078,1142
+SWIN,Fazenda Itamarati Norte Airport,-57.99530029296875,-14.243000030517578,2188
+SWIP,Ipameri Airport,-48.161541,-17.685541,2730
+SWIR,CCN North Tower Helistop,-43.208401,-22.911525,130
+SWIS,Caiapo Airport,-49.775399,-9.186566,648
+SWIT,Condomínio de Voo Itaipu - CVI Airport,-54.441354,-25.484879,896
+SWIU,Agropecuári Madeirinha Airport,-61.417572,-9.847383,502
+SWIV,Águia Branca do Paru Airport,-53.261390686,-1.26805603504,479
+SWIX,Fazenda SM-3B Airport,-54.736104,-17.381132,1677
+SWIY,Santa Izabel do Morro Airport,-50.66619873046875,-11.57229995727539,647
+SWIZ,Fazenda 7 Reis Airport,-54.479167,-21.296667,1555
+SWJA,Fazenda Aero – Amil Airport,-48.853919,-27.017275,72
+SWJB,Fazenda Juba Airport,-58.12833404541016,-14.744999885559082,1667
+SWJC,Jaciara Airport,-54.96861267089844,-15.971667289733888,1198
+SWJD,Fazenda Genipapo Airport,-46.679443359375,-13.452221870422363,1279
+SWJE,Fazenda Ibia Airport,-52.328609466552734,-16.396944046020508,2634
+SWJF,Fazenda São Marcelo Airport,-58.490691,-10.198919,738
+SWJG,Fazenda Jaraguá Airport,-57.43388748168945,-14.48361110687256,1083
+SWJH,Sementes Beé Airport,-51.968333,-28.0525,2198
+SWJI,Fazenda Maringá Airport,-45.205931,-8.146582,1755
+SWJL,Fazenda Invernada Airport,-51.25944519042969,-19.04111099243164,1345
+SWJM,Fazenda Bom Jesus Airport,-46.565277099609375,-12.966388702392578,2067
+SWJN,Juína Airport,-58.701668,-11.419444,1083
+SWJP,Bittencourt Airport,-69.423797607421875,-1.4039299488067627,257
+SWJQ,Fazenda Colibri Airport,-51.845833,-20.226944,1391
+SWJT,Joatão do Colorado Airport,-52.620184,-11.493914,1165
+SWJU,Fazenda Mundo Novo Airport,-49.493044,-11.543398,755
+SWJV,Palmeiras do Javari Airport,-72.80999755859375,-5.127240180969238,394
+SWJW,Jataí Airport,-51.7729988098,-17.8299007416,2529
+SWJX,Fazenda das Perobas Airport,-44.158641,-19.502222,2789
+SWJY,Fazenda Campo Alegre III Airport,-53.73444366455078,-16.844722747802734,2625
+SWJZ,Fazenda Morro Vermelho Airport,-54.531667,-15.967222,1713
+SWKA,Fazenda Canadá Airport,-51.25722122192383,-15.595277786254885,951
+SWKB,Fazenda Campina Airport,-67.445831298828125,-9.142499923706056,699
+SWKC,Cáceres Airport,-57.629902,-16.0436,492
+SWKE,Cobrape Airport,-49.84222,-11.50861,656
+SWKG,Fazenda Água Limpa Airport,-54.748453,-13.411259,1552
+SWKJ,Fazenda Mutum Airport,-54.60833358764648,-15.398056030273438,1821
+SWKK,Huck Heliport,-43.288228,-23.00857,328
+SWKL,Fazenda Primavera do Terebinto Airport,-61.99611282348633,-12.557778358459473,590
+SWKM,Aero Agrícola Rondon Airport,-57.50416564941406,-14.644166946411133,1390
+SWKO,Danilson Municipal Airport,-63.132599,-4.13406,151
+SWKP,Chácara Veneza Airport,-59.2852783203125,-15.24250030517578,866
+SWKQ,Serra da Capivara Airport,-42.644656,-9.083392,1362
+SWKR,Fazenda Mangue Che II Airport,-51.585277557400005,-18.670000076300003,1752
+SWKS,Fornagieri Heliport,-52.511049,-23.311762,1017
+SWKT,Catalão Airport,-47.8997,-18.216801,2612
+SWKU,Cucuí Airport,-66.841421,1.119536,275
+SWKV,Fazenda Beira Rio Airport,-55.85833358764648,-10.900833129882813,1096
+SWKX,Corixá Airport,-58.31719970703125,-16.38360023498535,394
+SWKY,Fazenda Recanto da Cachoeira Airport,-47.47305679321289,-20.3397216796875,3064
+SWKZ,Fazenda Cerejal Airport,-58.25944519042969,-11.717499732971191,984
+SWLA,Fazenda Amália Airport,-58.63166809082031,-11.884721755981444,1030
+SWLB,Lábrea Airport,-64.769501,-7.27897,243
+SWLC,General Leite de Castro Airport,-50.956112,-17.834723,2464
+SWLD,Porto Cajueiro Airport,-45.338569,-14.88405,2510
+SWLF,Fazenda Dona Laura Airport,-58.20888900756836,-15.620278358459473,725
+SWLN,Fazenda Franciosi Airport,-58.471792,-13.417998,1690
+SWLO,Hospital São José Heliport,-49.0838890076,-26.488056182900003,197
+SWLP,Fazenda Rosa - Paralelo 10 Airport,-61.22972106933594,-9.968610763549805,535
+SWLQ,Fazenda Mata Velha Airport,-61.562748,-7.908888,384
+SWLR,Fazenda Miura Airport,-59.657222747802734,-15.440555572509766,820
+SWLS,Fazenda São Luís Airport,-53.874167,-24.198889,1004
+SWLT,Fazenda Tatiana Airport,-54.16722106933594,-10.433889389038086,1197
+SWLU,CAVOK Airstrip,-50.736516,-29.886634,82
+SWLV,Santo Antônio do Lerverger Airport,-56.087399,-15.8534,544
+SWLW,Grupo Tático Aéreo Heliport,-44.279444,-2.496389,89
+SWLY,Chácara MCL Airport,-51.356143,-20.880883,1345
+SWMA,Aero Agrícola Fulanete Airport,-46.26666641235352,-11.833610534667969,2828
+SWMB,Fazenda Marimbondo Airport,-49.58833312988281,-17.977222442626953,2165
+SWMC,Capão da Cruz Airport,-47.88777923583984,-21.458332061767575,1936
+SWMD,Francisca Mendes Heliport,-59.964081,-3.032591,371
+SWME,Mineiros Airport,-52.556702,-17.551399,2707
+SWMG,Fazenda Caraíbas Airport,-46.775001525878906,-13.3855562210083,1637
+SWMH,Fazenda Bom Pastor Airport,-51.01777648925781,-15.542222023010254,895
+SWMJ,Pousada Xaraés Airport,-56.959999084472656,-19.495832443237305,318
+SWMK,Maturacá Airport,-66.115097,0.628269,329
+SWMN,Fazenda Montana Airport,-50.836191,-15.214686,1076
+SWMO,Fazenda Maria José Airport,-54.74222183227539,-17.452777862548828,1716
+SWMQ,Fazenda Muiraquitã Airport,-60.546942,-10.428823,433
+SWMT,Fazenda Centro da Mata Airport,-54.82777786254883,-12.657777786254885,1214
+SWMU,Surumu Airport,-60.7005996704,4.31639003754,1640
+SWMV,Paa-Piu Airport,-62.9506,2.72694,984
+SWMW,Maués Airport,-57.7248,-3.37217,69
+SWMX,Morrinhos Airport,-49.121654,-17.761758,2634
+SWMY,Porto Fluvial Suiá Missu Airport,-50.700557708740234,-11.566944122314451,623
+SWMZ,Aeroporto Agroer Aviação,-54.701269,-16.442424,1047
+SWNA,Novo Aripuanã Airport,-60.364899,-5.11803,118
+SWNE,Nelson Saldanha Airport,-39.367075,-17.884849,10
+SWNG,Fazenda Nossa Senhora das Graças Airport,-55.834751,-12.896987,1279
+SWNH,Aruanã Airport,-51.048888,-14.933275,820
+SWNI,Nova Vida Airport,-62.825747,-10.178313,459
+SWNJ,Fazenda Itaquerê Airport,-53.501662,-15.13855,1867
+SWNK,Novo Campo Airport,-67.312485,-8.834573,394
+SWNQ,Niquelândia Airport,-48.491615,-14.434869,2756
+SWNS,Anápolis Airport,-48.9288,-16.363575,3648
+SWNU,Fazenda Maringá Airport,-48.106084,-3.161266,141
+SWNV,Aeródromo Nacional de Aviação,-49.348832,-16.62584,2707
+SWNX,Fazenda Independência Airport,-53.495098,-14.863708,2067
+SWNY,Fazenda Canaã Heliport,-47.68583297729492,-21.53472137451172,1982
+SWOA,Arnapar Airport,-49.398887634277344,-16.539443969726563,2625
+SWOB,Fonte Boa Airport,-66.0831985474,-2.5326099395800004,207
+SWOC,Fazenda São Bento do Bocajá Airport,-57.364723205566406,-22.025278091430664,443
+SWOE,Fazenda Duas Lagoas Airport,-58.185139,-16.165826,688
+SWOG,Fazenda Itaipu Airport,-56.96111,-13.7525,1470
+SWOK,Fazenda Pontal Airport,-53.93555450439453,-17.30555534362793,2164
+SWOL,Fazenda Roncador Airport,-52.400001525878906,-15.096111297607422,1351
+SWON,Clube de Aviação Céu Azul Airport,-48.696048,-26.561531,16
+SWOP,Fazenda Embú Airport,-57.621937,-9.785799,866
+SWOR,Fazenda Colorado Airport,-51.224849,-15.453497,919
+SWOT,Fazenda Planorte Airport,-58.895278,-13.943333,2106
+SWOU,Rede Globo 2 Heliport,-46.698267,-23.615097,2575
+SWOW,Moura Airport,-61.633088,-1.463542,190
+SWOZ,Fazenda Santo Antônio Airport,-54.900644,-15.304751,2146
+SWPB,Forte Príncipe da Beira Airport,-64.418603,-12.420665,591
+SWPC,Parí Cachoeira Airport,-69.79404,0.265565,377
+SWPD,Pouso da Águia Airport,-60.595531,2.787444,282
+SWPE,Fazenda Lagoa da Mata Airport,-55.585796,-10.133185,866
+SWPF,Fazenda Primavera Airport,-61.234277,-13.45975,551
+SWPH,Fazenda Paulo Abreu Airport,-52.12875,-15.226674,991
+SWPI,Parintins Airport,-56.777625,-2.673521,87
+SWPK,Poconé Airport,-56.650833,-16.272778,591
+SWPL,Posto Leonardo Vilas Boas Airport,-53.38166809082031,-12.19833278656006,1083
+SWPM,Pimenta Bueno Airport,-61.1791,-11.6416,682
+SWPP,Fazenda Pica-Pau Airport,-50.665000915527344,-14.753055572509766,1001
+SWPQ,Fazenda Piraguassu Airport,-51.688152,-10.85935,643
+SWPR,Pires do Rio Airport,-48.334801,-17.319099,2428
+SWPU,Portal dos Lagos Heliport,-47.716232,-23.278577,1844
+SWPX,Belterra Airport,-54.95151,-2.672198,574
+SWPY,Primavera do Leste Airport,-54.337776,-15.565556,2149
+SWPZ,Oriçanga de Abreu Airport,-46.345402,-14.1181,2759
+SWQA,Bonini Heliport,-45.559731,-22.732432,5600
+SWQB,Hahn Heliport,-46.3916664124,-22.9772224426,2838
+SWQC,Fazenda São Francisco Airport,-51.597187,-17.500746,3123
+SWQE,Querari Airport,-69.838048,1.08777,545
+SWQF,Miguel Dias III Heliport,-38.981362,-4.238269,3051
+SWQG,Fazenda Sossego Airport,-55.421112060546875,-21.45722198486328,1706
+SWQH,Agropecuária Nova Santana Airport,-60.538612365722656,-10.147221565246582,797
+SWQI,Caracaraí Airport,-61.121827,1.84389,184
+SWQL,Fazenda Três Companheiros Airport,-52.252763,-16.682457,2070
+SWQO,Fazenda Renascença Airstrip,-48.915386,-20.387728,1558
+SWQP,Rio Vermelho Açucar e Álcool Airport,-51.369998931884766,-21.315277099609375,1148
+SWQS,Fazenda Santa Rosa,-53.436173,-20.941284,1424
+SWQT,Fazenda São Nicolau Airport,-58.230815,-9.86287,725
+SWQU,Fazenda Guaporé Airport,-60.121808,-14.600982,728
+SWQW,Fazenda Bacaeri Airport,-56.832232,-10.051621,1050
+SWQY,Fazenda Peturú Airport,-52.3675,-2.684444,384
+SWRA,Fazenda Bela Vista Airport,-56.991573,-10.056322,866
+SWRC,Fazenda Sevilha Airport,-51.93416595458984,-12.626667022705078,951
+SWRD,Chácara Rondoagro Airport,-62.709045,-11.731945,620
+SWRE,Fazenda Renovo Airport,-53.526433,-16.770208,2428
+SWRF,Fazenda Toloza Airport,-57.997274,-13.18464,1644
+SWRG,Fazenda Rancho Maria e Tereza Airport,-65.2286148071289,-10.825833320617676,492
+SWRH,Fazenda Aurora Airport,-46.156952,-12.710022,2904
+SWRI,Fazenda Roncador I Airport,-52.27899932861328,-12.155400276184082,993
+SWRJ,Fazenda Panflora Airport,-56.552222,-15.084167,757
+SWRK,Pedreira Pombal Fazenda Recanto Heliport,-44.257678,-22.486884,1492
+SWRL,Fazenda Pouso Redondo Airport,-61.04916763305664,-12.977222442626951,1086
+SWRN,Rio Negro Naval Station Heliport,-59.948214,-3.144233,131
+SWRO,Aeroclube de Rondônia Airport,-63.857494,-8.794348,371
+SWRR,Fazenda Serra Azul Airport,-54.567477,-14.66749,1667
+SWRS,Fazenda Santa Mônica Airport,-54.906944274902344,-16.933332443237305,1047
+SWRT,Fazenda Santa Rita Airport,-53.19305419921875,-17.3477783203125,2346
+SWRW,Fazenda Santa Alice Airport,-58.0444450378418,-15.587499618530272,1115
+SWRY,Fazenda Santa Maria Airport,-57.47055435180664,-15.737500190734863,1853
+SWRZ,Fazenda Arrossensal Airport,-56.71379852294922,-14.353099822998049,1306
+SWSC,Fazenda Santa Cruz Airport,-52.736311,-11.65102,1083
+SWSD,Fazenda Santo Antônio Airport,-51.81388854980469,-15.623888969421388,1079
+SWSE,Iguatemi Corporate Heliport,-51.162777,-30.028333,328
+SWSF,Fazenda São Francisco Airport,-60.217201232899995,-15.2241001129,863
+SWSG,Fazenda Simarelli Airport,-59.31679916381836,-13.606800079345703,2136
+SWSI,Pousada Amazônia Fishing Lodge Airstrip,-57.049462,-9.13939,509
+SWSL,Teuto Heliport,-48.916272,-16.406354,3622
+SWSN,Fazenda São Valentim Airport,-59.321389,-14.962222,1007
+SWSO,Socimed Hospital Helipad,-48.988888,-28.473888,79
+SWSP,Sopave Norte Airport,-54.737996,-13.725278,1690
+SWSQ,São Joaquim Airport,-69.389702,1.700207,541
+SWST,Bandeiras Centro Empresarial Heliport,-47.449475,-23.536615,1827
+SWSV,Fazenda Santa Sílvia Airport,-51.3805541992,-14.3886108398,837
+SWSW,Federal District Civil Police (PCDF) Heliport,-47.913247,-15.779737,3816
+SWSZ,Fazenda Santa Luzia Airport,-58.06277847290039,-9.773611068725586,741
+SWTA,Fazenda Bandeirantes Airport,-58.408187,-15.416306,968
+SWTG,Fazenda Santa Marina Airport,-50.788229,-20.847244,1126
+SWTH,Fazenda Smith Airport,-60.5107,2.9185,262
+SWTI,São Vicente Airport,-59.7798995972,-14.5202999115,791
+SWTJ,Fazenda Cachoeira Airport,-57.778042,-14.565272,978
+SWTK,Fazenda Santa Maria do Guaporé Airport,-60.280834,-14.201944,699
+SWTL,Fazenda Corumbiara Airport,-61.302841,-12.514441,1371
+SWTN,Fazenda Arapucel Airport,-58.729201,-15.046599,1562
+SWTO,Paraíso do Tocantins Airport,-48.9328,-10.1742,1083
+SWTP,Tapuruquara Airport,-64.992558,-0.378604,141
+SWTQ,Rio Quente Resorts Airport,-48.761807,-17.768871,2247
+SWTR,Taraquá Airport,-68.548543,0.121279,246
+SWTS,Tangará da Serra Airport,-57.443744,-14.662,1473
+SWTT,Supermax Heliport,-49.326258,-25.432516,3120
+SWTU,Fazenda Tucunaré Airport,-58.866935,-13.465528,1814
+SWTV,Fazenda Rio Preto Airport,-57.968368,-15.054098,676
+SWTY,Taguatinga Airport,-46.400438,-12.435274,1959
+SWTZ,Fazenda Santo Antônio - Zampieri Airport,-53.535518,-20.739129,1319
+SWUA,São Miguel do Araguaia Airport,-50.197601,-13.3313,1249
+SWUD,Cláudio Airport,-44.812776,-20.445833,2690
+SWUE,Fazenda Tapayuna Airport,-55.933033,-10.706422,869
+SWUF,Cervejaria Petrópolis Heliport,-47.660891,-23.258478,2067
+SWUG,Hospital MATER DEI Betim/Contagem Helipad,-44.147503,-19.94072,2979
+SWUI,Ilha do Maia Heliport,-44.331926,-23.027213,NA
+SWUK,Uapuí Cachoeira Airport,-69.211847,1.199392,249
+SWUL,Fazenda Furna Azul Airport,-48.425922,-6.216058,387
+SWUQ,Surucucu Airport,-63.646999,2.83528,2854
+SWUR,Fazenda Vista Verde Airport,-44.384519,-8.491526,1945
+SWUW,Fazenda Okuhara Airport,-56.836696,-15.110948,807
+SWUX,Fazenda 4 Amigos Airport,-49.666942,-9.244835,604
+SWUZ,Brigadeiro Araripe Macedo Airport,-47.968717,-16.26174,3269
+SWVB,ICPB Heliport,-48.532353,-27.143296,18
+SWVC,Vila Rica Airport,-51.140358,-9.981057,833
+SWVF,Fazenda Santo Antônio Guaporé Airport,-59.920008,-16.008766,741
+SWVG,Riacho Verde Heliport,-40.298348,-5.971023,1388
+SWVH,Fazenda Vaca Branca Airport,-56.238333,-9.523333,899
+SWVJ,Fazenda Uiapuru Airport,-56.002564,-13.666504,1519
+SWVK,Fazenda Vale do Rio Celeste Airport,-55.32782,-13.035319,1450
+SWVM,Vinte e Oito Helipad,-43.958441,-19.962612,3340
+SWVN,Nova Era & Thomazi Agropecuárias Airport,-59.796052,-13.634017,2054
+SWVR,Canarinho Airport,-55.456099,-11.906131,1460
+SWVS,Baia do Padre Airport,-60.04039,-15.861972,675
+SWVU,Fazenda Ramalhete Airport,-54.577275,-21.734006,1109
+SWVV,Fazenda Bela Vista Airport,-60.095739,-15.755134,728
+SWVW,Furnaspark Resort Airport,-45.603935,-20.53527,2589
+SWVX,Fazenda Guariba Airstrip,-60.1409,-10.2415,531
+SWVY,Fazenda Carvalho Airport,-56.482236,-17.568061,361
+SWVZ,EMAL - Empresa de Mineração Aripuanã Ltda Airport,-56.352779,-14.75,2362
+SWWA,Porangatu Airport,-49.158298,-13.4048,1201
+SWWC,Cataratas Poços Helipad,-60.716017,2.766853,279
+SWWE,M. Baumann Airfield,-49.500291,-26.03618,3123
+SWWF,Hotel Baiazinha Airport,-57.83139,-16.569721,446
+SWWG,Fazenda Canamari Airport,-50.381241,-18.549552,1699
+SWWH,Fazenda Marca Salto Airstrip,-53.904,-21.9827,1161
+SWWI,Fazenda Fortaleza Airport,-53.5825,-15.678333,2047
+SWWM,Mantena Airport,-40.948173,-18.77184,663
+SWWN,Fazenda Santa Amália Airport,-56.579088,-10.307853,1043
+SWWS,Sorocaba Business Park Heliport,-47.389604,-23.445563,2021
+SWWT,Sílvio Gonçalves de Mello Airport,-45.335393,-18.705641,1936
+SWWU,Uruaçu Airport,-49.09111,-14.544723,1706
+SWWV,Posto de Proteção Ambiental Santa Maria Airport,-56.030357,-16.706075,479
+SWWW,Posto de Proteção Ambiental São Luiz Airport,-56.176856,-16.6891,459
+SWWX,Posto de Proteção Ambiental São Joaquim Airport,-56.371007,-16.746794,430
+SWWY,Posto de Proteção Ambiental Espírito Santo Airport,-56.280842,-16.588403,456
+SWWZ,Darinha Airport,-38.242778,-4.109722,62
+SWXA,Fazenda Canadazinho Airport,-51.404677,-15.044121,889
+SWXB,Fazenda Jangada Airstrip,-55.175718,-15.297449,2339
+SWXC,Fazenda Tropical Airport,-61.298504,-12.885577,994
+SWXE,PCH Paranatinga II Airport,-53.238895,-13.877607,1230
+SWXH,Fazenda São Sebastião Airport,-46.258833,-13.064413,2999
+SWXJ,Chácara São José Airport,-56.003992,-15.595769,545
+SWXM,Orlando Villas Boas Regional Airport,-54.953964,-10.170368,886
+SWXN,Fazenda Bom Jardim Airport,-51.270546,-17.247325,2933
+SWXO,Fazenda Porto Seguro Airport,-52.728145,-7.138207,801
+SWXP,Fazenda Santa Luzia Airport,-58.888168,-13.732873,1955
+SWXS,Fazenda São João do Ibiporã Airport,-59.636653,-15.784687,951
+SWXT,Fazenda Medalha Milagrosa Airport,-60.067974,-16.105056,856
+SWXU,Xapuri Airport,-68.485873,-10.663718,492
+SWXV,Xavantina Airport,-52.347246,-14.697778,1037
+SWXW,Fazenda São João do Guaporé Airport,-59.889221,-15.973614,722
+SWXX,Fazenda Canadá Airport,-48.423,-18.8619,2799
+SWXY,Fazenda Vô Zeca Airport,-50.676797,-10.355752,732
+SWXZ,Fazenda Taquarussu Airport,-60.293255,-13.31002,912
+SWYB,Chácara Messias Heliport,-46.253759,-23.278754,2270
+SWYC,Jair Feliciano de Deus Airport,-58.107917,-15.693403,849
+SWYE,Fazenda São Lourenço Airstrip,-55.784444,-29.555833,449
+SWYH,Fazenda Aliança Airport,-58.314893,-15.291592,984
+SWYK,Fazenda Ilha Camargo Airport,-56.583698,-17.062599,358
+SWYM,Fazenda Anhanguera Airport,-59.4491,-14.6425,951
+SWYN,Apuí Airport,-59.8396,-7.172773,197
+SWYO,Usina Branco Peres Airport,-51.025562,-21.48292,1335
+SWYP,Fazenda Ribeiro do Céu Airport,-55.778993,-13.955319,1683
+SWYR,Fazenda Nossa Senhora do Pillar Airport,-58.794586,-15.348282,1040
+SWYS,Usina Cerradão Airport,-49.122725,-19.929763,1706
+SWYU,Fazenda Entre Rios Airport,-50.86458,-14.439712,833
+SWYV,Clube Aerodesportivo de Ibirá Airport,-49.224249,-21.09149,1578
+SWYW,Fazenda Adriana Airport,-53.83648,-16.834061,2451
+SWYY,Fazenda Nova Viena Airport,-52.278779,-14.88443,974
+SWYZ,Residência Oficial Heliport,-40.269191,-20.327198,59
+SWZA,Agrosan Airport,-58.121521,-11.397556,1040
+SWZB,Fazenda Arara Azul Airport,-56.459641,-17.005472,384
+SWZC,Fazenda Corixo Airport,-58.894444,-16.245331,492
+SWZD,Fazenda Denusa Destilaria Nova União Airport,-50.142674,-17.255833,1611
+SWZE,Fazenda Tamboril Airport,-59.379215,-15.059733,1099
+SWZG,Fazenda Lagoa Encantada Airport,-58.894873,-16.021695,800
+SWZI,Multitoc Heliport,-45.434191,-22.431765,2806
+SWZK,CON-CN-Cidade Nova Heliport,-43.203259,-22.911457,128
+SWZL,Fazenda Americana Airport,-41.715044,-18.147591,1106
+SWZN,Fazenda Francês Airport,-50.424987,-17.314771,2210
+SWZO,Fazenda Lagoa Funda Airport,-55.140771,-15.340785,2329
+SWZP,Fazenda Vale Rico Airport,-54.204144,-16.385464,1050
+SWZQ,Fazenda Jussara Airport,-51.072487,-15.845633,1063
+SWZS,Fazenda Nova Larga Airport,-57.675261,-16.670163,371
+SWZT,Fazenda do Brejo Airport,-44.473331,-19.254999,2451
+SWZY,Fazenda Sete Estrelas Airport,-58.234363,-11.576917,984
+SWZZ,Graer Heliport,-48.858604,-26.263237,39
