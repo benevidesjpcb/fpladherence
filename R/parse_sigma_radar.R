@@ -39,14 +39,25 @@ read_sigma_radar_log <- function(path, ...) {
 #' pipeline (mesmas colunas produzidas por read_radar_track() em
 #' R/parse_radar.R): callsign, timestamp (POSIXct), lat, lon, altitude_ft.
 #'
+#' IMPORTANTE: codigo de transponder (ssr/squawk) e REUTILIZADO por
+#' diferentes voos ao longo do dia -- filtrar so por ssr, sem uma janela de
+#' horario, pode misturar posicoes de varias aeronaves diferentes num "voo"
+#' so (o resultado fica com saltos absurdos de altitude). Por isso e
+#' fortemente recomendado informar 'time_window' com o horario real do voo
+#' (ver extract_actual_times() em R/parse_sigma_fpl.R).
+#'
 #' @param radar_log data.frame/data.table retornado por
 #'   read_sigma_radar_log()
 #' @param ssr codigo de transponder do voo (ex.: 2019); opcional se
 #'   callsign for informado
 #' @param callsign identificador da aeronave no radar (ex.: "4XCUZ");
 #'   opcional se ssr for informado
+#' @param time_window vetor de 2 POSIXct, c(inicio, fim) -- mantem so
+#'   posicoes dentro dessa janela. Fortemente recomendado quando filtrando
+#'   por ssr (ver nota acima).
 #' @return data.frame ordenado por tempo, no formato canonico de radar_track
-sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL) {
+sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL,
+                                  time_window = NULL) {
   if (is.null(ssr) && is.null(callsign)) {
     stop("Informe 'ssr' e/ou 'callsign' para selecionar um unico voo.")
   }
@@ -61,6 +72,10 @@ sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL) {
   if (!is.null(callsign)) {
     cs_clean <- gsub('"', '', track$callsign)
     track <- track[trimws(cs_clean) == trimws(callsign), ]
+  }
+  if (!is.null(time_window)) {
+    ts <- as.POSIXct(track$dt_radar, tz = "UTC")
+    track <- track[ts >= time_window[1] & ts <= time_window[2], ]
   }
 
   out <- data.frame(

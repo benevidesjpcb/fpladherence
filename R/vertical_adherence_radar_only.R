@@ -28,6 +28,29 @@ fill_na_locf <- function(x) {
   x[idx][rep_idx]
 }
 
+#' Mantem apenas o maior trecho continuo de um radar_track, onde "continuo"
+#' significa sem lacunas de tempo maiores que 'max_gap_min'. Rede de
+#' seguranca contra ssr reutilizado por outro voo (posicoes de um voo
+#' diferente tendem a aparecer isoladas, com uma lacuna grande antes/depois).
+#'
+#' @param radar_track data.frame ordenado por tempo, com coluna timestamp
+#' @param max_gap_min lacuna maxima (minutos) considerada "mesmo voo"
+#' @return subconjunto de radar_track (o maior trecho continuo)
+keep_largest_contiguous_segment <- function(radar_track, max_gap_min = 5) {
+  radar_track <- radar_track[order(radar_track$timestamp), ]
+  if (nrow(radar_track) <= 1) return(radar_track)
+
+  gap_min <- c(0, diff(as.numeric(radar_track$timestamp)) / 60)
+  segmento <- cumsum(gap_min > max_gap_min) + 1
+
+  tamanhos <- table(segmento)
+  maior <- as.integer(names(tamanhos)[which.max(tamanhos)])
+
+  out <- radar_track[segmento == maior, ]
+  rownames(out) <- NULL
+  out
+}
+
 #' Suaviza um vetor numerico por media movel centrada
 moving_average <- function(x, window = 5) {
   n <- length(x)
