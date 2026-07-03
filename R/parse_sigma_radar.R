@@ -52,7 +52,12 @@ sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL) {
   }
 
   track <- radar_log
-  if (!is.null(ssr)) track <- track[track$nr_ssr == ssr, ]
+  if (!is.null(ssr)) {
+    # comparacao como texto (trimmed) -- evita falso-negativo por zeros a
+    # esquerda perdidos ou diferenca de tipo (character vs numeric) entre
+    # a leitura do FPL (read.csv) e a do radar (data.table::fread)
+    track <- track[trimws(as.character(track$nr_ssr)) == trimws(as.character(ssr)), ]
+  }
   if (!is.null(callsign)) {
     cs_clean <- gsub('"', '', track$callsign)
     track <- track[trimws(cs_clean) == trimws(callsign), ]
