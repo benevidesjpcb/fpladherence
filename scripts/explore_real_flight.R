@@ -41,9 +41,15 @@ cat("\n-- Diagnostico --\n")
 cat("Classe ssr (FPL):   ", class(planos$ssr), " | exemplos:", paste(head(ssr_fpl, 5), collapse=", "), "\n")
 cat("Classe nr_ssr(RADAR):", class(log_radar$nr_ssr), " | exemplos:", paste(head(ssr_radar, 5), collapse=", "), "\n")
 
-ssr_em_comum <- intersect(unique(ssr_fpl), unique(ssr_radar))
-cat("SSRs distintos no FPL:  ", length(unique(ssr_fpl)), "\n")
-cat("SSRs distintos no RADAR:", length(unique(ssr_radar)), "\n")
+# remove NA antes de comparar -- "NA" == "NA" nao deveria contar como par
+ssr_fpl_validos <- unique(ssr_fpl[!is.na(planos$ssr)])
+ssr_radar_validos <- unique(ssr_radar[!is.na(log_radar$nr_ssr)])
+
+ssr_em_comum <- intersect(ssr_fpl_validos, ssr_radar_validos)
+cat("SSRs distintos no FPL:  ", length(ssr_fpl_validos),
+    " (", sum(is.na(planos$ssr)), " voos sem ssr)\n")
+cat("SSRs distintos no RADAR:", length(ssr_radar_validos),
+    " (", sum(is.na(log_radar$nr_ssr)), " posicoes sem ssr)\n")
 cat("SSRs em comum:          ", length(ssr_em_comum), "\n")
 
 if (length(ssr_em_comum) == 0) {
@@ -53,13 +59,14 @@ if (length(ssr_em_comum) == 0) {
 }
 
 ## 3. Acha automaticamente o primeiro voo com radar disponivel -----------------
-planos_com_radar <- planos[ssr_fpl %in% ssr_em_comum, ]
+planos_com_radar <- planos[ssr_fpl %in% ssr_em_comum, , drop = FALSE]
 cat("\nVoos do FPL que tem alguma posicao de radar:", nrow(planos_com_radar), "de", nrow(planos), "\n")
 
 voo <- NULL
 for (i in seq_len(min(nrow(planos_com_radar), 50))) {
   candidato <- planos_com_radar[i, ]
-  n_pos <- sum(ssr_radar == trimws(as.character(candidato$ssr)))
+  if (is.na(candidato$ssr)) next
+  n_pos <- sum(ssr_radar == trimws(as.character(candidato$ssr)), na.rm = TRUE)
   if (n_pos >= 10) { # exige um minimo de posicoes para um perfil util
     voo <- candidato
     cat("\nVoo escolhido (", n_pos, "posicoes de radar):\n")
