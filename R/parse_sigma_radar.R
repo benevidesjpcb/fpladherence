@@ -53,6 +53,10 @@ read_sigma_radar_log <- function(path, ...) {
 #' @return radar_log com a coluna 'ts' (POSIXct) adicionada
 parse_radar_timestamps <- function(radar_log) {
   radar_log$ts <- lubridate::ymd_hms(radar_log$dt_radar, tz = "UTC")
+  # limpeza do callsign (remove aspas/espacos) tambem e cara para milhoes de
+  # linhas e era refeita a cada chamada dentro do loop de voos -- pre-calcula
+  # junto, na coluna 'cs'
+  radar_log$cs <- trimws(gsub('"', '', radar_log$callsign, fixed = TRUE))
   radar_log
 }
 
@@ -62,6 +66,14 @@ parse_radar_timestamps <- function(radar_log) {
 radar_timestamps <- function(radar_log) {
   if ("ts" %in% names(radar_log)) return(radar_log$ts)
   lubridate::ymd_hms(radar_log$dt_radar, tz = "UTC")
+}
+
+#' Retorna o callsign limpo (sem aspas/espacos) do log de radar,
+#' reaproveitando a coluna 'cs' se ja tiver sido calculada por
+#' parse_radar_timestamps() -- senao, calcula na hora.
+radar_callsigns <- function(radar_log) {
+  if ("cs" %in% names(radar_log)) return(radar_log$cs)
+  trimws(gsub('"', '', radar_log$callsign, fixed = TRUE))
 }
 
 #' Filtra o log de radar para um unico voo, por codigo de transponder (ssr)
@@ -100,8 +112,7 @@ sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL,
     track <- track[trimws(as.character(track$nr_ssr)) == trimws(as.character(ssr)), ]
   }
   if (!is.null(callsign)) {
-    cs_clean <- gsub('"', '', track$callsign)
-    track <- track[trimws(cs_clean) == trimws(callsign), ]
+    track <- track[radar_callsigns(track) == trimws(callsign), ]
   }
 
   ts <- radar_timestamps(track)
@@ -174,7 +185,7 @@ find_callsign_by_time_location <- function(radar_log, adep_coords, ades_coords,
     ) / 1852
   }
 
-  cs <- trimws(gsub('"', '', radar_log$callsign))
+  cs <- radar_callsigns(radar_log)
   candidatos_dep <- unique(cs[perto_dep_time & !is.na(dist_adep_nm) & dist_adep_nm <= max_dist_nm])
   candidatos_arr <- unique(cs[perto_arr_time & !is.na(dist_ades_nm) & dist_ades_nm <= max_dist_nm])
 
