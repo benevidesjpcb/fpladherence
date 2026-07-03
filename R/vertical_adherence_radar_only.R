@@ -132,18 +132,31 @@ compute_vertical_deviation_radar_only <- function(radar_track, filed_level_ft,
 #' @return list(cruzeiro = data.frame, subida = data.frame, descida = data.frame)
 summarise_vertical_adherence_radar_only <- function(matched) {
   cruzeiro <- matched[!is.na(matched$phase) & matched$phase == "CRUZEIRO", ]
-  resumo_cruzeiro <- data.frame(
-    n_pontos = nrow(cruzeiro),
-    pct_aderencia = if (nrow(cruzeiro) > 0) round(100 * mean(cruzeiro$is_adherent), 1) else NA,
-    desvio_medio_ft = if (nrow(cruzeiro) > 0) round(mean(cruzeiro$deviation_ft), 0) else NA,
-    desvio_max_ft = if (nrow(cruzeiro) > 0) round(max(abs(cruzeiro$deviation_ft)), 0) else NA
-  )
+
+  # nem toda leitura de radar tem nr_flightlevel valido -- ignora essas
+  # (na.rm=TRUE) em vez de deixar um unico NA derrubar a metrica inteira
+  n_validos <- sum(!is.na(cruzeiro$deviation_ft))
+  if (nrow(cruzeiro) == 0 || n_validos == 0) {
+    resumo_cruzeiro <- data.frame(n_pontos = nrow(cruzeiro), n_pontos_validos = n_validos,
+                                   pct_aderencia = NA, desvio_medio_ft = NA, desvio_max_ft = NA)
+  } else {
+    resumo_cruzeiro <- data.frame(
+      n_pontos = nrow(cruzeiro),
+      n_pontos_validos = n_validos,
+      pct_aderencia = round(100 * mean(cruzeiro$is_adherent, na.rm = TRUE), 1),
+      desvio_medio_ft = round(mean(cruzeiro$deviation_ft, na.rm = TRUE), 0),
+      desvio_max_ft = round(max(abs(cruzeiro$deviation_ft), na.rm = TRUE), 0)
+    )
+  }
 
   fase_resumo <- function(df) {
-    if (nrow(df) == 0) return(data.frame(n_pontos = 0, duracao_min = NA, alt_alcancada_ft = NA))
+    n_validos <- sum(!is.na(df$altitude_ft))
+    if (nrow(df) == 0 || n_validos == 0) {
+      return(data.frame(n_pontos = nrow(df), duracao_min = NA, alt_alcancada_ft = NA))
+    }
     duracao_min <- round(as.numeric(difftime(max(df$timestamp), min(df$timestamp), units = "mins")), 1)
     data.frame(n_pontos = nrow(df), duracao_min = duracao_min,
-               alt_alcancada_ft = max(df$altitude_ft))
+               alt_alcancada_ft = max(df$altitude_ft, na.rm = TRUE))
   }
 
   not_na <- !is.na(matched$phase)
