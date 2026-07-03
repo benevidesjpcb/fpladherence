@@ -17,6 +17,17 @@
 #    reporta-se apenas a duracao e o nivel alcancado, sem tolerancia (o FPL
 #    nao descreve perfil de subida/descida).
 
+#' Preenche NA "carregando" o ultimo valor valido anterior (LOCF); NAs no
+#' inicio do vetor sao preenchidos com o primeiro valor valido.
+fill_na_locf <- function(x) {
+  if (all(is.na(x))) return(x)
+  idx <- which(!is.na(x))
+  if (idx[1] > 1) x[1:(idx[1] - 1)] <- x[idx[1]]
+  idx <- which(!is.na(x))
+  rep_idx <- findInterval(seq_along(x), idx)
+  x[idx][rep_idx]
+}
+
 #' Suaviza um vetor numerico por media movel centrada
 moving_average <- function(x, window = 5) {
   n <- length(x)
@@ -43,13 +54,21 @@ moving_average <- function(x, window = 5) {
 detect_flight_phases <- function(radar_track, climb_threshold_fpm = 300,
                                   descent_threshold_fpm = -300,
                                   smooth_window = 5) {
+  # leituras com timestamp duplicado (comuns em dados reais, ex.: mais de uma
+  # fonte de radar) tornam a taxa de variacao indefinida (dt = 0) -- mantem
+  # so a primeira ocorrencia de cada instante.
+  radar_track <- radar_track[!duplicated(radar_track$timestamp), ]
+  rownames(radar_track) <- NULL
+
   n <- nrow(radar_track)
   dt_min <- c(NA, diff(as.numeric(radar_track$timestamp)) / 60)
   d_alt <- c(NA, diff(radar_track$altitude_ft))
   raw_rate <- d_alt / dt_min
+  raw_rate[!is.finite(raw_rate)] <- NA # guarda contra Inf/NaN residual
   raw_rate[1] <- raw_rate[2] # aproxima o primeiro ponto pelo seguinte
 
   rate <- moving_average(raw_rate, window = smooth_window)
+  rate <- fill_na_locf(rate) # nao deixa NA/NaN chegar na classificacao de fase
 
   phase <- ifelse(rate > climb_threshold_fpm, "SUBIDA",
                    ifelse(rate < descent_threshold_fpm, "DESCIDA", "CRUZEIRO"))
@@ -72,7 +91,7 @@ detect_flight_phases <- function(radar_track, climb_threshold_fpm = 300,
 #'   is_adherent (NA fora do cruzeiro)
 compute_vertical_deviation_radar_only <- function(radar_track, filed_level_ft,
                                                    cruise_tolerance_ft = 300) {
-  is_cruise <- radar_track$phase == "CRUZEIRO"
+  is_cruise <- !is.na(radar_track$phase) & radar_track$phase == "CRUZEIRO"
 
   radar_track$deviation_ft <- NA_real_
   radar_track$deviation_ft[is_cruise] <- radar_track$altitude_ft[is_cruise] - filed_level_ft
@@ -89,7 +108,7 @@ compute_vertical_deviation_radar_only <- function(radar_track, filed_level_ft,
 #' @param matched resultado de compute_vertical_deviation_radar_only()
 #' @return list(cruzeiro = data.frame, subida = data.frame, descida = data.frame)
 summarise_vertical_adherence_radar_only <- function(matched) {
-  cruzeiro <- matched[matched$phase == "CRUZEIRO", ]
+  cruzeiro <- matched[!is.na(matched$phase) & matched$phase == "CRUZEIRO", ]
   resumo_cruzeiro <- data.frame(
     n_pontos = nrow(cruzeiro),
     pct_aderencia = if (nrow(cruzeiro) > 0) round(100 * mean(cruzeiro$is_adherent), 1) else NA,
@@ -104,9 +123,10 @@ summarise_vertical_adherence_radar_only <- function(matched) {
                alt_alcancada_ft = max(df$altitude_ft))
   }
 
+  not_na <- !is.na(matched$phase)
   list(
     cruzeiro = resumo_cruzeiro,
-    subida = fase_resumo(matched[matched$phase == "SUBIDA", ]),
-    descida = fase_resumo(matched[matched$phase == "DESCIDA", ])
+    subida = fase_resumo(matched[not_na & matched$phase == "SUBIDA", ]),
+    descida = fase_resumo(matched[not_na & matched$phase == "DESCIDA", ])
   )
 }
