@@ -125,29 +125,61 @@ extract_actual_times <- function(sigma_log) {
         arr_rows[, c("gufi", "actual_arr")], by = "gufi", all = TRUE)
 }
 
-#' Converte o nivel filed (token tipo "F230") para pes -- reaproveita
-#' level_token_to_ft() de R/parse_fpl.R
-#'
 #' Constroi a rota planejada de um voo no MESMO FORMATO produzido por
 #' parse_fpl_route() (colunas seq, point, level_ft, is_level_change), a
-#' partir dos campos separados do SIGMA (adep/route/ades/lvl). Como o campo
-#' 'route' aqui nao anota mudancas de nivel por ponto, o nivel e constante
-#' (nivel de cruzeiro filed) ao longo de toda a rota -- ver ressalva no
-#' cabecalho deste arquivo.
+#' partir dos campos separados do SIGMA (adep/route/ades/lvl).
+#'
+#' O campo 'route' do SIGMA PODE trazer anotacao de mudanca de nivel por
+#' ponto, no mesmo formato do campo 15 ICAO cru (ex.: "ANISE/N0356F170") --
+#' uma amostra inicial nao tinha esse padrao, levando a suposicao errada de
+#' que o nivel seria sempre constante; corrigido reaproveitando
+#' parse_route_token()/level_token_to_ft() de R/parse_fpl.R.
 #'
 #' @param flight_plan uma linha de select_filed_plan()
 #' @return data.frame no formato de rota usado pelo restante do pipeline
 #'   (route_geometry.R, vertical_profile.R, vertical_adherence.R)
 sigma_route_to_route_df <- function(flight_plan) {
-  level_ft <- level_token_to_ft(flight_plan$lvl)
+  current_level_ft <- level_token_to_ft(flight_plan$lvl)
 
   tokens <- strsplit(trimws(flight_plan$route), "\\s+")[[1]]
-  is_airway <- grepl("^[A-Z]{1,3}[0-9]+$", tokens)
-  points <- tokens[tokens != "DCT" & !is_airway & tokens != ""]
-  points <- c(flight_plan$adep, points, flight_plan$ades)
+  tokens <- tokens[tokens != ""]
 
-  data.frame(
-    seq = seq_along(points), point = points, level_ft = level_ft,
-    is_level_change = FALSE, stringsAsFactors = FALSE
-  )
+  rows <- list()
+  seq_i <- 1
+  rows[[seq_i]] <- data.frame(seq = seq_i, point = flight_plan$adep,
+                               level_ft = current_level_ft, is_level_change = FALSE,
+                               stringsAsFactors = FALSE)
+
+  for (token in tokens) {
+    if (token == "DCT" || grepl("^[A-Z]{1,3}[0-9]+$", token)) next # DCT / aerovia
+
+    if (grepl("/", token)) {
+      parsed <- parse_route_token(token)
+      if (is.na(parsed$point)) next
+      is_change <- FALSE
+      if (nchar(parsed$level_token) > 0) {
+        lvl <- level_token_to_ft(parsed$level_token)
+        if (!is.na(lvl)) {
+          current_level_ft <- lvl
+          is_change <- TRUE
+        }
+      }
+      point <- parsed$point
+    } else {
+      point <- token
+      is_change <- FALSE
+    }
+
+    seq_i <- seq_i + 1
+    rows[[seq_i]] <- data.frame(seq = seq_i, point = point,
+                                 level_ft = current_level_ft, is_level_change = is_change,
+                                 stringsAsFactors = FALSE)
+  }
+
+  seq_i <- seq_i + 1
+  rows[[seq_i]] <- data.frame(seq = seq_i, point = flight_plan$ades,
+                               level_ft = current_level_ft, is_level_change = FALSE,
+                               stringsAsFactors = FALSE)
+
+  do.call(rbind, rows)
 }

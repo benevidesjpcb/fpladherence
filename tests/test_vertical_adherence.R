@@ -105,6 +105,30 @@ stopifnot(
   track_real$altitude_ft[1] == 9900
 )
 
+# --- casamento FPL x RADAR por horario + localizacao (nao por ssr) ---------
+airports_db_test <- read_airports_db("data/airports_br.csv")
+adep_teste <- lookup_airport_coords("SBGL", airports_db_test)
+ades_teste <- lookup_airport_coords("SBSV", airports_db_test)
+dep_time_teste <- as.POSIXct("2025-12-10 00:13:00", tz = "UTC")
+arr_time_teste <- as.POSIXct("2025-12-10 01:52:00", tz = "UTC")
+
+radar_log_teste <- data.frame(
+  callsign = c("ABC123", "ABC123", "ABC123", "ABC123", "XYZ999", "XYZ999"),
+  vl_latitude = c(adep_teste["lat"] + 0.05, -18, -14, ades_teste["lat"] - 0.05, -5, -5.1),
+  vl_longitude = c(adep_teste["lon"] + 0.05, -41, -39, ades_teste["lon"] - 0.05, -60, -60.1),
+  dt_radar = c("2025-12-10 00:15:00.000", "2025-12-10 00:45:00.000",
+               "2025-12-10 01:20:00.000", "2025-12-10 01:50:00.000",
+               "2025-12-10 00:20:00.000", "2025-12-10 00:25:00.000"),
+  stringsAsFactors = FALSE
+)
+match_callsign <- find_callsign_by_time_location(radar_log_teste, adep_teste, ades_teste,
+                                                  dep_time_teste, arr_time_teste)
+stopifnot(
+  identical(match_callsign, "ABC123"), # so o voo real deve bater, nao o ruido XYZ999
+  length(find_callsign_by_time_location(radar_log_teste, adep_teste, ades_teste,
+                                         dep_time_teste - 3600 * 5, arr_time_teste)) == 0
+)
+
 # --- eficiencia/aderencia horizontal -----------------------------------------
 airports_db <- read_airports_db("data/airports_br.csv")
 adep_coords <- lookup_airport_coords("SBGR", airports_db)

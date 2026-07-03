@@ -15,11 +15,14 @@
 #    aparentemente uma referencia textual de origem/destino quando
 #    addep/addes nao estao preenchidos -- NAO e o tipo de aeronave, apesar
 #    do nome da coluna.
-#  - 'nr_ssr' e o codigo transponder (squawk), util para casar RADAR com o
-#    FPL correspondente quando o callsign nao bate exatamente (ver coluna
-#    'ssr' em R/parse_sigma_fpl.R).
+#  - 'nr_ssr' e o codigo transponder (squawk). NA com muita frequencia nos
+#    dados reais -- NAO USAR como criterio principal de casamento FPL-RADAR.
+#    Preferir find_callsign_by_time_location() (horario do FPL + proximidade
+#    geografica do aerodromo), abaixo.
 #  - Arquivo grande demais para read.csv() na pratica -- usa-se
 #    data.table::fread(), bem mais rapido e econômico em memoria.
+
+library(geosphere)
 
 #' Le o log de posicoes de RADAR exportado do SIGMA
 #'
@@ -98,4 +101,57 @@ sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL,
   out <- out[order(out$timestamp), ]
   rownames(out) <- NULL
   out
+}
+
+#' Encontra o(s) callsign(s) do radar cuja trajetoria passa perto do ADEP na
+#' hora da decolagem E perto do ADES na hora do pouso -- casamento FPL-RADAR
+#' por horario + localizacao, em vez de codigo de transponder (ssr), que tem
+#' muitos valores faltantes nos dados reais.
+#'
+#' @param radar_log data.frame/data.table retornado por
+#'   read_sigma_radar_log() (colunas: callsign, vl_latitude, vl_longitude,
+#'   dt_radar)
+#' @param adep_coords c(lat=, lon=) do aerodromo de partida
+#' @param ades_coords c(lat=, lon=) do aerodromo de chegada
+#' @param dep_time horario estimado/real de decolagem (POSIXct) -- ver
+#'   eobt_full em select_filed_plan() ou actual_dep em extract_actual_times()
+#' @param arr_time horario estimado/real de pouso (POSIXct) -- ver
+#'   actual_arr em extract_actual_times(), ou estimado a partir de dep_time
+#' @param max_dist_nm raio (NM) de proximidade aceitavel do aerodromo
+#' @param max_time_min janela (min) aceitavel ao redor de dep_time/arr_time
+#' @return vetor de callsigns candidatos (aparecem perto do ADEP na janela de
+#'   decolagem E perto do ADES na janela de pouso); vazio se nenhum bater
+find_callsign_by_time_location <- function(radar_log, adep_coords, ades_coords,
+                                            dep_time, arr_time,
+                                            max_dist_nm = 30, max_time_min = 30) {
+  dt_radar <- radar_log$dt_radar
+  dt_radar[trimws(dt_radar) == ""] <- NA
+  ts <- as.POSIXct(dt_radar, tz = "UTC")
+
+  perto_dep_time <- !is.na(ts) &
+    abs(as.numeric(difftime(ts, dep_time, units = "mins"))) <= max_time_min
+  perto_arr_time <- !is.na(ts) &
+    abs(as.numeric(difftime(ts, arr_time, units = "mins"))) <= max_time_min
+
+  dist_adep_nm <- rep(NA_real_, nrow(radar_log))
+  if (any(perto_dep_time)) {
+    dist_adep_nm[perto_dep_time] <- distHaversine(
+      cbind(radar_log$vl_longitude[perto_dep_time], radar_log$vl_latitude[perto_dep_time]),
+      c(adep_coords["lon"], adep_coords["lat"])
+    ) / 1852
+  }
+
+  dist_ades_nm <- rep(NA_real_, nrow(radar_log))
+  if (any(perto_arr_time)) {
+    dist_ades_nm[perto_arr_time] <- distHaversine(
+      cbind(radar_log$vl_longitude[perto_arr_time], radar_log$vl_latitude[perto_arr_time]),
+      c(ades_coords["lon"], ades_coords["lat"])
+    ) / 1852
+  }
+
+  cs <- trimws(gsub('"', '', radar_log$callsign))
+  candidatos_dep <- unique(cs[perto_dep_time & !is.na(dist_adep_nm) & dist_adep_nm <= max_dist_nm])
+  candidatos_arr <- unique(cs[perto_arr_time & !is.na(dist_ades_nm) & dist_ades_nm <= max_dist_nm])
+
+  intersect(candidatos_dep, candidatos_arr)
 }
