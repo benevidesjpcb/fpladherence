@@ -118,7 +118,7 @@ if (nrow(radar_track) < n_antes) {
 filed_level_ft <- level_token_to_ft(voo$lvl)
 cat("\nNivel filed:", voo$lvl, "=", filed_level_ft, "ft\n")
 
-radar_track <- detect_flight_phases(radar_track)
+radar_track <- detect_flight_phases(radar_track, filed_level_ft = filed_level_ft)
 radar_track <- compute_vertical_deviation_radar_only(radar_track, filed_level_ft)
 
 cat("\nResumo por fase:\n")

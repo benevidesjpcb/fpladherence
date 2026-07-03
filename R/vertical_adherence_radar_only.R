@@ -73,10 +73,23 @@ moving_average <- function(x, window = 5) {
 #' @param descent_threshold_fpm taxa (ft/min) abaixo da qual e considerado
 #'   DESCIDA (valor negativo)
 #' @param smooth_window janela (n. de pontos) da media movel de suavizacao
+#' @param filed_level_ft nivel de cruzeiro filed no FPL (pes). Se informado,
+#'   um trecho com taxa perto de zero SO e classificado como CRUZEIRO se a
+#'   altitude estiver proxima desse nivel (dentro de 'cruise_band_ft') --
+#'   sem isso, um nivelamento em qualquer altitude (ex.: nivelamento durante
+#'   a descida, ou taxiamento apos o pouso) seria erroneamente contado como
+#'   se fosse o cruzeiro filed, distorcendo a metrica de aderencia.
+#' @param cruise_band_ft faixa (pes) ao redor de filed_level_ft ainda
+#'   considerada "proxima o suficiente" para ser cruzeiro (deliberadamente
+#'   mais larga que a tolerancia de aderencia, para nao excluir desvios
+#'   reais de nivel do proprio cruzeiro -- so para descartar nivelamentos
+#'   em outras altitudes, tipicamente muito mais distantes)
 #' @return radar_track com colunas: vertical_rate_fpm, phase
 detect_flight_phases <- function(radar_track, climb_threshold_fpm = 300,
                                   descent_threshold_fpm = -300,
-                                  smooth_window = 5) {
+                                  smooth_window = 5,
+                                  filed_level_ft = NULL,
+                                  cruise_band_ft = 3000) {
   # leituras com timestamp duplicado (comuns em dados reais, ex.: mais de uma
   # fonte de radar) tornam a taxa de variacao indefinida (dt = 0) -- mantem
   # so a primeira ocorrencia de cada instante.
@@ -95,6 +108,21 @@ detect_flight_phases <- function(radar_track, climb_threshold_fpm = 300,
 
   phase <- ifelse(rate > climb_threshold_fpm, "SUBIDA",
                    ifelse(rate < descent_threshold_fpm, "DESCIDA", "CRUZEIRO"))
+
+  if (!is.null(filed_level_ft)) {
+    alt <- radar_track$altitude_ft
+    longe_do_nivel <- !is.na(alt) & abs(alt - filed_level_ft) > cruise_band_ft
+    reclassificar <- phase == "CRUZEIRO" & longe_do_nivel
+
+    # nivelamento longe do filed: reclassifica como subida ou descida
+    # conforme o lado do pico de altitude do voo em que o ponto esta
+    idx_alt_max <- which.max(alt)
+    tempo_alt_max <- radar_track$timestamp[idx_alt_max]
+    antes_do_pico <- radar_track$timestamp <= tempo_alt_max
+
+    phase[reclassificar & antes_do_pico] <- "SUBIDA"
+    phase[reclassificar & !antes_do_pico] <- "DESCIDA"
+  }
 
   radar_track$vertical_rate_fpm <- round(rate, 0)
   radar_track$phase <- phase
