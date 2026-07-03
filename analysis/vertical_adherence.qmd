@@ -1,0 +1,251 @@
+---
+title: "Aderência Vertical ao Plano de Voo (FPL)"
+subtitle: "Metodologia e prova de conceito -- comparação FPL x RADAR"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    embed-resources: true
+execute:
+  echo: true
+  warning: false
+---
+
+## 1. Objetivo
+
+Este documento descreve e implementa a primeira fase de uma metodologia de
+**aderência ao plano de voo (FPL)**: a **aderência vertical**, isto é, o
+quanto o perfil de altitude realmente voado (dado por RADAR) se aproxima do
+perfil planejado (dado pelo FPL). A aderência horizontal (rota lateral) fica
+para uma fase seguinte, reaproveitando a mesma base de dados e infraestrutura
+de geometria de rota construída aqui.
+
+O projeto nasce como extensão do trabalho de eficiência horizontal de voo
+(*Horizontal Flight Efficiency*, no molde do usado pelo EUROCONTROL/DECEA):
+em vez de comparar apenas distância voada x distância direta, aqui
+comparamos o **perfil vertical planejado x realizado**, ponto a ponto ao
+longo da rota.
+
+## 2. Fontes de dados
+
+Duas fontes são combinadas:
+
+1. **FPL** -- o plano de voo arquivado. Duas variantes são suportadas:
+   - Texto ICAO cru (campo 15), via `R/parse_fpl.R`;
+   - Exportação do sistema SIGMA/DECEA (log de mensagens RPL/CHG/DEP/ARR),
+     via `R/parse_sigma_fpl.R` -- formato real usado neste projeto.
+2. **RADAR** -- a trajetória 4D realmente voada (`callsign, timestamp, lat,
+   lon, altitude_ft`), via `R/parse_radar.R`.
+
+```{r setup}
+source("../R/parse_fpl.R")
+source("../R/parse_sigma_fpl.R")
+source("../R/parse_radar.R")
+source("../R/parse_sigma_radar.R")
+source("../R/route_geometry.R")
+source("../R/vertical_profile.R")
+source("../R/vertical_adherence.R")
+source("../R/plot_vertical.R")
+
+library(ggplot2)
+```
+
+## 3. Metodologia
+
+### 3.1 Perfil vertical planejado
+
+O FPL define, no campo de rota, o(s) nível(is) de cruzeiro pretendido(s) por
+trecho. Quando o dado vem do SIGMA, observamos que a rota é anotada **sem**
+mudança de nível por ponto -- ou seja, o plano define um **único nível de
+cruzeiro** (o que, na prática, é o mais realista: mudanças de nível em rota
+são autorização do ATC, não fazem parte do plano arquivado). Quando o dado
+vem de texto ICAO cru, o campo 15 pode anotar mudanças de nível por ponto
+(ex.: `PONTO/N0430F250`), suportadas pelo parser.
+
+A partir da rota (pontos + nível), construímos uma referência contínua de
+altitude ao longo da distância percorrida (NM):
+
+- **1º trecho (SUBIDA):** rampa linear da elevação do aeródromo de partida
+  até o 1º nível de cruzeiro planejado.
+- **Trechos de CRUZEIRO:** nível constante (degrau).
+- **Mudança de nível em rota (SUBIDA em degrau):** em vez de um degrau
+  instantâneo (o que penalizaria injustamente uma subida real, que ocorre ao
+  longo de uma distância), usamos uma **janela de transição** configurável
+  (`transition_nm`, padrão 15 NM) terminando exatamente no ponto de mudança,
+  dentro da qual a referência sobe linearmente do nível antigo ao novo.
+- **Último trecho (DESCIDA):** rampa linear do último nível de cruzeiro até
+  a elevação do aeródromo de destino -- referência idealizada de descida
+  contínua (mesma lógica usada em estudos de eficiência vertical/CCO).
+
+Esta é uma simplificação deliberada: o FPL não descreve o perfil de subida
+nem de descida, então usamos uma referência ideal não perturbada nesses
+trechos, e o nível efetivamente filed nos trechos de cruzeiro.
+
+### 3.2 Perfil vertical realizado
+
+Cada posição do RADAR é projetada sobre a polilinha da rota planejada
+(distância ao longo da rota, em NM), via `geosphere::dist2Line`. Isso
+permite comparar o RADAR com o perfil planejado numa base comum de
+**distância percorrida**, em vez de tempo -- mais robusto a atrasos/adiantamentos
+na execução do voo.
+
+### 3.3 Métrica de aderência
+
+Para cada ponto do RADAR, calculamos:
+
+$$\text{desvio}_i = \text{altitude}_i^{radar} - \text{altitude}_i^{planejado}$$
+
+e classificamos como **aderente** se `|desvio| <= tolerância`, com
+tolerância dependente da fase de voo (mais larga em subida/descida, mais
+estreita em cruzeiro):
+
+```{r tolerancias}
+default_tolerance_ft
+```
+
+O resultado é resumido por fase (SUBIDA/CRUZEIRO/DESCIDA) e no geral:
+percentual de aderência, desvio médio, desvio absoluto médio, desvio máximo
+e RMSE.
+
+## 4. Exemplo executável (dados sintéticos)
+
+> Os dados abaixo são **ilustrativos** (gerados em
+> `data-raw/generate_sample_data.R`), não são dados operacionais reais. Eles
+> foram desenhados para demonstrar três situações típicas: uma subida
+> aderente, um trecho de cruzeiro em que o ATC mantém a aeronave 2000 ft
+> abaixo do nível planejado, e uma descida tardia (nível alto mantido além
+> do início da referência de descida contínua).
+
+```{r carrega-dados}
+fpl_text <- read_fpl_file("../data/sample_fpl.txt")
+fpl <- parse_fpl(fpl_text)
+fpl$route
+
+waypoints_db <- read.csv("../data/waypoints.csv")
+route_coords <- resolve_route_coords(fpl$route, waypoints_db)
+route_coords <- add_cumulative_distance(route_coords)
+route_coords
+```
+
+```{r perfil-planejado}
+planned_profile <- build_planned_profile(
+  route_coords,
+  dep_elevation_ft = 2459, # SBGR
+  dest_elevation_ft = 11   # SBRJ
+)
+```
+
+```{r radar}
+radar <- read_radar_track("../data/sample_radar.csv")
+radar <- project_radar_onto_route(radar, route_coords)
+matched <- compute_vertical_deviation(radar, planned_profile)
+head(matched)
+```
+
+### 4.1 Tabela de aderência
+
+```{r tabela-aderencia}
+summary_tbl <- summarise_vertical_adherence(matched)
+knitr::kable(summary_tbl, digits = 0,
+             col.names = c("Fase", "N pontos", "Aderência (%)",
+                           "Desvio médio (ft)", "Desvio abs. médio (ft)",
+                           "Desvio máx. (ft)", "RMSE (ft)"))
+```
+
+### 4.2 Perfil vertical: planejado x realizado
+
+```{r plot-vertical, fig.width=9, fig.height=5.5}
+plot_vertical_adherence(matched)
+```
+
+## 5. Leitura dos resultados
+
+- **Subida:** aderência próxima de 100% -- a aeronave atingiu o nível de
+  cruzeiro planejado dentro da tolerância.
+- **Cruzeiro:** aderência parcial -- há um trecho claro em que o nível
+  voado ficou ~2000 ft abaixo do planejado (fora da tolerância de 300 ft),
+  típico de uma restrição de tráfego do ATC.
+- **Descida:** aderência baixa -- o nível foi mantido bem além do início da
+  referência de descida contínua idealizada, um padrão real de "descida
+  tardia" (ineficiência vertical), convergindo apenas perto da pista.
+
+## 6. Dados reais (SIGMA + RADAR do DECEA)
+
+Os dois arquivos reais fornecidos (`sigma_flight_plan_2025_12_10.csv`,
+9 MB, e `radar_2025_12_10.csv`, 1,27 GB -- um dia inteiro de operação, todas
+as aeronaves) **não são versionados no git** (ver `.gitignore`, pasta
+`data/local/`). Os adaptadores abaixo já foram validados contra amostras
+reais de ambos os arquivos.
+
+### 6.1 FPL real (`R/parse_sigma_fpl.R`)
+
+Formato: log de mensagens (`msg_type` = RPL/CHG/DEP/ARR) por `gufi`, com
+`speed`/`lvl`/`route` já em colunas separadas (sem anotação de mudança de
+nível por ponto -- nível de cruzeiro único, ver seção 3.1).
+
+```{r sigma-fpl-exemplo}
+#| eval: false
+log_fpl <- read_sigma_fpl_log("../data/local/sigma_flight_plan_2025_12_10.csv")
+planos <- select_filed_plan(log_fpl)      # 1 linha por voo (gufi)
+horarios_reais <- extract_actual_times(log_fpl) # decolagem/pouso reais
+```
+
+### 6.2 RADAR real (`R/parse_sigma_radar.R`)
+
+Formato: separador `;`, colunas `id, callsign, addep, addes, dh_inicio,
+dh_fim, ds_acctypes, vl_latitude, vl_longitude, nr_flightlevel, nr_speed,
+nr_ssr, dt_radar` -- uma linha por posição, de **todas** as aeronaves do
+dia. `nr_flightlevel` está em nível de voo (FL), não em pés (`altitude_ft =
+nr_flightlevel * 100`). Por ser grande, a leitura usa
+`data.table::fread()`.
+
+```{r sigma-radar-exemplo}
+#| eval: false
+log_radar <- read_sigma_radar_log("../data/local/radar_2025_12_10.csv")
+
+# seleciona um unico voo, casando pelo codigo de transponder (ssr) do FPL
+voo <- planos[1, ]
+radar_voo <- sigma_radar_to_track(log_radar, ssr = voo$ssr)
+```
+
+### 6.3 Pipeline completo com dados reais
+
+A partir daqui, o pipeline é **idêntico** ao da seção 4 (dados sintéticos):
+resolver coordenadas dos pontos de rota, montar o perfil planejado, projetar
+o radar sobre a rota e calcular aderência -- nenhuma função de
+`vertical_profile.R`/`vertical_adherence.R`/`plot_vertical.R` precisa mudar.
+
+```{r pipeline-real}
+#| eval: false
+route_real <- sigma_route_to_route_df(voo)
+route_coords_real <- resolve_route_coords(route_real, waypoints_db_real) # navdata real
+route_coords_real <- add_cumulative_distance(route_coords_real)
+
+planned_profile_real <- build_planned_profile(
+  route_coords_real,
+  dep_elevation_ft = elevacao_adep, # obter de tabela de aerodromos
+  dest_elevation_ft = elevacao_ades
+)
+
+matched_real <- compute_vertical_deviation(radar_voo, planned_profile_real)
+summarise_vertical_adherence(matched_real)
+plot_vertical_adherence(matched_real)
+```
+
+> `waypoints_db_real` (coordenadas dos fixos/aerovias citados em `route`) e
+> a elevação dos aeródromos ainda dependem de uma base de navdata (AIRAC)
+> real -- no exemplo sintético (seção 4) essa tabela foi criada à mão só
+> para demonstração.
+
+## 7. Próximos passos
+
+1. Rodar o pipeline real (seção 6.3) para um voo de teste e conferir os
+   resultados contra o esperado operacionalmente.
+2. Obter uma base de navdata (waypoints/aerovias com lat/lon e elevação de
+   aeródromos) para resolver os pontos de rota reais.
+3. Validar o casamento FPL x RADAR em escala (todos os voos de um dia),
+   tratando casos de `ssr` duplicado/reutilizado e callsigns que não batem
+   exatamente entre as duas fontes.
+4. Estender a metodologia para **aderência horizontal** (desvio lateral da
+   rota), reaproveitando a mesma projeção RADAR->rota já construída em
+   `R/route_geometry.R`.

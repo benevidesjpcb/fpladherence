@@ -1,0 +1,9 @@
+# Dados operacionais reais (FPL/RADAR) nao devem ser versionados: grandes e
+# potencialmente sensiveis. Mantenha copias locais aqui, se precisar; os
+# scripts em R/ recebem o caminho do arquivo como parametro, entao os dados
+# reais podem ficar em qualquer lugar fora do repo tambem.
+data/local/
+
+.Rhistory
+.RData
+.Rproj.user/
