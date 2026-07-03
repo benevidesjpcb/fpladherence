@@ -1,9 +1,12 @@
 # Geometria de rota: resolucao de coordenadas dos pontos do FPL e projecao
 # da trajetoria RADAR sobre a rota planejada (distancia ao longo da rota).
 #
-# Em producao, a resolucao de coordenadas dos pontos (fixos/waypoints) viria
-# de uma base de dados de navegacao (AIRAC/navdata). Aqui usamos uma tabela
-# local (data/waypoints.csv) como stand-in para essa base.
+# Fontes de coordenadas: data/waypoints_br.csv (fixos/aerovias, fonte oficial
+# AISWEB/DECEA) para os pontos intermediarios da rota, e data/airports_br.csv
+# (ver R/horizontal_efficiency.R) para ADEP/ADES. Combine as duas (rbind) num
+# so data.frame point/lat/lon antes de chamar resolve_route_coords() -- ver
+# scripts/explore_real_flight.R para um exemplo. O antigo data/waypoints.csv
+# (so 5 pontos ficticios) continua servindo para o exemplo sintetico.
 
 library(geosphere)
 
@@ -13,7 +16,11 @@ library(geosphere)
 #' @param waypoints_db data.frame com colunas point, lat, lon
 #' @return route com colunas lat, lon adicionadas, na ordem original
 resolve_route_coords <- function(route, waypoints_db) {
-  merged <- merge(route, waypoints_db, by = "point", sort = FALSE)
+  # all.x=TRUE e essencial aqui: merge() por padrao faz inner join e
+  # DESCARTA silenciosamente qualquer ponto sem match na base de navdata, em
+  # vez de manter a linha com lat/lon NA -- o que faria a checagem de
+  # 'unresolved' abaixo nunca disparar mesmo faltando pontos na rota.
+  merged <- merge(route, waypoints_db, by = "point", all.x = TRUE, sort = FALSE)
   merged <- merged[order(merged$seq), ]
   unresolved <- merged[is.na(merged$lat), "point"]
   if (length(unresolved) > 0) {

@@ -121,4 +121,40 @@ stopifnot(
   eficiencia$eficiencia_pct > 0 & eficiencia$eficiencia_pct <= 100
 )
 
+# --- base oficial de waypoints (AISWEB/DECEA) e resolucao de rota real ------
+waypoints_br <- read.csv("data/waypoints_br.csv", stringsAsFactors = FALSE)
+stopifnot(
+  nrow(waypoints_br) > 7000,
+  all(c("IMBAP", "SIRAP", "OSAGU", "ZUMBA") %in% waypoints_br$point),
+  !any(duplicated(waypoints_br$point))
+)
+
+# resolve_route_coords() deve dar ERRO (nao descartar silenciosamente) quando
+# um ponto da rota nao existe na base de navdata -- ver correcao do merge()
+# (all.x=TRUE) em R/route_geometry.R
+rota_com_ponto_invalido <- data.frame(
+  seq = 1:2, point = c("IMBAP", "PONTO_QUE_NAO_EXISTE"),
+  level_ft = c(37000, 37000), is_level_change = c(FALSE, FALSE)
+)
+erro_capturado <- tryCatch({
+  resolve_route_coords(rota_com_ponto_invalido, waypoints_br)
+  FALSE
+}, error = function(e) TRUE)
+stopifnot(erro_capturado)
+
+# rota real completa (SBGL -> IMBAP -> SIRAP -> OSAGU -> ZUMBA -> SBSV)
+navdata <- rbind(
+  waypoints_br[, c("point", "lat", "lon")],
+  data.frame(point = airports_db$icao, lat = airports_db$latitude,
+             lon = airports_db$longitude)
+)
+route_real_completa <- sigma_route_to_route_df(plano[1, ])
+route_coords_real <- add_cumulative_distance(resolve_route_coords(route_real_completa, navdata))
+stopifnot(
+  nrow(route_coords_real) == 6,
+  route_coords_real$point[1] == "SBGL",
+  route_coords_real$point[nrow(route_coords_real)] == "SBSV",
+  route_coords_real$dist_nm[nrow(route_coords_real)] > 600 # SBGL-SBSV ~ 660 NM
+)
+
 cat("Todos os testes passaram.\n")

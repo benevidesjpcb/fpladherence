@@ -17,6 +17,7 @@ source("R/parse_fpl.R")
 source("R/parse_sigma_fpl.R")
 source("R/parse_radar.R")
 source("R/parse_sigma_radar.R")
+source("R/route_geometry.R")
 source("R/vertical_adherence_radar_only.R")
 source("R/plot_vertical.R")
 source("R/horizontal_efficiency.R")
@@ -132,9 +133,6 @@ print(p_vertical)
 # ggplot2::ggsave("data/local/aderencia_vertical_exemplo.png", p_vertical, width = 9, height = 5.5)
 
 ## 8. Aderencia/visualizacao horizontal (lateral) ---------------------------------
-# ainda sem navdata para os fixos citados na rota (IMBAP, SIRAP, etc.) --
-# usamos so ADEP/ADES (coordenadas aproximadas, ver data/airports_br.csv) e
-# a trajetoria real do radar.
 airports_db <- read_airports_db("data/airports_br.csv")
 adep_coords <- lookup_airport_coords(voo$adep, airports_db)
 ades_coords <- lookup_airport_coords(voo$ades, airports_db)
@@ -148,7 +146,27 @@ if (is.null(adep_coords) || is.null(ades_coords)) {
   cat("\nEficiencia horizontal:\n")
   print(eficiencia)
 
-  p_horizontal <- plot_horizontal_track(radar_track, adep_coords, ades_coords)
+  # tenta resolver a rota completa (fixos citados no FPL) com a base oficial
+  # AISWEB (data/waypoints_br.csv) + aerodromos (data/airports_br.csv); se
+  # algum ponto nao for encontrado, cai para o grafico so com ADEP/ADES
+  waypoints_br <- read.csv("data/waypoints_br.csv", stringsAsFactors = FALSE)
+  navdata <- rbind(
+    waypoints_br[, c("point", "lat", "lon")],
+    data.frame(point = airports_db$icao, lat = airports_db$latitude,
+               lon = airports_db$longitude)
+  )
+
+  route_real <- sigma_route_to_route_df(voo)
+  route_coords_real <- tryCatch(
+    add_cumulative_distance(resolve_route_coords(route_real, navdata)),
+    error = function(e) {
+      cat("\nNao foi possivel resolver a rota completa:", conditionMessage(e), "\n")
+      NULL
+    }
+  )
+
+  p_horizontal <- plot_horizontal_track(radar_track, adep_coords, ades_coords,
+                                         route_coords = route_coords_real)
   print(p_horizontal)
   # ggplot2::ggsave("data/local/aderencia_horizontal_exemplo.png", p_horizontal, width = 9, height = 6)
 }

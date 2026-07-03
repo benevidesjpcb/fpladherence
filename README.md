@@ -27,7 +27,9 @@ R/                          funções da metodologia
   plot_horizontal.R            visualização lateral (rota FPL x trajetória RADAR)
 
 data/                        dados sintéticos de exemplo (comitados)
-data/airports_br.csv          coordenadas aproximadas de aeródromos (feito à mão, não é AIP oficial)
+data/airports_br.csv          ~2877 aeródromos brasileiros (icao, lat, lon, elevação)
+data/waypoints_br.csv         ~7932 fixos/waypoints reais, fonte oficial AISWEB/DECEA
+data/waypoint_aisweb.xlsx     planilha original da AISWEB (fonte de waypoints_br.csv)
 data/local/                  dados reais (NÃO comitado -- ver .gitignore)
 data-raw/generate_sample_data.R  gera os dados sintéticos de data/
 scripts/explore_real_flight.R    script pronto para testar com um voo real (FPL + RADAR do SIGMA)
@@ -74,6 +76,7 @@ localmente (ex.: `data/local/`, já no `.gitignore`) e use os adaptadores
 - [x] Adaptador para FPL real (SIGMA/DECEA)
 - [x] Adaptador para RADAR real (SIGMA/DECEA)
 - [x] Aderência vertical sem navdata (fase pela taxa de subida/descida) -- testado com voo real
-- [x] Visualização/eficiência horizontal (distância voada x direta ADEP-ADES) -- primeira versão, sem navdata dos fixos intermediários
+- [x] Visualização/eficiência horizontal (distância voada x direta ADEP-ADES)
+- [x] Base oficial de waypoints (AISWEB/DECEA) -- resolução de rota completa com fixos reais
 - [ ] Validação em escala com dados reais de um dia inteiro
 - [ ] Aderência horizontal completa (desvio lateral da rota, não só distância)
