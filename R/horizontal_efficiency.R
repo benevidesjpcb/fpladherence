@@ -9,15 +9,15 @@
 #                    distancia realmente voada (RADAR) * 100
 # Quanto mais perto de 100%, mais "direto" foi o voo.
 #
-# 'data/airports_br.csv' e uma tabela pequena, feita a mao (coordenadas
-# aproximadas), so para os aerodromos mais comuns -- nao e dado oficial de
-# AIP/AIRAC. Para navdata real, troque por uma fonte oficial.
+# 'data/airports_br.csv' e uma base de aerodromos brasileiros (icao, name,
+# longitude, latitude, elevation em pes) -- ~2877 aerodromos.
 
 library(geosphere)
 
-#' Le a tabela de referencia de aerodromos (coordenadas aproximadas)
+#' Le a tabela de referencia de aerodromos
 #'
-#' @param path caminho do CSV (colunas: icao, name, lat, lon)
+#' @param path caminho do CSV (colunas: icao, name, longitude, latitude,
+#'   elevation)
 #' @return data.frame
 read_airports_db <- function(path = "data/airports_br.csv") {
   read.csv(path, stringsAsFactors = FALSE)
@@ -31,7 +31,18 @@ read_airports_db <- function(path = "data/airports_br.csv") {
 lookup_airport_coords <- function(icao, airports_db) {
   row <- airports_db[trimws(airports_db$icao) == trimws(icao), ]
   if (nrow(row) == 0) return(NULL)
-  c(lat = row$lat[1], lon = row$lon[1])
+  c(lat = row$latitude[1], lon = row$longitude[1])
+}
+
+#' Busca a elevacao (pes) de um aerodromo pelo codigo ICAO
+#'
+#' @param icao codigo ICAO (ex.: "SBGL")
+#' @param airports_db data.frame retornado por read_airports_db()
+#' @return elevacao em pes, ou NA se nao encontrado/sem dado
+lookup_airport_elevation_ft <- function(icao, airports_db) {
+  row <- airports_db[trimws(airports_db$icao) == trimws(icao), ]
+  if (nrow(row) == 0) return(NA_real_)
+  row$elevation[1]
 }
 
 #' Distancia realmente voada (NM): soma das distancias (grande circulo)
