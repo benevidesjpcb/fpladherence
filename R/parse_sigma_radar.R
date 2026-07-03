@@ -121,6 +121,10 @@ sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL,
     stringsAsFactors = FALSE
   )
 
+  # posicoes sem lat/lon ou sem timestamp existem no dado real e nao servem
+  # para nenhuma analise (nem vertical nem horizontal) -- descarta na fonte
+  out <- out[!is.na(out$lat) & !is.na(out$lon) & !is.na(out$timestamp), ]
+
   out <- out[order(out$timestamp), ]
   rownames(out) <- NULL
   out

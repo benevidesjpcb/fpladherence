@@ -78,6 +78,16 @@ stopifnot(
   abs(proj_simples$dist_nm[3] - rota_simples$dist_nm[2]) < 0.1 # ponto 3 "clampado" no extremo B
 )
 
+# posicoes de radar com lat/lon NA (existem no dado real) nao podem quebrar
+# a projecao -- devem sair como NA, e as demais continuar normais
+radar_com_na <- data.frame(lat = c(0, NA, 0.01), lon = c(0.2, 0.5, NA))
+proj_com_na <- project_radar_onto_route(radar_com_na, rota_simples)
+stopifnot(
+  !is.na(proj_com_na$cross_track_nm[1]),
+  is.na(proj_com_na$cross_track_nm[2]),
+  is.na(proj_com_na$cross_track_nm[3])
+)
+
 # --- pipeline completo (dados sinteticos) -----------------------------------
 radar <- read_radar_track("data/sample_radar.csv")
 stopifnot(

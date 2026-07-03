@@ -96,9 +96,13 @@ project_point_onto_segment <- function(lat_p, lon_p, lat_a, lon_a, lat_b, lon_b)
   cross_m <- abs(dxt) * EARTH_RADIUS_M
   # fora do segmento (projecao antes de A ou depois de B): a distancia
   # correta e ate o extremo mais proximo, nao a formula de cross-track
-  # (que assume projecao sobre a linha infinita)
-  fora_inicio <- along_signed_m < 0
-  fora_fim <- along_signed_m > seg_len_m
+  # (que assume projecao sobre a linha infinita).
+  # posicoes de radar com lat/lon faltando (NA, existem no dado real)
+  # produzem along_signed_m NA -- trata como "nao esta fora" para nao
+  # quebrar o subscript; o cross_m delas permanece NA e o ponto nunca vence
+  # a comparacao de "melhor segmento" em project_radar_onto_route().
+  fora_inicio <- !is.na(along_signed_m) & along_signed_m < 0
+  fora_fim <- !is.na(along_signed_m) & along_signed_m > seg_len_m
   if (any(fora_inicio)) {
     cross_m[fora_inicio] <- distHaversine(cbind(lon_p[fora_inicio], lat_p[fora_inicio]),
                                             c(lon_a, lat_a))
@@ -147,10 +151,14 @@ project_radar_onto_route <- function(radar_track, route_coords) {
     frac <- ifelse(proj$seg_len_m > 0, proj$along_track_m / proj$seg_len_m, 0)
     seg_dist_nm <- a$dist_nm + frac * seg_len_nm
 
-    melhor <- proj$cross_track_m < best_dist_m
+    melhor <- !is.na(proj$cross_track_m) & proj$cross_track_m < best_dist_m
     best_dist_m[melhor] <- proj$cross_track_m[melhor]
     best_dist_nm[melhor] <- seg_dist_nm[melhor]
   }
+
+  # pontos com lat/lon faltando nunca venceram nenhum segmento: ficam NA
+  # (nao Inf), e cabe ao chamador decidir descarta-los ou ignora-los
+  best_dist_m[is.infinite(best_dist_m)] <- NA_real_
 
   radar_track$dist_nm <- best_dist_nm
   radar_track$cross_track_nm <- best_dist_m / 1852
