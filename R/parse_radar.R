@@ -20,6 +20,9 @@ read_radar_track <- function(path) {
     stop("Colunas obrigatorias ausentes no radar track: ",
          paste(missing_cols, collapse = ", "))
   }
+  # string vazia faz as.POSIXct() dar erro (nao vira NA) e derruba o vetor
+  # inteiro
+  track$timestamp[trimws(track$timestamp) == ""] <- NA
   # as.POSIXct() sem 'tryFormats' nao reconhece o "T"/"Z" do ISO 8601 e
   # trunca silenciosamente para meia-noite -- por isso format explicito.
   track$timestamp <- as.POSIXct(track$timestamp, tz = "UTC",

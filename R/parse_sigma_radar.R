@@ -73,14 +73,22 @@ sigma_radar_to_track <- function(radar_log, ssr = NULL, callsign = NULL,
     cs_clean <- gsub('"', '', track$callsign)
     track <- track[trimws(cs_clean) == trimws(callsign), ]
   }
+
+  # string vazia faz as.POSIXct() dar erro (nao vira NA) e derruba o vetor
+  # inteiro -- calculado uma vez so e reaproveitado no filtro e na saida
+  dt_radar <- track$dt_radar
+  dt_radar[trimws(dt_radar) == ""] <- NA
+  ts <- as.POSIXct(dt_radar, tz = "UTC")
+
   if (!is.null(time_window)) {
-    ts <- as.POSIXct(track$dt_radar, tz = "UTC")
-    track <- track[ts >= time_window[1] & ts <= time_window[2], ]
+    manter <- !is.na(ts) & ts >= time_window[1] & ts <= time_window[2]
+    track <- track[manter, ]
+    ts <- ts[manter]
   }
 
   out <- data.frame(
     callsign = trimws(gsub('"', '', track$callsign)),
-    timestamp = as.POSIXct(track$dt_radar, tz = "UTC"),
+    timestamp = ts,
     lat = track$vl_latitude,
     lon = track$vl_longitude,
     altitude_ft = track$nr_flightlevel * 100,

@@ -47,9 +47,17 @@ read_sigma_fpl_log <- function(path) {
 #' timestamp completo. Usado porque o export do SIGMA separa data e hora em
 #' colunas distintas (ver nota no cabecalho deste arquivo).
 combine_sigma_datetime <- function(date_col, time_col) {
+  # string vazia faz as.POSIXct() dar erro (nao vira NA) e derruba o vetor
+  # inteiro -- comum em voos com dados incompletos no dataset real
+  date_col[trimws(date_col) == ""] <- NA
+  time_col[trimws(time_col) == ""] <- NA
+
   date_part <- as.Date(date_col)
   time_part <- format(as.POSIXct(time_col, tz = "UTC"), "%H:%M:%S")
-  as.POSIXct(paste(date_part, time_part), tz = "UTC")
+
+  combined <- paste(date_part, time_part)
+  combined[is.na(date_part) | is.na(time_part)] <- NA # evita "AAAA-MM-DD NA"
+  as.POSIXct(combined, tz = "UTC")
 }
 
 #' Seleciona, para cada voo (gufi), a versao mais recente do plano arquivado
@@ -60,7 +68,11 @@ combine_sigma_datetime <- function(date_col, time_col) {
 #'   speed, lvl, route, eobt_full (POSIXct), aircraft_model
 select_filed_plan <- function(sigma_log) {
   filed <- sigma_log[sigma_log$msg_type %in% c("FPL", "RPL", "CHG"), ]
-  filed$receipt_application <- as.POSIXct(filed$receipt_application, tz = "UTC")
+  # string vazia faz as.POSIXct() dar erro (nao vira NA) e derruba o vetor
+  # inteiro -- comum em voos com dados incompletos no dataset real
+  receipt <- filed$receipt_application
+  receipt[trimws(receipt) == ""] <- NA
+  filed$receipt_application <- as.POSIXct(receipt, tz = "UTC")
 
   filed <- filed[order(filed$gufi, filed$receipt_application), ]
   latest <- filed[!duplicated(filed$gufi, fromLast = TRUE), ]
@@ -82,17 +94,32 @@ select_filed_plan <- function(sigma_log) {
 #' @param sigma_log data.frame retornado por read_sigma_fpl_log()
 #' @return data.frame com colunas: gufi, actual_dep (POSIXct ou NA),
 #'   actual_arr (POSIXct ou NA)
+#' Extrai o ultimo grupo "4 letras + 4 digitos" (ex.: "SBSV0152") de cada
+#' string, retornando so os 4 digitos (HHMM). NA quando nao ha match --
+#' preserva o alinhamento do vetor (ao contrario de regmatches() puro, que
+#' descarta elementos sem match).
+extract_last_hhmm <- function(x) {
+  vapply(x, function(s) {
+    if (is.na(s)) return(NA_character_)
+    matches <- regmatches(s, gregexpr("[A-Z]{4}[0-9]{4}", s))[[1]]
+    if (length(matches) == 0) return(NA_character_)
+    substr(matches[length(matches)], 5, 8)
+  }, character(1), USE.NAMES = FALSE)
+}
+
 extract_actual_times <- function(sigma_log) {
-  dep_rows <- sigma_log[sigma_log$msg_type == "DEP", ]
+  dep_rows <- sigma_log[!is.na(sigma_log$msg_type) & sigma_log$msg_type == "DEP", ]
   dep_rows$actual_dep <- combine_sigma_datetime(dep_rows$atod, dep_rows$atot)
 
-  arr_rows <- sigma_log[sigma_log$msg_type == "ARR", ]
-  hhmm <- sub(".*[A-Z]{4}([0-9]{4}).*", "\\1", arr_rows$msg_payload)
+  arr_rows <- sigma_log[!is.na(sigma_log$msg_type) & sigma_log$msg_type == "ARR", ]
+  hhmm <- extract_last_hhmm(arr_rows$msg_payload)
   arr_date <- as.Date(arr_rows$atod)
-  arr_rows$actual_arr <- as.POSIXct(
-    paste0(arr_date, " ", substr(hhmm, 1, 2), ":", substr(hhmm, 3, 4), ":00"),
-    tz = "UTC"
-  )
+
+  arr_time_str <- rep(NA_character_, length(hhmm))
+  valid <- !is.na(hhmm) & !is.na(arr_date)
+  arr_time_str[valid] <- paste0(arr_date[valid], " ", substr(hhmm[valid], 1, 2),
+                                 ":", substr(hhmm[valid], 3, 4), ":00")
+  arr_rows$actual_arr <- as.POSIXct(arr_time_str, tz = "UTC")
 
   merge(dep_rows[, c("gufi", "actual_dep")],
         arr_rows[, c("gufi", "actual_arr")], by = "gufi", all = TRUE)
