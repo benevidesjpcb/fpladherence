@@ -10,6 +10,7 @@ source("R/vertical_profile.R")
 source("R/vertical_adherence.R")
 source("R/vertical_adherence_radar_only.R")
 source("R/horizontal_efficiency.R")
+source("R/hfe_milestones.R")
 
 # --- parser de FPL (texto ICAO cru) ---------------------------------------
 fpl <- parse_fpl(read_fpl_file("data/sample_fpl.txt"))
@@ -55,6 +56,16 @@ stopifnot(
   all(c("planned_alt_ft", "phase", "deviation_ft", "is_adherent") %in% names(matched)),
   all(matched$phase %in% c("SUBIDA", "CRUZEIRO", "DESCIDA")),
   nrow(matched) == nrow(radar)
+)
+
+# --- aderencia horizontal (desvio lateral vs. rota filed) -------------------
+stopifnot("cross_track_nm" %in% names(radar), all(radar$cross_track_nm >= 0))
+resumo_horizontal <- summarise_horizontal_adherence(radar, tolerance_nm = 5)
+stopifnot(
+  abs(resumo_horizontal$dist_total_nm - max(radar$dist_nm)) < 1, # ~ extensao da rota
+  resumo_horizontal$dist_aderente_nm <= resumo_horizontal$dist_total_nm,
+  resumo_horizontal$pct_aderencia >= 0 & resumo_horizontal$pct_aderencia <= 100,
+  resumo_horizontal$desvio_max_nm >= resumo_horizontal$desvio_medio_nm
 )
 
 summary_tbl <- summarise_vertical_adherence(matched)
@@ -179,6 +190,53 @@ stopifnot(
   route_coords_real$point[1] == "SBGL",
   route_coords_real$point[nrow(route_coords_real)] == "SBSV",
   route_coords_real$dist_nm[nrow(route_coords_real)] > 600 # SBGL-SBSV ~ 660 NM
+)
+
+# --- marcos de distancia (40NM/100NM) e formula HFE (estilo BRA-HFE) -------
+adep_milestone <- c(lat = 0, lon = 0)
+ades_milestone <- c(lat = 0, lon = 5) # ~300 NM no equador
+
+n_pts <- 60
+track_reta <- data.frame(
+  timestamp = as.POSIXct("2025-01-01 00:00:00", tz = "UTC") + seq(0, by = 60, length.out = n_pts),
+  lat = rep(0, n_pts),
+  lon = seq(0, 5, length.out = n_pts)
+)
+milestones_reta <- extract_milestones(track_reta, adep_milestone, ades_milestone)
+stopifnot(
+  identical(milestones_reta$milestone,
+            c("FIRST_HIT", "40NM_ADEP", "100NM_ADEP", "100NM_ADES", "40NM_ADES", "LAST_HIT")),
+  milestones_reta$dist_from_adep_nm[milestones_reta$milestone == "FIRST_HIT"] == 0,
+  milestones_reta$dist_to_ades_nm[milestones_reta$milestone == "LAST_HIT"] == 0
+)
+
+hfe_reta <- compute_hfe(track_reta, milestones_reta, "100NM_ADEP", "100NM_ADES")
+stopifnot(abs(hfe_reta$hfe_pct - 100) < 0.1) # trajetoria reta = 100% de eficiencia
+
+track_desvio <- track_reta
+track_desvio$lat <- track_desvio$lat +
+  c(rep(0, 10), seq(0, 0.5, length.out = 15), seq(0.5, 0, length.out = 15), rep(0, n_pts - 40))
+milestones_desvio <- extract_milestones(track_desvio, adep_milestone, ades_milestone)
+hfe_desvio <- compute_hfe(track_desvio, milestones_desvio, "100NM_ADEP", "100NM_ADES")
+stopifnot(hfe_desvio$hfe_pct < hfe_reta$hfe_pct) # desvio reduz a eficiencia
+
+# --- segmentacao de radar por callsign + lacuna (estilo BRA-HFE) -----------
+radar_log_dia <- data.frame(
+  callsign = c(rep("AAA111", 4), rep("BBB222", 3)),
+  vl_latitude = c(0, 0.1, 0.2, 0.3, 5, 5.1, 5.2),
+  vl_longitude = c(0, 0.1, 0.2, 0.3, 10, 10.1, 10.2),
+  nr_flightlevel = c(100, 150, 200, 250, 300, 310, 320),
+  dt_radar = c("2025-01-01 00:00:00", "2025-01-01 00:01:00",
+               "2025-01-01 00:02:00", "2025-01-01 00:03:00",
+               "2025-01-01 01:00:00", "2025-01-01 01:01:00", "2025-01-01 01:02:00"),
+  stringsAsFactors = FALSE
+)
+canonico <- sigma_radar_to_canonical(radar_log_dia)
+segmentado <- segment_radar_by_callsign_gap(canonico, max_gap_min = 30)
+stopifnot(
+  length(unique(segmentado$fid)) == 2, # dois voos distintos (callsign diferente)
+  length(unique(segmentado$fid[segmentado$callsign == "AAA111"])) == 1,
+  length(unique(segmentado$fid[segmentado$callsign == "BBB222"])) == 1
 )
 
 cat("Todos os testes passaram.\n")
