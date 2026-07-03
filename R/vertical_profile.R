@@ -26,8 +26,76 @@
 # Esta e uma simplificacao deliberada (documentada) para a primeira versao
 # da metodologia: ela avalia aderencia ao PLANO FILED (FPL), nao as
 # autorizacoes reais de ATC (que nao fazem parte do FPL).
+#
+# CASO DEGENERADO -- rota direta (DCT) sem fixos intermediarios: com so 2
+# pontos (ADEP, ADES), o trecho inteiro seria simultaneamente "1o trecho"
+# (subida) e "ultimo trecho" (descida), e o codigo classificaria a rota
+# TODA como uma unica fase (bug real, encontrado testando com um voo curto
+# tipo SBCF-SBSP). insert_toc_tod_if_direct() insere um "topo de subida"
+# (TOC) e "topo de descida" (TOD) sinteticos nesse caso, usando a regra
+# pratica 3:1 (3 NM por 1000 ft) para estimar onde a subida/descida
+# terminam, deixando cruzeiro no meio (ou nenhum, se a rota for curta
+# demais para os dois).
+
+library(geosphere)
 
 default_transition_nm <- 15
+
+#' Insere pontos sinteticos de topo de subida (TOC) e topo de descida (TOD)
+#' quando a rota planejada tem so 2 pontos (ADEP-ADES diretos) -- ver nota no
+#' cabecalho deste arquivo. Sem isso, build_planned_profile() nao consegue
+#' representar subida+cruzeiro+descida com um unico segmento.
+#'
+#' @param route_coords rota com colunas point, level_ft, is_level_change,
+#'   lat, lon, dist_nm
+#' @param dep_elevation_ft,dest_elevation_ft elevacao (pes) de partida/destino
+#' @param climb_gradient_nm_per_1000ft,descent_gradient_nm_per_1000ft
+#'   distancia (NM) assumida por 1000 ft de subida/descida (regra pratica
+#'   3:1 por padrao)
+#' @return route_coords, sem alteracao se nrow != 2; com TOC/TOD inseridos
+#'   (e 'seq' recalculado) caso contrario
+insert_toc_tod_if_direct <- function(route_coords, dep_elevation_ft, dest_elevation_ft,
+                                      climb_gradient_nm_per_1000ft = 3,
+                                      descent_gradient_nm_per_1000ft = 3) {
+  if (nrow(route_coords) != 2) return(route_coords)
+
+  dist_total <- route_coords$dist_nm[2] - route_coords$dist_nm[1]
+  cruise_level_ft <- route_coords$level_ft[1]
+
+  climb_nm <- climb_gradient_nm_per_1000ft * max(cruise_level_ft - dep_elevation_ft, 0) / 1000
+  descent_nm <- descent_gradient_nm_per_1000ft * max(cruise_level_ft - dest_elevation_ft, 0) / 1000
+
+  # rota curta demais para subida+descida completas: encolhe as duas na
+  # mesma proporcao, deixando pelo menos 10% da distancia para cruzeiro
+  if (climb_nm + descent_nm > dist_total * 0.9) {
+    fator <- (dist_total * 0.9) / (climb_nm + descent_nm)
+    climb_nm <- climb_nm * fator
+    descent_nm <- descent_nm * fator
+  }
+
+  p1 <- c(route_coords$lon[1], route_coords$lat[1])
+  p2 <- c(route_coords$lon[2], route_coords$lat[2])
+  rumo <- bearing(p1, p2)
+
+  toc_latlon <- destPoint(p1, rumo, climb_nm * 1852)
+  tod_latlon <- destPoint(p1, rumo, (dist_total - descent_nm) * 1852)
+
+  toc <- route_coords[1, ]
+  toc$point <- "TOC"; toc$is_level_change <- FALSE
+  toc$lat <- toc_latlon[2]; toc$lon <- toc_latlon[1]
+  toc$dist_nm <- route_coords$dist_nm[1] + climb_nm
+
+  tod <- route_coords[1, ]
+  tod$point <- "TOD"; tod$is_level_change <- FALSE
+  tod$lat <- tod_latlon[2]; tod$lon <- tod_latlon[1]
+  tod$dist_nm <- route_coords$dist_nm[1] + dist_total - descent_nm
+
+  combinado <- rbind(route_coords, toc, tod)
+  combinado <- combinado[order(combinado$dist_nm), ]
+  combinado$seq <- seq_len(nrow(combinado))
+  rownames(combinado) <- NULL
+  combinado
+}
 
 #' Marca quais pontos da rota planejada representam uma subida em degrau
 #' (nivel maior que o do ponto anterior), e anexa as elevacoes de
@@ -37,9 +105,11 @@ default_transition_nm <- 15
 #' @param dep_elevation_ft elevacao do aerodromo de partida (pes)
 #' @param dest_elevation_ft elevacao do aerodromo de destino (pes)
 #' @return route_coords com colunas: is_level_step, dep_elevation_ft,
-#'   dest_elevation_ft
+#'   dest_elevation_ft (e TOC/TOD inseridos, se a rota era direta -- ver
+#'   insert_toc_tod_if_direct())
 build_planned_profile <- function(route_coords, dep_elevation_ft = 0,
                                    dest_elevation_ft = 0) {
+  route_coords <- insert_toc_tod_if_direct(route_coords, dep_elevation_ft, dest_elevation_ft)
   n <- nrow(route_coords)
   route_coords$is_level_step <- c(FALSE, route_coords$level_ft[-1] > route_coords$level_ft[-n])
   route_coords$dep_elevation_ft <- dep_elevation_ft

@@ -45,6 +45,24 @@ stopifnot(
   interp_end$phase == "DESCIDA"
 )
 
+# --- rota DIRETA (so 2 pontos, ADEP-ADES sem fixos intermediarios) ---------
+# caso real encontrado testando SBCF-SBSP: sem TOC/TOD sinteticos, o trecho
+# inteiro seria classificado como uma unica fase (bug).
+rota_direta <- data.frame(
+  seq = 1:2, point = c("AAAA", "BBBB"), level_ft = c(35000, 35000),
+  is_level_change = c(FALSE, FALSE),
+  lat = c(0, 0), lon = c(0, 5), stringsAsFactors = FALSE
+)
+rota_direta <- add_cumulative_distance(rota_direta)
+perfil_direto <- build_planned_profile(rota_direta, dep_elevation_ft = 2700, dest_elevation_ft = 2600)
+stopifnot(
+  nrow(perfil_direto) == 4, # TOC e TOD inseridos
+  identical(perfil_direto$point, c("AAAA", "TOC", "TOD", "BBBB")),
+  all(diff(perfil_direto$dist_nm) > 0) # distancia estritamente crescente apos insercao
+)
+interp_meio <- interpolate_planned_profile(mean(perfil_direto$dist_nm[2:3]), perfil_direto)
+stopifnot(interp_meio$phase == "CRUZEIRO") # meio da rota direta agora tem cruzeiro
+
 # --- pipeline completo (dados sinteticos) -----------------------------------
 radar <- read_radar_track("data/sample_radar.csv")
 stopifnot(
