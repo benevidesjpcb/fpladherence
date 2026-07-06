@@ -34,11 +34,25 @@ p_par <- plot_trajectories_map(positions, adep = PAR_ADEP, ades = PAR_ADES,
 print(p_par)
 # ggsave("data/local/qc_trajetorias_par.png", p_par, width = 9, height = 8)
 
-## 4. Um voo em detalhe (troque o fid por um da tabela 'flights') -------------
+## 4. Um voo em detalhe -- HORIZONTAL e VERTICAL separados --------------------
+# (troque o fid por um da tabela 'flights')
 fid_exemplo <- flights[!is.na(adep_det) & !is.na(ades_det)][1]$fid
-p_voo <- plot_one_trajectory(positions, fid_exemplo)
-print(p_voo)
-# ggsave("data/local/qc_voo_exemplo.png", p_voo, width = 9, height = 6)
 
-cat("\nDica: para inspecionar outro voo, escolha um fid na tabela 'flights'\n")
-cat("e rode: print(plot_one_trajectory(positions, SEU_FID))\n")
+# 4a. trajetoria HORIZONTAL (mapa lat/lon)
+p_voo_h <- plot_one_trajectory(positions, fid_exemplo)
+print(p_voo_h)
+# ggsave("data/local/qc_voo_horizontal.png", p_voo_h, width = 9, height = 6)
+
+# 4b. trajetoria VERTICAL (altitude vs distancia voada)
+p_voo_v <- plot_flight_vertical(positions, fid_exemplo)
+print(p_voo_v)
+# ggsave("data/local/qc_voo_vertical.png", p_voo_v, width = 9, height = 5)
+
+## 5. Perfis verticais de um par de cidades sobrepostos ----------------------
+p_par_v <- plot_vertical_profiles_pair(positions, PAR_ADEP, PAR_ADES)
+print(p_par_v)
+# ggsave("data/local/qc_par_vertical.png", p_par_v, width = 9, height = 5)
+
+cat("\nDica: para inspecionar outro voo, escolha um fid na tabela 'flights' e rode:\n")
+cat("  print(plot_one_trajectory(positions, SEU_FID))   # horizontal (mapa)\n")
+cat("  print(plot_flight_vertical(positions, SEU_FID))  # vertical (altitude x distancia)\n")

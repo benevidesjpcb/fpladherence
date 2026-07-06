@@ -351,4 +351,14 @@ stopifnot(nrow(resumo_qc) == length(unique(pos_seg$fid)))
 stopifnot(inherits(plot_trajectories_map(pos_plot, max_flights = 10), "ggplot"))
 stopifnot(inherits(plot_one_trajectory(pos_plot, pos_seg$fid[1]), "ggplot"))
 
+# --- trajetoria VERTICAL: distancia acumulada voada + perfil ---------------
+pos_vert <- add_cumulative_flown_distance(data.table::copy(pos_plot))
+stopifnot(
+  "cum_dist_nm" %in% names(pos_vert),
+  # cada voo comeca em 0 e a distancia e nao-decrescente dentro do voo
+  all(pos_vert[, .(ok = cum_dist_nm[1] == 0 & !is.unsorted(cum_dist_nm)), by = fid]$ok)
+)
+stopifnot(inherits(plot_flight_vertical(pos_vert, pos_seg$fid[1]), "ggplot"))
+stopifnot(inherits(plot_vertical_profiles_pair(pos_vert, "SBCF", "SBSP"), "ggplot"))
+
 cat("Todos os testes passaram.\n")

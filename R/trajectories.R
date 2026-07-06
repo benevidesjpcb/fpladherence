@@ -77,6 +77,35 @@ segment_trajectories <- function(positions, max_gap_min = 30) {
   positions
 }
 
+#' Adiciona a DISTANCIA ACUMULADA VOADA (NM) ao longo da trajetoria de cada
+#' voo (fid): soma das distancias grande-circulo entre posicoes consecutivas,
+#' comecando em 0 no primeiro ponto do voo. Equivale ao cumulative_distance()
+#' do pacote trrrj (EUROCONTROL), mas nativo (sem a dependencia, que e dificil
+#' de instalar) -- e a base do PERFIL VERTICAL (altitude vs distancia voada),
+#' separado do caminho horizontal (lat/lon).
+#'
+#' @param positions data.table segmentado (com fid, lat, lon, ts)
+#' @return positions (ordenado por fid, ts) com coluna cum_dist_nm
+add_cumulative_flown_distance <- function(positions) {
+  data.table::setorder(positions, fid, ts)
+  n <- nrow(positions)
+  if (n == 0) { positions[, cum_dist_nm := numeric(0)]; return(positions) }
+  if (n == 1) { positions[, cum_dist_nm := 0]; return(positions) }
+
+  # distancia entre posicoes consecutivas; zera na fronteira entre voos
+  d_nm <- c(0, distHaversine(
+    cbind(positions$lon[-n], positions$lat[-n]),
+    cbind(positions$lon[-1], positions$lat[-1])
+  ) / 1852)
+  fronteira <- c(TRUE, positions$fid[-1] != positions$fid[-n])
+  d_nm[fronteira] <- 0
+
+  positions[, .seg_nm := d_nm]
+  positions[, cum_dist_nm := cumsum(.seg_nm), by = fid]
+  positions[, .seg_nm := NULL]
+  positions
+}
+
 #' Aerodromo mais proximo de cada ponto (lon_v, lat_v), dentro de
 #' 'max_dist_nm' (senao NA). Loop so sobre os poucos pontos passados
 #' (tipicamente os extremos dos voos que ficaram sem O/D no radar).

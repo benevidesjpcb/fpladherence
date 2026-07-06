@@ -31,10 +31,12 @@ log_radar <- read_sigma_radar_log(
 )
 cat("  posicoes brutas:", nrow(log_radar), "\n")
 
-## 2. Limpa + segmenta em voos (fid) -------------------------------------------
+## 2. Limpa + segmenta em voos (fid) + distancia voada acumulada -------------
 cat("Limpando e segmentando...\n")
 positions <- clean_radar_log(log_radar)
 positions <- segment_trajectories(positions, max_gap_min = 30)
+# distancia acumulada voada (NM) -> base do perfil VERTICAL (altitude vs dist)
+positions <- add_cumulative_flown_distance(positions)
 cat("  posicoes validas:", nrow(positions), "| voos (fid):",
     length(unique(positions$fid)), "\n")
 

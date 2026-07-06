@@ -109,8 +109,49 @@ plot_trajectories_map <- function(positions, adep = NULL, ades = NULL,
     theme_minimal(base_size = 12)
 }
 
-#' Plota UMA trajetoria em detalhe (colorida pela altitude), com inicio/fim
-#' marcados -- para inspecionar um voo especifico.
+#' PERFIL VERTICAL de um voo: altitude (ft) vs distancia acumulada voada
+#' (NM) -- a "trajetoria vertical", separada da horizontal (mapa lat/lon).
+#' Replica a ideia do plot_flight_vertical_distance() do trrrj (BRA-HFE).
+#'
+#' @param positions data.table com fid, cum_dist_nm, altitude_ft (rode
+#'   add_cumulative_flown_distance() antes, ou use o Parquet da Etapa 1 que
+#'   ja traz cum_dist_nm)
+#' @param fid_alvo identificador do voo (coluna fid)
+#' @return objeto ggplot
+plot_flight_vertical <- function(positions, fid_alvo) {
+  dt <- data.table::as.data.table(positions)[fid == fid_alvo]
+  data.table::setorder(dt, cum_dist_nm)
+  od <- paste0(dt$adep_det[1], " -> ", dt$ades_det[1])
+
+  ggplot(dt, aes(x = cum_dist_nm, y = altitude_ft)) +
+    geom_line(color = "#9c36b5", linewidth = 0.8) +
+    geom_point(size = 0.8, color = "#9c36b5", alpha = 0.5) +
+    labs(title = paste0("Perfil vertical -- voo fid=", fid_alvo, " (", dt$callsign[1], ")"),
+         subtitle = paste0(od, " -- ", nrow(dt), " posicoes"),
+         x = "Distancia voada (NM)", y = "Altitude (ft)") +
+    theme_minimal(base_size = 12)
+}
+
+#' PERFIS VERTICAIS de todos os voos de um par de cidades sobrepostos --
+#' bom para ver a dispersao (subida/cruzeiro/descida) do par de uma vez.
+#'
+#' @param positions data.table (com fid, cum_dist_nm, altitude_ft, adep_det,
+#'   ades_det)
+#' @param adep,ades par de cidades (so o sentido adep->ades)
+#' @return objeto ggplot
+plot_vertical_profiles_pair <- function(positions, adep, ades) {
+  dt <- data.table::as.data.table(positions)[adep_det == adep & ades_det == ades]
+  n_voos <- length(unique(dt$fid))
+  ggplot(dt, aes(x = cum_dist_nm, y = altitude_ft, group = fid)) +
+    geom_line(alpha = 0.35, linewidth = 0.4, color = "#9c36b5") +
+    labs(title = paste0("Perfis verticais: ", adep, " -> ", ades),
+         subtitle = paste0(n_voos, " voos"),
+         x = "Distancia voada (NM)", y = "Altitude (ft)") +
+    theme_minimal(base_size = 12)
+}
+
+#' Plota UMA trajetoria HORIZONTAL em detalhe (mapa lat/lon, colorida pela
+#' altitude), com inicio/fim marcados -- para inspecionar um voo especifico.
 #'
 #' @param positions data.table de posicoes
 #' @param fid_alvo identificador do voo (coluna fid)
