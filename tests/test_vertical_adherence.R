@@ -11,6 +11,7 @@ source("R/vertical_adherence.R")
 source("R/vertical_adherence_radar_only.R")
 source("R/horizontal_efficiency.R")
 source("R/hfe_milestones.R")
+source("R/trajectories.R")
 
 # --- parser de FPL (texto ICAO cru) ---------------------------------------
 fpl <- parse_fpl(read_fpl_file("data/sample_fpl.txt"))
@@ -289,6 +290,46 @@ stopifnot(
   length(unique(segmentado$fid)) == 2, # dois voos distintos (callsign diferente)
   length(unique(segmentado$fid[segmentado$callsign == "AAA111"])) == 1,
   length(unique(segmentado$fid[segmentado$callsign == "BBB222"])) == 1
+)
+
+# --- Etapa 1: extracao de trajetorias (clean + segment + detect O/D) -------
+airports_traj <- read_airports_db("data/airports_br.csv")
+sbcf_t <- lookup_airport_coords("SBCF", airports_traj)
+sbsp_t <- lookup_airport_coords("SBSP", airports_traj)
+
+leg_pos <- function(cs, a, b, n, t0) {
+  frac <- seq(0, 1, length.out = n)
+  data.frame(
+    callsign = cs,
+    vl_latitude = a["lat"] + frac * (b["lat"] - a["lat"]),
+    vl_longitude = a["lon"] + frac * (b["lon"] - a["lon"]),
+    nr_flightlevel = 350,
+    dt_radar = format(as.POSIXct(t0, tz = "UTC") + seq(0, by = 30, length.out = n),
+                      "%Y-%m-%d %H:%M:%S"),
+    stringsAsFactors = FALSE
+  )
+}
+raw_traj <- rbind(
+  leg_pos("GLO111", sbcf_t, sbsp_t, 40, "2025-12-10 12:00:00"),
+  leg_pos("GLO111", sbsp_t, sbcf_t, 40, "2025-12-10 15:00:00") # +3h = voo separado (gap)
+)
+raw_traj$vl_latitude[5] <- NA # posicao invalida, deve ser descartada
+
+pos_clean <- clean_radar_log(raw_traj)
+stopifnot(
+  nrow(pos_clean) == nrow(raw_traj) - 1, # 1 posicao NA descartada
+  all(c("callsign", "ts", "lat", "lon", "altitude_ft") %in% names(pos_clean))
+)
+pos_seg <- segment_trajectories(pos_clean, max_gap_min = 30)
+stopifnot(length(unique(pos_seg$fid)) == 2) # mesmo callsign, gap de 3h => 2 voos
+
+flights_traj <- detect_od_per_flight(pos_seg, airports_traj, max_dist_nm = 30)
+stopifnot(
+  nrow(flights_traj) == 2,
+  all(flights_traj$adep_det %in% c("SBCF", "SBSP")),
+  all(flights_traj$ades_det %in% c("SBCF", "SBSP")),
+  # ida e volta: o adep de um e o ades do outro
+  flights_traj$adep_det[1] == flights_traj$ades_det[2]
 )
 
 cat("Todos os testes passaram.\n")

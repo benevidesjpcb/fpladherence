@@ -1,0 +1,76 @@
+# ETAPA 1 -- Extracao de trajetorias a partir do radar bruto.
+#
+# Le o radar bruto do dia UMA VEZ, limpa, segmenta em voos (fid), detecta
+# origem/destino de cada voo e exporta:
+#   - data/local/trajectories_2025_12_10.parquet  (todas as posicoes -- para processar)
+#   - data/local/trajectories_2025_12_10_sample.csv (amostra -- para abrir no Excel)
+#   - data/local/flights_2025_12_10.csv            (indice: 1 linha por voo)
+#
+# Rode UMA VEZ por dia de dados. Depois, a analise (Etapa 3) le so o Parquet
+# de trajetorias, nunca mais o radar bruto.
+#
+# Requisitos: install.packages(c("data.table","geosphere","lubridate","arrow"))
+# (arrow so para gravar Parquet; sem ele, grava so os CSV e avisa.)
+
+setwd(".")
+
+source("R/parse_sigma_radar.R")   # read_sigma_radar_log()
+source("R/horizontal_efficiency.R") # read_airports_db()
+source("R/trajectories.R")
+
+radar_path <- "data/local/radar_2025_12_10.csv"
+dia_tag <- "2025_12_10"
+out_dir <- "data/local"
+
+## 1. Le o radar bruto (uma vez) -----------------------------------------------
+cat("Lendo radar bruto...\n")
+log_radar <- read_sigma_radar_log(
+  radar_path,
+  select = c("callsign", "vl_latitude", "vl_longitude", "nr_flightlevel", "dt_radar")
+)
+cat("  posicoes brutas:", nrow(log_radar), "\n")
+
+## 2. Limpa + segmenta em voos (fid) -------------------------------------------
+cat("Limpando e segmentando...\n")
+positions <- clean_radar_log(log_radar)
+positions <- segment_trajectories(positions, max_gap_min = 30)
+cat("  posicoes validas:", nrow(positions), "| voos (fid):",
+    length(unique(positions$fid)), "\n")
+
+## 3. Detecta origem/destino por voo -------------------------------------------
+cat("Detectando origem/destino por voo...\n")
+airports_db <- read_airports_db("data/airports_br.csv")
+flights <- detect_od_per_flight(positions, airports_db, max_dist_nm = 30)
+
+od_ok <- sum(!is.na(flights$adep_det) & !is.na(flights$ades_det))
+cat("  voos com ADEP e ADES detectados:", od_ok, "de", nrow(flights), "\n")
+
+# anexa adep_det/ades_det as posicoes (para filtrar por par de cidades depois
+# sem precisar de join no momento da analise)
+positions <- merge(positions, flights[, .(fid, adep_det, ades_det)], by = "fid", all.x = TRUE)
+data.table::setorder(positions, fid, ts)
+
+## 4. Exporta ------------------------------------------------------------------
+cat("Exportando...\n")
+write_trajectory_table(
+  positions,
+  out_parquet = file.path(out_dir, paste0("trajectories_", dia_tag, ".parquet")),
+  out_csv = file.path(out_dir, paste0("trajectories_", dia_tag, "_sample.csv")),
+  csv_sample_n = 50000
+)
+write_trajectory_table(
+  flights,
+  out_parquet = file.path(out_dir, paste0("flights_", dia_tag, ".parquet")),
+  out_csv = file.path(out_dir, paste0("flights_", dia_tag, ".csv"))
+)
+
+cat("\nPronto. Arquivos em", out_dir, ":\n")
+cat("  trajectories_", dia_tag, ".parquet  (todas as posicoes, com fid + adep/ades)\n", sep = "")
+cat("  trajectories_", dia_tag, "_sample.csv (amostra p/ Excel)\n", sep = "")
+cat("  flights_", dia_tag, ".csv / .parquet  (1 linha por voo)\n", sep = "")
+
+## 5. Espia os pares de cidades mais frequentes do dia -------------------------
+pares <- flights[!is.na(adep_det) & !is.na(ades_det), .N, by = .(adep_det, ades_det)]
+data.table::setorder(pares, -N)
+cat("\nPares de cidades mais frequentes (top 15):\n")
+print(head(pares, 15))
