@@ -26,7 +26,8 @@ out_dir <- "data/local"
 cat("Lendo radar bruto...\n")
 log_radar <- read_sigma_radar_log(
   radar_path,
-  select = c("callsign", "vl_latitude", "vl_longitude", "nr_flightlevel", "dt_radar")
+  select = c("callsign", "addep", "addes", "vl_latitude", "vl_longitude",
+             "nr_flightlevel", "dt_radar")
 )
 cat("  posicoes brutas:", nrow(log_radar), "\n")
 
@@ -37,13 +38,15 @@ positions <- segment_trajectories(positions, max_gap_min = 30)
 cat("  posicoes validas:", nrow(positions), "| voos (fid):",
     length(unique(positions$fid)), "\n")
 
-## 3. Detecta origem/destino por voo -------------------------------------------
-cat("Detectando origem/destino por voo...\n")
+## 3. Resolve origem/destino por voo (radar primeiro, fallback geometrico) -----
+cat("Resolvendo origem/destino por voo...\n")
 airports_db <- read_airports_db("data/airports_br.csv")
-flights <- detect_od_per_flight(positions, airports_db, max_dist_nm = 30)
+flights <- resolve_flight_od(positions, airports_db, fallback_radius_nm = 5)
 
 od_ok <- sum(!is.na(flights$adep_det) & !is.na(flights$ades_det))
-cat("  voos com ADEP e ADES detectados:", od_ok, "de", nrow(flights), "\n")
+od_radar <- sum(flights$adep_src == "radar" & flights$ades_src == "radar", na.rm = TRUE)
+cat("  voos com ADEP e ADES:", od_ok, "de", nrow(flights),
+    "(", od_radar, "direto do radar,", od_ok - od_radar, "por fallback geometrico )\n")
 
 # anexa adep_det/ades_det as posicoes (para filtrar por par de cidades depois
 # sem precisar de join no momento da analise)

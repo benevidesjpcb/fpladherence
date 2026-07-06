@@ -297,10 +297,10 @@ airports_traj <- read_airports_db("data/airports_br.csv")
 sbcf_t <- lookup_airport_coords("SBCF", airports_traj)
 sbsp_t <- lookup_airport_coords("SBSP", airports_traj)
 
-leg_pos <- function(cs, a, b, n, t0) {
+leg_pos <- function(cs, a, b, n, t0, addep = NA, addes = NA) {
   frac <- seq(0, 1, length.out = n)
   data.frame(
-    callsign = cs,
+    callsign = cs, addep = addep, addes = addes,
     vl_latitude = a["lat"] + frac * (b["lat"] - a["lat"]),
     vl_longitude = a["lon"] + frac * (b["lon"] - a["lon"]),
     nr_flightlevel = 350,
@@ -310,26 +310,35 @@ leg_pos <- function(cs, a, b, n, t0) {
   )
 }
 raw_traj <- rbind(
-  leg_pos("GLO111", sbcf_t, sbsp_t, 40, "2025-12-10 12:00:00"),
-  leg_pos("GLO111", sbsp_t, sbcf_t, 40, "2025-12-10 15:00:00") # +3h = voo separado (gap)
+  # voo 1: O/D preenchidos no proprio radar (fonte primaria)
+  leg_pos("GLO111", sbcf_t, sbsp_t, 40, "2025-12-10 12:00:00", addep = "SBCF", addes = "SBSP"),
+  # voo 2: O/D vazios no radar -> fallback geometrico (comeca/termina sobre o aerodromo)
+  leg_pos("GLO111", sbsp_t, sbcf_t, 40, "2025-12-10 15:00:00", addep = "", addes = "")
 )
 raw_traj$vl_latitude[5] <- NA # posicao invalida, deve ser descartada
 
 pos_clean <- clean_radar_log(raw_traj)
 stopifnot(
   nrow(pos_clean) == nrow(raw_traj) - 1, # 1 posicao NA descartada
-  all(c("callsign", "ts", "lat", "lon", "altitude_ft") %in% names(pos_clean))
+  all(c("callsign", "ts", "lat", "lon", "altitude_ft", "addep", "addes") %in% names(pos_clean)),
+  is.na(pos_clean$addep[pos_clean$callsign == "GLO111"][40]) # "" virou NA
 )
 pos_seg <- segment_trajectories(pos_clean, max_gap_min = 30)
 stopifnot(length(unique(pos_seg$fid)) == 2) # mesmo callsign, gap de 3h => 2 voos
 
-flights_traj <- detect_od_per_flight(pos_seg, airports_traj, max_dist_nm = 30)
+flights_traj <- resolve_flight_od(pos_seg, airports_traj, fallback_radius_nm = 5)
 stopifnot(
   nrow(flights_traj) == 2,
   all(flights_traj$adep_det %in% c("SBCF", "SBSP")),
   all(flights_traj$ades_det %in% c("SBCF", "SBSP")),
-  # ida e volta: o adep de um e o ades do outro
-  flights_traj$adep_det[1] == flights_traj$ades_det[2]
+  flights_traj$adep_det[1] == flights_traj$ades_det[2] # ida/volta consistentes
+)
+# voo 1 veio do radar; voo 2 veio do fallback geometrico
+src_voo1 <- flights_traj[flights_traj$fid == 1, ]
+src_voo2 <- flights_traj[flights_traj$fid == 2, ]
+stopifnot(
+  src_voo1$adep_src == "radar", src_voo1$ades_src == "radar",
+  src_voo2$adep_src == "trajectory", src_voo2$ades_src == "trajectory"
 )
 
 cat("Todos os testes passaram.\n")

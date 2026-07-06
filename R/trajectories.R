@@ -17,12 +17,26 @@
 library(data.table)
 library(geosphere)
 
+#' Limpa string de codigo ICAO: remove aspas/espacos, poe em maiuscula, e
+#' converte vazio ("") para NA.
+.clean_icao <- function(x) {
+  if (is.null(x)) return(NA_character_)
+  x <- toupper(trimws(gsub('"', '', x, fixed = TRUE)))
+  x[x == ""] <- NA_character_
+  x
+}
+
 #' Limpa o log de radar bruto e o converte para o formato canonico de
 #' posicoes, ja como data.table: callsign, ts (POSIXct), lat, lon,
-#' altitude_ft. Descarta posicoes sem lat/lon/timestamp (inuteis).
+#' altitude_ft, addep, addes. Descarta posicoes sem lat/lon/timestamp.
+#'
+#' addep/addes sao a ORIGEM/DESTINO que ja vem no proprio radar (fonte
+#' primaria de O/D -- ver resolve_flight_od()). Se essas colunas nao
+#' existirem no arquivo, sao criadas como NA.
 #'
 #' @param radar_log data.table retornado por read_sigma_radar_log()
-#' @return data.table com colunas callsign, ts, lat, lon, altitude_ft
+#' @return data.table com colunas callsign, ts, lat, lon, altitude_ft,
+#'   addep, addes
 clean_radar_log <- function(radar_log) {
   dt <- data.table::as.data.table(radar_log)
 
@@ -34,7 +48,9 @@ clean_radar_log <- function(radar_log) {
     ts = ts,
     lat = as.numeric(dt$vl_latitude),
     lon = as.numeric(dt$vl_longitude),
-    altitude_ft = as.numeric(dt$nr_flightlevel) * 100
+    altitude_ft = as.numeric(dt$nr_flightlevel) * 100,
+    addep = if ("addep" %in% names(dt)) .clean_icao(dt$addep) else NA_character_,
+    addes = if ("addes" %in% names(dt)) .clean_icao(dt$addes) else NA_character_
   )
   out <- out[!is.na(lat) & !is.na(lon) & !is.na(ts) & callsign != ""]
   out
@@ -61,54 +77,84 @@ segment_trajectories <- function(positions, max_gap_min = 30) {
   positions
 }
 
-#' Detecta origem/destino de cada voo (fid): o aerodromo mais proximo da
-#' PRIMEIRA e da ULTIMA posicao de cada trajetoria, desde que dentro de
-#' 'max_dist_nm' (senao NA). Tambem devolve resumo por voo (n posicoes,
-#' hora de inicio/fim).
+#' Aerodromo mais proximo de cada ponto (lon_v, lat_v), dentro de
+#' 'max_dist_nm' (senao NA). Loop so sobre os poucos pontos passados
+#' (tipicamente os extremos dos voos que ficaram sem O/D no radar).
 #'
-#' @param positions data.table segmentado (com fid), de segment_trajectories()
+#' @return list(icao = vetor de codigos, dist_nm = distancias)
+nearest_airport <- function(lon_v, lat_v, airports_db, max_dist_nm) {
+  ap_lon <- airports_db$longitude; ap_lat <- airports_db$latitude
+  ap_icao <- airports_db$icao
+  icao <- rep(NA_character_, length(lon_v))
+  dist_nm <- rep(NA_real_, length(lon_v))
+  for (i in seq_along(lon_v)) {
+    if (is.na(lon_v[i]) || is.na(lat_v[i])) next
+    d_nm <- distHaversine(c(lon_v[i], lat_v[i]), cbind(ap_lon, ap_lat)) / 1852
+    j <- which.min(d_nm)
+    if (d_nm[j] <= max_dist_nm) { icao[i] <- ap_icao[j]; dist_nm[i] <- d_nm[j] }
+  }
+  list(icao = icao, dist_nm = dist_nm)
+}
+
+#' Resolve a origem/destino (ADEP/ADES) de cada voo (fid).
+#'
+#' FONTE PRIMARIA: as colunas addep/addes que ja vem no proprio radar
+#' (pega o primeiro valor nao-NA de cada voo). O radar e a fonte de verdade
+#' de O/D -- a maioria dos voos ja tem isso preenchido.
+#'
+#' FALLBACK (so quando addep/addes estao NA): detecta geometricamente o
+#' aerodromo mais proximo da primeira/ultima posicao, com um raio PEQUENO
+#' ('fallback_radius_nm', padrao 5 NM) para nao pegar um aerodromo errado
+#' no caminho -- se nada estiver perto o suficiente, fica NA (melhor NA do
+#' que O/D errado).
+#'
+#' NOTA (refinamento futuro): outra forma de preencher os NA seria casar por
+#' indicativo (callsign) + horario com o plano de voo (que tem adep/ades),
+#' ou com registros de outros dias do mesmo voo -- fica para a integracao
+#' com a Etapa 2 (FPL). A coluna 'od_src' marca de onde veio cada O/D.
+#'
+#' @param positions data.table segmentado (com fid, addep, addes), de
+#'   segment_trajectories() sobre clean_radar_log()
 #' @param airports_db data.frame com colunas icao, latitude, longitude
-#' @param max_dist_nm raio (NM) para aceitar um aerodromo como origem/destino
+#' @param fallback_radius_nm raio (NM) do fallback geometrico (padrao 5)
 #' @return data.table (indice de voos): fid, callsign, adep_det, ades_det,
-#'   n_pos, t_start, t_end, dist_adep_nm, dist_ades_nm
-detect_od_per_flight <- function(positions, airports_db, max_dist_nm = 30) {
-  # extremos de cada voo (primeira e ultima posicao, ja ordenado por ts)
-  extremos <- positions[, .(
+#'   od_src ("radar"/"trajectory"/NA), n_pos, t_start, t_end
+resolve_flight_od <- function(positions, airports_db, fallback_radius_nm = 5) {
+  first_non_na <- function(x) { v <- x[!is.na(x)]; if (length(v)) v[1] else NA_character_ }
+
+  info <- positions[, .(
     callsign = callsign[1],
     n_pos = .N,
     t_start = ts[1], t_end = ts[.N],
+    adep_radar = first_non_na(addep),
+    ades_radar = first_non_na(addes),
     lat_first = lat[1], lon_first = lon[1],
     lat_last = lat[.N], lon_last = lon[.N]
   ), by = fid]
 
-  ap_lon <- airports_db$longitude
-  ap_lat <- airports_db$latitude
-  ap_icao <- airports_db$icao
+  info[, adep_det := adep_radar]
+  info[, ades_det := ades_radar]
+  info[, adep_src := data.table::fifelse(!is.na(adep_radar), "radar", NA_character_)]
+  info[, ades_src := data.table::fifelse(!is.na(ades_radar), "radar", NA_character_)]
 
-  nearest_airport <- function(lon_v, lat_v) {
-    icao <- character(length(lon_v))
-    dist_nm <- numeric(length(lon_v))
-    for (i in seq_along(lon_v)) {
-      d_nm <- distHaversine(c(lon_v[i], lat_v[i]), cbind(ap_lon, ap_lat)) / 1852
-      j <- which.min(d_nm)
-      if (d_nm[j] <= max_dist_nm) {
-        icao[i] <- ap_icao[j]; dist_nm[i] <- d_nm[j]
-      } else {
-        icao[i] <- NA_character_; dist_nm[i] <- NA_real_
-      }
-    }
-    list(icao = icao, dist_nm = dist_nm)
+  # fallback geometrico so onde o radar nao trouxe O/D
+  need_dep <- is.na(info$adep_det)
+  if (any(need_dep)) {
+    nd <- nearest_airport(info$lon_first[need_dep], info$lat_first[need_dep],
+                          airports_db, fallback_radius_nm)
+    info$adep_det[need_dep] <- nd$icao
+    info$adep_src[need_dep] <- data.table::fifelse(!is.na(nd$icao), "trajectory", NA_character_)
+  }
+  need_arr <- is.na(info$ades_det)
+  if (any(need_arr)) {
+    na_ <- nearest_airport(info$lon_last[need_arr], info$lat_last[need_arr],
+                          airports_db, fallback_radius_nm)
+    info$ades_det[need_arr] <- na_$icao
+    info$ades_src[need_arr] <- data.table::fifelse(!is.na(na_$icao), "trajectory", NA_character_)
   }
 
-  dep <- nearest_airport(extremos$lon_first, extremos$lat_first)
-  arr <- nearest_airport(extremos$lon_last, extremos$lat_last)
-
-  data.table::data.table(
-    fid = extremos$fid, callsign = extremos$callsign,
-    adep_det = dep$icao, ades_det = arr$icao,
-    n_pos = extremos$n_pos, t_start = extremos$t_start, t_end = extremos$t_end,
-    dist_adep_nm = round(dep$dist_nm, 1), dist_ades_nm = round(arr$dist_nm, 1)
-  )
+  info[, .(fid, callsign, adep_det, ades_det, adep_src, ades_src,
+           n_pos, t_start, t_end)]
 }
 
 #' Escreve uma tabela em Parquet (via 'arrow' ou 'nanoparquet', o que
