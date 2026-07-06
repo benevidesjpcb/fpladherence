@@ -341,4 +341,14 @@ stopifnot(
   src_voo2$adep_src == "trajectory", src_voo2$ades_src == "trajectory"
 )
 
+# --- QC/plot de trajetorias (smoke test: gera os objetos sem erro) ---------
+suppressWarnings(suppressMessages(source("R/plot_trajectories.R")))
+pos_plot <- data.table::copy(pos_seg)
+pos_plot[, adep_det := "SBCF"][, ades_det := "SBSP"]
+pos_plot[, adep_src := "radar"][, ades_src := "radar"]
+resumo_qc <- qc_summary(pos_plot)
+stopifnot(nrow(resumo_qc) == length(unique(pos_seg$fid)))
+stopifnot(inherits(plot_trajectories_map(pos_plot, max_flights = 10), "ggplot"))
+stopifnot(inherits(plot_one_trajectory(pos_plot, pos_seg$fid[1]), "ggplot"))
+
 cat("Todos os testes passaram.\n")
