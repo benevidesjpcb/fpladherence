@@ -12,6 +12,7 @@ source("R/vertical_adherence_radar_only.R")
 source("R/horizontal_efficiency.R")
 source("R/hfe_milestones.R")
 source("R/trajectories.R")
+source("R/fpl_trajectories.R")
 
 # --- parser de FPL (texto ICAO cru) ---------------------------------------
 fpl <- parse_fpl(read_fpl_file("data/sample_fpl.txt"))
@@ -378,5 +379,22 @@ stopifnot(
 )
 stopifnot(inherits(plot_flight_vertical(pos_vert, pos_seg$fid[1]), "ggplot"))
 stopifnot(inherits(plot_vertical_profiles_pair(pos_vert, "SBCF", "SBSP"), "ggplot"))
+
+# --- Etapa 2: trajetoria PLANEJADA do FPL -----------------------------------
+plans_fpl <- select_filed_plan(read_sigma_fpl_log("tests/fixtures/sample_sigma_fpl.csv"))
+plans_fpl$adep <- "SBGL"; plans_fpl$ades <- "SBSV"
+navdata_fpl <- rbind(
+  read.csv("data/waypoints_br.csv", stringsAsFactors = FALSE)[, c("point", "lat", "lon")],
+  data.frame(point = airports_traj$icao, lat = airports_traj$latitude, lon = airports_traj$longitude)
+)
+res_fpl <- build_fpl_routes(plans_fpl, navdata_fpl)
+stopifnot(
+  nrow(res_fpl$status) == 1, res_fpl$status$resolvido[1] == TRUE,
+  res_fpl$routes$point[1] == "SBGL",
+  res_fpl$routes$point[nrow(res_fpl$routes)] == "SBSV",
+  res_fpl$routes$cum_dist_nm[1] == 0,
+  max(res_fpl$routes$cum_dist_nm) > 600, # SBGL-SBSV ~ 660 NM
+  !is.unsorted(res_fpl$routes$cum_dist_nm) # distancia acumulada crescente
+)
 
 cat("Todos os testes passaram.\n")
