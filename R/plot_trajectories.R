@@ -147,6 +147,10 @@ plot_trajectories_map <- function(positions, adep = NULL, ades = NULL,
 #' @return objeto ggplot
 plot_flight_vertical <- function(positions, fid_alvo) {
   dt <- data.table::as.data.table(positions)[fid == fid_alvo]
+  if (nrow(dt) == 0) {
+    stop("Voo fid=", fid_alvo, " nao encontrado em 'positions'. ",
+         "Escolha um fid da tabela 'flights' (ex.: flights$fid[1]).")
+  }
   data.table::setorder(dt, cum_dist_nm)
   od <- paste0(dt$adep_det[1], " -> ", dt$ades_det[1])
 
@@ -185,9 +189,13 @@ plot_vertical_profiles_pair <- function(positions, adep, ades) {
 #' @return objeto ggplot
 plot_one_trajectory <- function(positions, fid_alvo) {
   dt <- data.table::as.data.table(positions)[fid == fid_alvo]
+  if (nrow(dt) == 0) {
+    stop("Voo fid=", fid_alvo, " nao encontrado em 'positions'. ",
+         "Escolha um fid da tabela 'flights' (ex.: flights$fid[1]).")
+  }
   data.table::setorder(dt, ts)
-  extremos <- dt[c(1, .N)]
-  extremos$marca <- c("inicio", "fim")
+  extremos <- dt[c(1, nrow(dt))]
+  extremos[, marca := c("inicio", "fim")]
 
   od <- paste0(dt$adep_det[1], " -> ", dt$ades_det[1])
   lon_lim <- range(dt$lon, na.rm = TRUE) + c(-1, 1)
