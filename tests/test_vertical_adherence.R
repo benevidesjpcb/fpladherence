@@ -341,6 +341,24 @@ stopifnot(
   src_voo2$adep_src == "trajectory", src_voo2$ades_src == "trajectory"
 )
 
+# --- QC de qualidade de O/D: dois trechos colados sao descartados -----------
+# voo bom (SBCF->SBSP) + voo com dois trechos colados no mesmo fid
+# (SBCF->SBSP seguido de SBSP->SBRJ): addes inconsistente E termina longe do
+# destino declarado -> od_ok = FALSE
+sbrj_q <- lookup_airport_coords("SBRJ", airports_traj)
+raw_bom <- leg_pos("QGO1", sbcf_t, sbsp_t, 40, "2025-12-10 12:00:00", addep = "SBCF", addes = "SBSP")
+raw_col1 <- leg_pos("QGO2", sbcf_t, sbsp_t, 30, "2025-12-10 16:00:00", addep = "SBCF", addes = "SBSP")
+raw_col2 <- leg_pos("QGO2", sbsp_t, sbrj_q, 30, "2025-12-10 16:20:00", addep = "SBSP", addes = "SBRJ")
+pos_q <- segment_trajectories(clean_radar_log(rbind(raw_bom, raw_col1, raw_col2)))
+fl_q <- flag_flight_od_quality(resolve_flight_od(pos_q, airports_traj), max_endpoint_nm = 30)
+voo_bom <- fl_q[adep_det == "SBCF" & ades_det == "SBSP" & ades_n == 1]
+voo_colado <- fl_q[ades_n == 2]
+stopifnot(
+  nrow(voo_bom) == 1, voo_bom$od_ok == TRUE,
+  nrow(voo_colado) == 1, voo_colado$od_ok == FALSE, # descartado
+  voo_colado$dist_ades_nm > 100 # termina bem longe do destino declarado
+)
+
 # --- QC/plot de trajetorias (smoke test: gera os objetos sem erro) ---------
 suppressWarnings(suppressMessages(source("R/plot_trajectories.R")))
 pos_plot <- data.table::copy(pos_seg)

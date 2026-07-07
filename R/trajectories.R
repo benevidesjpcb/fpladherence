@@ -147,7 +147,13 @@ nearest_airport <- function(lon_v, lat_v, airports_db, max_dist_nm) {
 #' @param airports_db data.frame com colunas icao, latitude, longitude
 #' @param fallback_radius_nm raio (NM) do fallback geometrico (padrao 5)
 #' @return data.table (indice de voos): fid, callsign, adep_det, ades_det,
-#'   od_src ("radar"/"trajectory"/NA), n_pos, t_start, t_end
+#'   adep_src, ades_src, n_pos, t_start, t_end, e colunas de QUALIDADE:
+#'   - adep_n / ades_n: quantos codigos distintos de origem/destino o radar
+#'     trouxe dentro do voo (>1 = inconsistente, provavel colagem de dois
+#'     trechos -- ver filter_consistent_od())
+#'   - dist_adep_nm / dist_ades_nm: distancia (NM) da primeira posicao ao
+#'     ADEP e da ultima ao ADES. Se dist_ades_nm for grande, a trajetoria
+#'     NAO termina perto do destino declarado (voo suspeito)
 resolve_flight_od <- function(positions, airports_db, fallback_radius_nm = 5) {
   first_non_na <- function(x) { v <- x[!is.na(x)]; if (length(v)) v[1] else NA_character_ }
 
@@ -157,6 +163,8 @@ resolve_flight_od <- function(positions, airports_db, fallback_radius_nm = 5) {
     t_start = ts[1], t_end = ts[.N],
     adep_radar = first_non_na(addep),
     ades_radar = first_non_na(addes),
+    adep_n = data.table::uniqueN(addep[!is.na(addep)]),
+    ades_n = data.table::uniqueN(addes[!is.na(addes)]),
     lat_first = lat[1], lon_first = lon[1],
     lat_last = lat[.N], lon_last = lon[.N]
   ), by = fid]
@@ -182,8 +190,38 @@ resolve_flight_od <- function(positions, airports_db, fallback_radius_nm = 5) {
     info$ades_src[need_arr] <- data.table::fifelse(!is.na(na_$icao), "trajectory", NA_character_)
   }
 
+  # distancia dos extremos da trajetoria aos aeroportos declarados (QC)
+  ap_xy <- function(icao) {
+    idx <- match(icao, airports_db$icao)
+    cbind(airports_db$longitude[idx], airports_db$latitude[idx])
+  }
+  info[, dist_adep_nm := round(distHaversine(cbind(lon_first, lat_first), ap_xy(adep_det)) / 1852, 1)]
+  info[, dist_ades_nm := round(distHaversine(cbind(lon_last, lat_last), ap_xy(ades_det)) / 1852, 1)]
+
   info[, .(fid, callsign, adep_det, ades_det, adep_src, ades_src,
-           n_pos, t_start, t_end)]
+           adep_n, ades_n, dist_adep_nm, dist_ades_nm, n_pos, t_start, t_end)]
+}
+
+#' Marca/filtra voos com O/D de qualidade duvidosa, replicando a limpeza do
+#' BRA-HFE e adicionando a checagem de que os extremos batem com os
+#' aeroportos declarados. Um voo e considerado BOM quando:
+#'  - o radar trouxe no maximo 1 codigo distinto de ADEP e 1 de ADES
+#'    (adep_n <= 1 e ades_n <= 1) -- >1 indica dois trechos colados num fid;
+#'  - a primeira posicao esta a ate 'max_endpoint_nm' do ADEP e a ultima a
+#'    ate 'max_endpoint_nm' do ADES -- senao a trajetoria nao comeca/termina
+#'    onde diz.
+#'
+#' @param flights data.table de resolve_flight_od()
+#' @param max_endpoint_nm distancia maxima (NM) aceitavel dos extremos aos
+#'   aeroportos declarados (padrao 30)
+#' @return flights com coluna logica 'od_ok'
+flag_flight_od_quality <- function(flights, max_endpoint_nm = 30) {
+  flights[, od_ok :=
+    !is.na(adep_det) & !is.na(ades_det) &
+    adep_n <= 1 & ades_n <= 1 &
+    !is.na(dist_adep_nm) & dist_adep_nm <= max_endpoint_nm &
+    !is.na(dist_ades_nm) & dist_ades_nm <= max_endpoint_nm]
+  flights
 }
 
 #' Escreve uma tabela em Parquet (via 'arrow' ou 'nanoparquet', o que

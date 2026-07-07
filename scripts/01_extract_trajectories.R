@@ -57,13 +57,24 @@ od_radar <- sum(flights$adep_src == "radar" & flights$ades_src == "radar", na.rm
 cat("  voos com ADEP e ADES:", od_ok, "de", nrow(flights),
     "(", od_radar, "direto do radar,", od_ok - od_radar, "por fallback geometrico )\n")
 
-## 3b. Filtra para os aeroportos de interesse (origem E destino) ---------------
+## 3b. Descarta voos de O/D duvidosa (dois trechos colados, ou que nao
+##     comecam/terminam perto do aeroporto declarado) -------------------------
+flights <- flag_flight_od_quality(flights, max_endpoint_nm = 30)
+n_incons <- sum(flights$adep_n > 1 | flights$ades_n > 1, na.rm = TRUE)
+n_longe <- sum((flights$dist_adep_nm > 30 | flights$dist_ades_nm > 30) &
+                 flights$adep_n <= 1 & flights$ades_n <= 1, na.rm = TRUE)
+cat("  descartados por O/D inconsistente (2 trechos colados):", n_incons, "\n")
+cat("  descartados por extremos longe do aeroporto declarado:", n_longe, "\n")
+flights <- flights[od_ok == TRUE]
+positions <- positions[fid %in% flights$fid]
+
+## 3c. Filtra para os aeroportos de interesse (origem E destino) ---------------
 keep_icao <- if (is.null(AEROPORTOS_INTERESSE)) airports_db$icao else AEROPORTOS_INTERESSE
 n_antes <- nrow(flights)
 flights <- flights[adep_det %in% keep_icao & ades_det %in% keep_icao]
 positions <- positions[fid %in% flights$fid]
-cat("  voos mantidos (origem e destino de interesse):", nrow(flights),
-    "de", n_antes, "(descartados voos internacionais / O/D fora da lista)\n")
+cat("  voos mantidos (bons, origem e destino de interesse):", nrow(flights),
+    "de", n_antes, "\n")
 
 # anexa adep_det/ades_det as posicoes (para filtrar por par de cidades depois
 # sem precisar de join no momento da analise)
