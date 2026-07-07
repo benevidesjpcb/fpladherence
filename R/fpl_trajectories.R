@@ -28,7 +28,8 @@ build_fpl_routes <- function(plans, navdata) {
     r <- sigma_route_to_route_df(plans[i])
     data.table(gufi = plans$gufi[i], indicative = plans$indicative[i],
                adep = plans$adep[i], ades = plans$ades[i],
-               seq = r$seq, point = r$point, level_ft = r$level_ft)
+               seq = r$seq, point = r$point, level_ft = r$level_ft,
+               is_level_change = r$is_level_change)
   })
   pts <- data.table::rbindlist(rows)
 

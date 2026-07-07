@@ -28,6 +28,8 @@ AEROPORTOS_INTERESSE <- NULL
 cat("Lendo plano de voo...\n")
 log_fpl <- read_sigma_fpl_log(fpl_path)
 plans <- select_filed_plan(log_fpl)
+horarios <- extract_actual_times(log_fpl)
+plans <- merge(plans, horarios, by = "gufi", all.x = TRUE)
 cat("  voos no FPL:", nrow(plans), "\n")
 
 ## 2. Filtra aeroportos de interesse ------------------------------------------
@@ -60,6 +62,16 @@ write_trajectory_table(
   csv_sample_n = 50000
 )
 data.table::fwrite(status, file.path(out_dir, paste0("fpl_status_", dia_tag, ".csv")))
+
+# indice de voos do FPL com horarios (para casar com o radar na Etapa 3)
+fpl_flights <- merge(
+  data.table::as.data.table(plans)[, .(gufi, indicative, adep, ades, lvl, eobt_full,
+                                        actual_dep, actual_arr)],
+  status[, .(gufi, resolvido)], by = "gufi", all.x = TRUE)
+write_trajectory_table(
+  fpl_flights,
+  out_parquet = file.path(out_dir, paste0("fpl_flights_", dia_tag, ".parquet")),
+  out_csv = file.path(out_dir, paste0("fpl_flights_", dia_tag, ".csv")))
 
 cat("\nPronto. Rotas planejadas em", out_dir, "\n")
 

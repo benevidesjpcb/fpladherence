@@ -13,6 +13,9 @@ source("R/horizontal_efficiency.R")
 source("R/hfe_milestones.R")
 source("R/trajectories.R")
 source("R/fpl_trajectories.R")
+source("R/plot_vertical.R")
+source("R/plot_horizontal.R")
+source("R/compare_trajectories.R")
 
 # --- parser de FPL (texto ICAO cru) ---------------------------------------
 fpl <- parse_fpl(read_fpl_file("data/sample_fpl.txt"))
@@ -395,6 +398,36 @@ stopifnot(
   res_fpl$routes$cum_dist_nm[1] == 0,
   max(res_fpl$routes$cum_dist_nm) > 600, # SBGL-SBSV ~ 660 NM
   !is.unsorted(res_fpl$routes$cum_dist_nm) # distancia acumulada crescente
+)
+
+# --- Etapa 3: casamento radar x FPL + comparacao de um voo -----------------
+radar_fl_cmp <- data.table::data.table(
+  fid = 1L, callsign = "GLO1", adep_det = "SBCF", ades_det = "SBSP",
+  t_start = as.POSIXct("2025-12-10 12:00:00", tz = "UTC"))
+fpl_fl_cmp <- data.table::data.table(
+  gufi = "G1", indicative = "GLO1", adep = "SBCF", ades = "SBSP",
+  eobt_full = as.POSIXct("2025-12-10 12:05:00", tz = "UTC"),
+  actual_dep = as.POSIXct("2025-12-10 12:02:00", tz = "UTC"), resolvido = TRUE)
+pares_cmp <- match_radar_to_fpl(radar_fl_cmp, fpl_fl_cmp, max_dep_diff_min = 60)
+stopifnot(nrow(pares_cmp) == 1, pares_cmp$fid == 1, pares_cmp$gufi == "G1")
+
+sbcf_c <- lookup_airport_coords("SBCF", airports_traj)
+sbsp_c <- lookup_airport_coords("SBSP", airports_traj)
+plans_cmp <- data.frame(gufi = "G1", indicative = "GLO1", adep = "SBCF", ades = "SBSP",
+                        lvl = "F370", route = "DCT", stringsAsFactors = FALSE)
+planned_cmp <- build_fpl_routes(plans_cmp, navdata_fpl)$routes
+n_c <- 60; fr <- seq(0, 1, length.out = n_c)
+radar_pos_cmp <- data.table::data.table(
+  fid = 1, callsign = "GLO1", ts = as.POSIXct("2025-12-10 12:00:00", tz = "UTC") + seq(0, by = 60, length.out = n_c),
+  lat = sbcf_c["lat"] + fr * (sbsp_c["lat"] - sbcf_c["lat"]),
+  lon = sbcf_c["lon"] + fr * (sbsp_c["lon"] - sbcf_c["lon"]),
+  altitude_ft = c(seq(2700, 37000, length.out = 20), rep(37000, 20), seq(37000, 2600, length.out = 20)))
+cmp <- compare_one_flight(radar_pos_cmp, planned_cmp, dep_elev_ft = 2700, dest_elev_ft = 2600)
+stopifnot(
+  "cross_track_nm" %in% names(cmp$radar),
+  cmp$resumo_h$pct_aderencia > 95,           # radar quase em cima da rota
+  "GERAL" %in% cmp$resumo_v$fase,
+  cmp$resumo_v$pct_aderencia[cmp$resumo_v$fase == "CRUZEIRO"] == 100
 )
 
 cat("Todos os testes passaram.\n")
