@@ -22,6 +22,13 @@ radar_path <- "data/local/radar_2025_12_10.csv"
 dia_tag <- "2025_12_10"
 out_dir <- "data/local"
 
+# Aeroportos de interesse: mantem so voos cuja ORIGEM E DESTINO estao nesta
+# lista. Por padrao, todos os aerodromos brasileiros conhecidos (elimina voos
+# internacionais como ...->KJFK, que nao estao na base). Para focar num
+# conjunto especifico, descomente e ajuste:
+# AEROPORTOS_INTERESSE <- c("SBCF","SBSP","SBGR","SBRJ","SBBR","SBSV","SBKP","SBCT")
+AEROPORTOS_INTERESSE <- NULL  # NULL = todos os aerodromos de data/airports_br.csv
+
 ## 1. Le o radar bruto (uma vez) -----------------------------------------------
 cat("Lendo radar bruto...\n")
 log_radar <- read_sigma_radar_log(
@@ -49,6 +56,14 @@ od_ok <- sum(!is.na(flights$adep_det) & !is.na(flights$ades_det))
 od_radar <- sum(flights$adep_src == "radar" & flights$ades_src == "radar", na.rm = TRUE)
 cat("  voos com ADEP e ADES:", od_ok, "de", nrow(flights),
     "(", od_radar, "direto do radar,", od_ok - od_radar, "por fallback geometrico )\n")
+
+## 3b. Filtra para os aeroportos de interesse (origem E destino) ---------------
+keep_icao <- if (is.null(AEROPORTOS_INTERESSE)) airports_db$icao else AEROPORTOS_INTERESSE
+n_antes <- nrow(flights)
+flights <- flights[adep_det %in% keep_icao & ades_det %in% keep_icao]
+positions <- positions[fid %in% flights$fid]
+cat("  voos mantidos (origem e destino de interesse):", nrow(flights),
+    "de", n_antes, "(descartados voos internacionais / O/D fora da lista)\n")
 
 # anexa adep_det/ades_det as posicoes (para filtrar por par de cidades depois
 # sem precisar de join no momento da analise)

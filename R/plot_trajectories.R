@@ -8,6 +8,26 @@
 library(ggplot2)
 library(data.table)
 
+#' Camada ggplot com o contorno do Brasil (e paises vizinhos) como fundo dos
+#' mapas de trajetoria. Usa os dados embutidos do pacote 'maps' (offline, sem
+#' download). Se 'maps' nao estiver instalado, retorna NULL (o mapa sai sem
+#' fundo, sem quebrar).
+#'
+#' @return lista de camadas ggplot (ou NULL se 'maps' ausente)
+brazil_basemap_layer <- function() {
+  if (!requireNamespace("maps", quietly = TRUE)) return(NULL)
+  br <- ggplot2::map_data("world", region = "Brazil")
+  vizinhos <- ggplot2::map_data("world", region = c(
+    "Argentina", "Paraguay", "Uruguay", "Bolivia", "Peru", "Chile",
+    "Colombia", "Venezuela", "Guyana", "Suriname", "French Guiana", "Ecuador"))
+  list(
+    ggplot2::geom_polygon(data = vizinhos, ggplot2::aes(long, lat, group = group),
+                          inherit.aes = FALSE, fill = "grey96", color = "grey85", linewidth = 0.2),
+    ggplot2::geom_polygon(data = br, ggplot2::aes(long, lat, group = group),
+                          inherit.aes = FALSE, fill = "grey93", color = "grey70", linewidth = 0.3)
+  )
+}
+
 #' Le a tabela de trajetorias (Parquet via arrow/nanoparquet, ou CSV)
 #'
 #' @param path caminho .parquet ou .csv
@@ -89,7 +109,14 @@ plot_trajectories_map <- function(positions, adep = NULL, ades = NULL,
     subtitulo <- paste0(subtitulo, " -- amostra de ", max_flights)
   }
 
+  # limites do zoom pela extensao dos voos (com uma folga), para o mapa do
+  # Brasil aparecer de fundo sem plotar o pais inteiro
+  lon_lim <- range(dt$lon, na.rm = TRUE) + c(-1, 1)
+  lat_lim <- range(dt$lat, na.rm = TRUE) + c(-1, 1)
+  lat_med <- mean(lat_lim)
+
   p <- ggplot(dt, aes(x = lon, y = lat, group = fid)) +
+    brazil_basemap_layer() +  # fundo (NULL se 'maps' ausente -- ignorado)
     geom_path(alpha = 0.35, linewidth = 0.3, color = "steelblue")
 
   if (!is.null(airports_db) && !is.null(adep) && !is.null(ades)) {
@@ -101,9 +128,9 @@ plot_trajectories_map <- function(positions, adep = NULL, ades = NULL,
                 inherit.aes = FALSE, vjust = -1, size = 3.5, fontface = "bold")
   }
 
-  lat_med <- mean(range(dt$lat, na.rm = TRUE))
   p +
-    coord_fixed(ratio = 1 / cos(lat_med * pi / 180)) +
+    coord_fixed(ratio = 1 / cos(lat_med * pi / 180),
+                xlim = lon_lim, ylim = lat_lim, expand = FALSE) +
     labs(title = "Trajetorias extraidas do RADAR", subtitle = subtitulo,
          x = "Longitude", y = "Latitude") +
     theme_minimal(base_size = 12)
@@ -163,14 +190,18 @@ plot_one_trajectory <- function(positions, fid_alvo) {
   extremos$marca <- c("inicio", "fim")
 
   od <- paste0(dt$adep_det[1], " -> ", dt$ades_det[1])
-  lat_med <- mean(range(dt$lat, na.rm = TRUE))
+  lon_lim <- range(dt$lon, na.rm = TRUE) + c(-1, 1)
+  lat_lim <- range(dt$lat, na.rm = TRUE) + c(-1, 1)
+  lat_med <- mean(lat_lim)
 
   ggplot(dt, aes(x = lon, y = lat)) +
+    brazil_basemap_layer() +  # fundo (NULL se 'maps' ausente -- ignorado)
     geom_path(aes(color = altitude_ft), linewidth = 0.8) +
     geom_point(data = extremos, aes(x = lon, y = lat, shape = marca), size = 3) +
     scale_color_viridis_c(name = "Altitude (ft)") +
     scale_shape_manual(values = c(inicio = 16, fim = 4), name = NULL) +
-    coord_fixed(ratio = 1 / cos(lat_med * pi / 180)) +
+    coord_fixed(ratio = 1 / cos(lat_med * pi / 180),
+                xlim = lon_lim, ylim = lat_lim, expand = FALSE) +
     labs(title = paste0("Voo fid=", fid_alvo, " (", dt$callsign[1], ")"),
          subtitle = paste0(od, " -- ", nrow(dt), " posicoes"),
          x = "Longitude", y = "Latitude") +
