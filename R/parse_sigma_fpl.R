@@ -60,16 +60,26 @@ combine_sigma_datetime <- function(date_col, time_col) {
   as.POSIXct(combined, tz = "UTC")
 }
 
-#' Seleciona, para cada voo (gufi), a versao mais recente do plano arquivado
-#' (msg_type RPL* ou CHG) -- ou seja, o plano efetivamente em vigor.
+#' Seleciona, para cada voo (gufi), UMA linha com o plano arquivado.
+#'
+#' Considera so as mensagens de PLANO propriamente dito (FPL/RPL por padrao),
+#' ignorando CHG/DLA/DEP/ARR/CNL -- estas geram varias mensagens por voo e
+#' inflavam a contagem (voo "repetido"). Mantem so voos IFR por padrao
+#' (descarta VFR, regra de voo visual). Se sobrar mais de uma mensagem de
+#' plano por gufi, fica com a mais recente.
 #'
 #' @param sigma_log data.frame retornado por read_sigma_fpl_log()
+#' @param msg_types tipos de mensagem de plano a considerar (padrao FPL, RPL)
+#' @param only_ifr se TRUE (padrao), mantem so voos com flight_rule == "I"
 #' @return data.frame com uma linha por gufi: gufi, indicative, adep, ades,
-#'   speed, lvl, route, eobt_full (POSIXct), aircraft_model
-select_filed_plan <- function(sigma_log) {
-  filed <- sigma_log[sigma_log$msg_type %in% c("FPL", "RPL", "CHG"), ]
+#'   speed, lvl, route, aircraft_model, ssr, eobt_full (POSIXct)
+select_filed_plan <- function(sigma_log, msg_types = c("FPL", "RPL"),
+                              only_ifr = TRUE) {
+  filed <- sigma_log[sigma_log$msg_type %in% msg_types, ]
+  if (only_ifr && "flight_rule" %in% names(filed)) {
+    filed <- filed[trimws(filed$flight_rule) == "I", ]
+  }
   # string vazia faz as.POSIXct() dar erro (nao vira NA) e derruba o vetor
-  # inteiro -- comum em voos com dados incompletos no dataset real
   receipt <- filed$receipt_application
   receipt[trimws(receipt) == ""] <- NA
   filed$receipt_application <- as.POSIXct(receipt, tz = "UTC")
