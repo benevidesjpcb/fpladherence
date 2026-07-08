@@ -62,25 +62,34 @@ combine_sigma_datetime <- function(date_col, time_col) {
 
 #' Seleciona, para cada voo (gufi), UMA linha com o plano arquivado.
 #'
-#' Considera as mensagens que CARREGAM A ROTA/PLANO: FPL, RPL e CHG. A CHG
-#' (alteracao) traz o plano em vigor e NAO e ruido -- muitos voos (ex.: da
-#' Azul) so tem CHG no arquivo do dia, sem FPL/RPL, entao excluir CHG
-#' descartaria esses voos inteiros. Ignora DEP/DLA/ARR/CNL (nao trazem a
-#' rota). Mantem so voos IFR por padrao (descarta VFR). Dedup por gufi: se
-#' sobrar mais de uma mensagem por voo, fica com a mais recente (isso ja
-#' resolve a "duplicata" de varias mensagens do mesmo voo).
+#' IMPORTANTE sobre as colunas: 'type' e o tipo do plano (FPL/RPL); 'msg_type'
+#' e o tipo da MENSAGEM (CHG/DEP/DLA/ARR...) -- NAO existe "FPL"/"RPL" em
+#' msg_type. E os campos do plano (route, adep, ades, lvl, eobt...) vem
+#' DENORMALIZADOS em TODAS as linhas de um mesmo voo (gufi). Por isso nao se
+#' filtra por msg_type (isso so pegava as CHG e descartava voos sem CHG):
+#' basta pegar UMA linha por voo -- qualquer uma ja tem o plano.
+#'
+#' Mantem so voos IFR por padrao (descarta VFR). Exige a coluna 'route'
+#' preenchida (ignora mensagens que porventura nao tragam a rota). Dedup por
+#' gufi ficando com a mensagem mais recente.
 #'
 #' @param sigma_log data.frame retornado por read_sigma_fpl_log()
-#' @param msg_types tipos de mensagem a considerar (padrao FPL, RPL, CHG)
 #' @param only_ifr se TRUE (padrao), mantem so voos com flight_rule == "I"
+#' @param plan_types opcional: filtra pela coluna 'type' (ex.: c("FPL","RPL"));
+#'   NULL (padrao) nao filtra
 #' @return data.frame com uma linha por gufi: gufi, indicative, adep, ades,
 #'   speed, lvl, route, aircraft_model, ssr, eobt_full (POSIXct)
-select_filed_plan <- function(sigma_log, msg_types = c("FPL", "RPL", "CHG"),
-                              only_ifr = TRUE) {
-  filed <- sigma_log[sigma_log$msg_type %in% msg_types, ]
+select_filed_plan <- function(sigma_log, only_ifr = TRUE, plan_types = NULL) {
+  filed <- sigma_log
+  if (!is.null(plan_types) && "type" %in% names(filed)) {
+    filed <- filed[trimws(filed$type) %in% plan_types, ]
+  }
   if (only_ifr && "flight_rule" %in% names(filed)) {
     filed <- filed[trimws(filed$flight_rule) == "I", ]
   }
+  # so linhas que trazem a rota (o plano vem denormalizado em toda linha do voo)
+  filed <- filed[!is.na(filed$route) & trimws(filed$route) != "", ]
+
   # string vazia faz as.POSIXct() dar erro (nao vira NA) e derruba o vetor
   receipt <- filed$receipt_application
   receipt[trimws(receipt) == ""] <- NA
