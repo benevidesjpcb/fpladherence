@@ -38,16 +38,26 @@ build_fpl_routes <- function(plans, navdata) {
   pts <- merge(pts, nav, by = "point", all.x = TRUE, sort = FALSE)
   data.table::setorder(pts, gufi, seq)
 
-  # status por voo: resolvido = todos os pontos com coordenada
+  # status por voo (antes de descartar pontos)
   status <- pts[, .(
     n_pontos = .N,
     n_nao_resolvidos = sum(is.na(lat)),
     pontos_faltando = paste(unique(point[is.na(lat)]), collapse = ",")
   ), by = .(gufi, indicative, adep, ades)]
-  status[, resolvido := n_nao_resolvidos == 0]
 
-  # distancia acumulada ao longo da rota, so para voos totalmente resolvidos
-  routes <- pts[gufi %in% status[resolvido == TRUE]$gufi]
+  # FIXO SEM COORDENADA: descarta so o ponto e liga direto ao proximo (nao
+  # joga o voo inteiro fora). O voo so e considerado nao-utilizavel se
+  # sobrarem menos de 2 pontos com coordenada (rota curta demais para desenhar).
+  pts_ok <- pts[!is.na(lat) & !is.na(lon)]
+  n_restantes <- pts_ok[, .(n_uso = .N), by = gufi]
+  status <- merge(status, n_restantes, by = "gufi", all.x = TRUE)
+  status[is.na(n_uso), n_uso := 0]
+  status[, resolvido := n_uso >= 2]
+
+  # reindexa seq apos remover os fixos faltantes (a rota "pula" o ponto)
+  routes <- pts_ok[gufi %in% status[resolvido == TRUE]$gufi]
+  data.table::setorder(routes, gufi, seq)
+  routes[, seq := seq_len(.N), by = gufi]
   routes <- add_cumulative_route_distance(routes)
 
   list(routes = routes, status = status)

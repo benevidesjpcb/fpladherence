@@ -27,17 +27,24 @@ match_radar_to_fpl <- function(radar_flights, fpl_flights, max_dep_diff_min = 60
   f <- as.data.table(fpl_flights)
   # horario de partida do FPL: real (actual_dep) se houver, senao estimado (eobt)
   f[, dep_time := data.table::fifelse(!is.na(actual_dep), actual_dep, eobt_full)]
-  f <- f[resolvido == TRUE, .(gufi, indicative, adep, ades, dep_time)]
+  # NAO exige rota resolvida aqui: casar radar<->FPL usa so callsign+O/D+
+  # horario; a rota so e necessaria depois, na comparacao. 'resolvido' fica
+  # como info (marca se aquele voo casado tem rota disponivel para comparar).
+  if (!"resolvido" %in% names(f)) f[, resolvido := NA]
+  f <- f[, .(gufi, indicative, adep, ades, dep_time, resolvido)]
 
   m <- merge(r, f, by.x = c("callsign", "adep_det", "ades_det"),
              by.y = c("indicative", "adep", "ades"), allow.cartesian = TRUE)
-  if (nrow(m) == 0) return(m[, .(fid, gufi, callsign, adep = adep_det, ades = ades_det, dt_min = numeric())])
+  if (nrow(m) == 0) return(data.table(fid = integer(), gufi = character(),
+    callsign = character(), adep = character(), ades = character(),
+    dt_min = numeric(), resolvido = logical()))
 
   m[, dt_min := abs(as.numeric(difftime(t_start, dep_time, units = "mins")))]
   m <- m[dt_min <= max_dep_diff_min]
   data.table::setorder(m, fid, dt_min)
   m <- m[, .SD[1], by = fid]  # o FPL de partida mais proxima para cada voo do radar
-  m[, .(fid, gufi, callsign, adep = adep_det, ades = ades_det, dt_min = round(dt_min, 1))]
+  m[, .(fid, gufi, callsign, adep = adep_det, ades = ades_det,
+        dt_min = round(dt_min, 1), resolvido)]
 }
 
 #' Compara UM voo: projeta o radar sobre a rota planejada e calcula desvio
